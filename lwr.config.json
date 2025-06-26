@@ -32,5 +32,8 @@
       "dir": "$rootDir/src/assets",
       "urlPath": "/public/assets"
     }
-  ]
+  ],
+  "staticSiteGenerator": {
+    "enabled": true
+  }
 }
