@@ -365,11 +365,18 @@ nav.slds-context-bar {
   position: relative;
 }
 
+.search-input {
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
 .search-icon-left {
   position: absolute;
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 1;
+  color: #5C5C5C;
 }
 
 .search-icon-right {
@@ -377,6 +384,8 @@ nav.slds-context-bar {
   right: 16px;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 1;
+  color: #5C5C5C;
 }
 
 .search-icon {
@@ -384,14 +393,100 @@ nav.slds-context-bar {
   height: 1.5rem;
 }
 
-.search-input {
-  padding-left: 48px;
-  padding-right: 48px;
-}
-
 /* Main grid layout */
 .slds-grid {
   max-width: 100%;
   overflow-x: hidden;
   box-sizing: border-box;
+}
+
+/* Accordion styling to match the referenced website */
+.slds-accordion__section {
+  /* border-bottom: 1px solid #E5E7EB; */
+  margin-bottom: 0;
+}
+
+.slds-accordion__section:last-child {
+  border-bottom: none;
+}
+
+.slds-accordion__summary {
+  padding: 0;
+}
+
+.slds-accordion__summary-heading {
+  margin: 0;
+}
+
+.slds-accordion__summary-action {
+  width: 100%;
+  text-align: left;
+  padding: 12px 0;
+  background: transparent;
+  border: none;
+  color: #03234D;
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.slds-accordion__summary-action:hover {
+  background: #F8F9FA;
+  color: #0176D3;
+}
+
+.slds-accordion__summary-action:focus {
+  outline: 2px solid #0176D3;
+  outline-offset: 2px;
+}
+
+.section-arrow-icon {
+  transition: transform 0.2s ease;
+  color: #5C5C5C;
+}
+
+.slds-accordion__summary-action:hover .section-arrow-icon {
+  color: #0176D3;
+}
+
+.slds-accordion__content {
+  padding: 12px 0;
+  color: #5C5C5C;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.accordion-content-hidden {
+  display: none;
+}
+
+/* Filters section styling */
+.filters-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.filters-heading {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #03234D;
+  white-space: nowrap;
+}
+
+.filters-badges {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.badge-icon-spacing {
+  padding-right: 4px;
 }
