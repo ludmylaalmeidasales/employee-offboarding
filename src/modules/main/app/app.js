@@ -124,15 +124,34 @@ export default class HelloWorldApp extends LightningElement {
     // Show dropdown when user starts typing
     this.handleInput = () => {
       console.log('Input event triggered, value:', searchInput.value);
+      
+      // Get the sparkle icon
+      const sparkleIcon = this.template.querySelector('#sparkleIcon');
+      
       if (searchInput.value.length > 0) {
         console.log('Showing dropdown');
         searchDropdown.classList.add('show');
-        this.highlightMatchingText(searchInput.value);
+        this.filterAndHighlightSuggestions(searchInput.value, searchDropdown);
+        
+        // Make sparkle icon blue when typing
+        if (sparkleIcon) {
+          sparkleIcon.style.color = '#1976D2';
+          console.log('Sparkle icon found and colored blue');
+        } else {
+          console.log('Sparkle icon not found');
+        }
+        
         console.log('Dropdown classes:', searchDropdown.className);
       } else {
         console.log('Hiding dropdown');
         searchDropdown.classList.remove('show');
-        this.clearHighlights();
+        this.showAllSuggestions();
+        
+        // Reset sparkle icon color when input is empty
+        if (sparkleIcon) {
+          sparkleIcon.style.color = '';
+          console.log('Sparkle icon color reset');
+        }
       }
     };
     searchInput.addEventListener('input', this.handleInput);
@@ -172,13 +191,14 @@ export default class HelloWorldApp extends LightningElement {
     });
   }
 
-  // Function to highlight matching text in dropdown items
-  highlightMatchingText(searchValue) {
+  // Function to filter and highlight suggestions based on search input
+  filterAndHighlightSuggestions(searchValue, searchDropdown) {
     const dropdownItems = this.template.querySelectorAll('.dropdown-item');
     const searchLower = searchValue.toLowerCase();
+    let hasVisibleItems = false;
     
     dropdownItems.forEach(item => {
-      const textElement = item.querySelector('span') || item;
+      const textElement = item.querySelector('span');
       const originalText = textElement.getAttribute('data-original-text') || textElement.textContent;
       
       // Store original text if not already stored
@@ -186,12 +206,51 @@ export default class HelloWorldApp extends LightningElement {
         textElement.setAttribute('data-original-text', originalText);
       }
       
-      if (searchLower.length > 0) {
-        // Create highlighted version
+      // Check if this item matches the search
+      const matches = this.itemMatchesSearch(originalText, searchValue);
+      
+      if (matches) {
+        // Show the item and highlight matching text
+        item.style.display = 'flex';
         const highlightedText = this.highlightText(originalText, searchValue);
         textElement.innerHTML = highlightedText;
+        hasVisibleItems = true;
       } else {
-        // Restore original text
+        // Hide the item
+        item.style.display = 'none';
+      }
+    });
+    
+    // Hide dropdown if no items match
+    if (!hasVisibleItems) {
+      searchDropdown.classList.remove('show');
+    } else {
+      searchDropdown.classList.add('show');
+    }
+  }
+
+  // Function to check if an item matches the search
+  itemMatchesSearch(text, searchValue) {
+    if (!searchValue) return true;
+    
+    const textLower = text.toLowerCase();
+    const searchLower = searchValue.toLowerCase();
+    
+    // Split search into words for more flexible matching
+    const searchWords = searchLower.split(/\s+/).filter(word => word.length > 0);
+    
+    // Check if all search words are found in the text
+    return searchWords.every(word => textLower.includes(word));
+  }
+
+  // Function to show all suggestions (when search is cleared)
+  showAllSuggestions() {
+    const dropdownItems = this.template.querySelectorAll('.dropdown-item');
+    dropdownItems.forEach(item => {
+      item.style.display = 'flex';
+      const textElement = item.querySelector('span');
+      const originalText = textElement.getAttribute('data-original-text');
+      if (originalText) {
         textElement.innerHTML = originalText;
       }
     });
@@ -208,17 +267,5 @@ export default class HelloWorldApp extends LightningElement {
   // Function to escape special regex characters
   escapeRegExp(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  }
-
-  // Function to clear highlights
-  clearHighlights() {
-    const dropdownItems = this.template.querySelectorAll('.dropdown-item');
-    dropdownItems.forEach(item => {
-      const textElement = item.querySelector('span') || item;
-      const originalText = textElement.getAttribute('data-original-text');
-      if (originalText) {
-        textElement.innerHTML = originalText;
-      }
-    });
   }
 }

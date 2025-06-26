@@ -235,7 +235,7 @@
             <!-- Icons positioned inside the input -->
             <div class="search-icon-right">
               <lightning-icon icon-name="utility:unmuted" size="x-small" style="padding-right: 14px;"></lightning-icon>
-              <lightning-icon icon-name="utility:sparkle" size="x-small"></lightning-icon>
+              <lightning-icon id="sparkleIcon" icon-name="utility:sparkle" size="x-small"></lightning-icon>
             </div>
             <!-- Dropdown suggestions -->
             <div class="search-dropdown" id="search-dropdown">
@@ -245,6 +245,37 @@
                   <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
                   <span>Find a cardiologist for hypertension management</span>
                 </div>
+                <div class="dropdown-item" data-value="Find a cardiologist near 09424">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a cardiologist near 09424</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a top-rated cardiologist">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a top-rated cardiologist</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a cardiologist for heart disease">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a cardiologist for heart disease</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a cardiologist who accepts Blue Cross">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a cardiologist who accepts Blue Cross</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a cardiologist for chest pain">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a cardiologist for chest pain</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a pediatric cardiologist">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a pediatric cardiologist</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a cardiologist for arrhythmia">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a cardiologist for arrhythmia</span>
+                </div>
+              </div>
+              <div class="dropdown-section">
+                <div class="dropdown-section-title">More suggestions</div>
                 <div class="dropdown-item" data-value="Find a dermatologist for skin rash treatment">
                   <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
                   <span>Find a dermatologist for skin rash treatment</span>
@@ -261,9 +292,6 @@
                   <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
                   <span>Find a psychiatrist for anxiety treatment</span>
                 </div>
-              </div>
-              <div class="dropdown-section">
-                <div class="dropdown-section-title">More suggestions</div>
                 <div class="dropdown-item" data-value="Find a pediatrician for child wellness check">
                   <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
                   <span>Find a pediatrician for child wellness check</span>
