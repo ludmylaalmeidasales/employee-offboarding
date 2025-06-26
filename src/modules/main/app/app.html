@@ -1,133 +1,141 @@
 <template>
-  <!-- Global Navigation Bar -->
-  <header class="slds-global-header_container">
-    <div class="slds-global-header slds-grid slds-grid_align-spread slds-p-horizontal_medium" role="banner">
-      <!-- Left: Logo and App Name -->
-      <div class="slds-global-header__item">
-        <div class="slds-global-header__logo">
-          <img src="/assets/recipes-logo.png" alt="Makana Hospital Logo" style="height: 32px; vertical-align: middle; margin-right: 10px;" />
-          <span class="slds-text-heading_medium" style="vertical-align: middle; font-weight: 600; color: #16325c;">Makana Hospital</span>
-        </div>
+  <!-- Custom Global Header -->
+  <div class="console-header">
+      <div class="console-header__logo-area">
+          <!-- Static SVG Logo -->
+           <a>
+              <svg width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_153_67564)">
+                      <path d="M17.447 17.9468C22.0229 13.3709 22.0229 5.92653 17.447 1.35061C17.1428 1.04638 16.8261 0.763876 16.4971 0.5C16.168 0.763876 15.8513 1.04638 15.5471 1.35061C15.2056 1.6921 14.889 2.05221 14.5972 2.42474C14.9262 2.67309 15.246 2.94628 15.5471 3.24741C19.0768 6.77714 19.0768 12.5203 15.5471 16.05C12.0174 19.5798 6.27421 19.5798 2.74448 16.05C2.44335 15.7489 2.17017 15.4323 1.92181 15.1001C1.54928 15.3919 1.18917 15.7055 0.847682 16.05C0.543448 16.3543 0.260946 16.6709 -0.00292969 17C0.260946 17.3291 0.543448 17.6457 0.847682 17.9499C5.4236 22.5259 12.868 22.5259 17.4439 17.9499L17.447 17.9468Z" fill="#032D60" />
+                      <path d="M15.55 16.0503C10.9741 20.6262 10.9741 28.0706 15.55 32.6465C15.8543 32.9507 16.1709 33.2332 16.5 33.4971C16.8291 33.2332 17.1457 32.9507 17.4499 32.6465C17.7914 32.305 18.1081 31.9449 18.3999 31.5724C18.0708 31.324 17.7511 31.0508 17.4499 30.7497C13.9202 27.22 13.9202 21.4768 17.4499 17.9471C20.9797 14.4174 26.7228 14.4174 30.2526 17.9471C30.5537 18.2482 30.8269 18.5649 31.0752 18.897C31.4478 18.6052 31.8079 18.2917 32.1494 17.9471C32.4536 17.6428 32.7361 17.3262 33 16.9971C32.7361 16.6681 32.4536 16.3514 32.1494 16.0472C27.5735 11.4713 20.1291 11.4713 15.5531 16.0472L15.55 16.0503Z" fill="#002775" />
+                      <path d="M15.55 17.947C20.1259 22.5229 27.5704 22.5229 32.1463 17.947C32.4505 17.6428 32.733 17.3261 32.9969 16.9971C32.733 16.668 32.4505 16.3513 32.1463 16.0471C31.8048 15.7056 31.4447 15.389 31.0721 15.0972C30.8238 15.4262 30.5506 15.746 30.2495 16.0471C26.7197 19.5768 20.9766 19.5768 17.4468 16.0471C13.9171 12.5174 13.9171 6.77421 17.4468 3.24448C17.748 2.94335 18.0646 2.67017 18.3968 2.42181C18.105 2.04928 17.7914 1.68917 17.4468 1.34768C17.1426 1.04345 16.8259 0.760946 16.4969 0.49707C16.1678 0.760946 15.8512 1.04345 15.5469 1.34768C10.971 5.9236 10.971 13.368 15.5469 17.9439L15.55 17.947Z" fill="url(#paint0_linear_153_67564)" />
+                      <path d="M17.4468 16.0501C12.8709 11.4742 5.42653 11.4742 0.850611 16.0501C0.546378 16.3543 0.263876 16.671 0 17.0001C0.263876 17.3291 0.546378 17.6458 0.850611 17.95C1.1921 18.2915 1.55221 18.6081 1.92474 18.9C2.17309 18.5709 2.44628 18.2511 2.74741 17.95C6.27714 14.4203 12.0203 14.4203 15.55 17.95C19.0798 21.4797 19.0798 27.2229 15.55 30.7526C15.2489 31.0538 14.9323 31.327 14.6001 31.5753C14.8919 31.9478 15.2055 32.308 15.55 32.6494C15.8543 32.9537 16.1709 33.2362 16.5 33.5001C16.8291 33.2362 17.1457 32.9537 17.4499 32.6494C22.0259 28.0735 22.0259 20.6291 17.4499 16.0532L17.4468 16.0501Z" fill="url(#paint1_linear_153_67564)" />
+                  </g>
+                  <defs>
+                      <linearGradient id="paint0_linear_153_67564" x1="28.4712" y1="21.6216" x2="11.8736" y2="5.02404" gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#A8CBFF" />
+                          <stop offset="0.52" stop-color="#066AFE" />
+                          <stop offset="1" stop-color="#A8CBFF" />
+                      </linearGradient>
+                      <linearGradient id="paint1_linear_153_67564" x1="4.52537" y1="12.3769" x2="21.1208" y2="28.9723" gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#A8CBFF" />
+                          <stop offset="1" stop-color="#066AFE" />
+                      </linearGradient>
+                      <clipPath id="clip0_153_67564">
+                          <rect width="33" height="33" fill="white" transform="translate(0 0.5)" />
+                      </clipPath>
+                  </defs>
+              </svg>
+           </a>
       </div>
-      <!-- Center: Navigation -->
-      <nav class="slds-global-header__item" aria-label="Main navigation">
-        <ul class="slds-global-nav slds-list_horizontal slds-has-dividers_right slds-p-left_large" style="margin: 0;">
-          <li class="slds-global-nav__item slds-p-horizontal_small">
-            <a href="#" class="slds-global-nav__link slds-text-title_caps">Home</a>
-          </li>
-          <!-- Patients Dropdown -->
-          <li class="slds-global-nav__item slds-p-horizontal_small slds-dropdown-trigger slds-dropdown-trigger_click">
-            <button class="slds-button slds-global-nav__link slds-text-title_caps" aria-haspopup="true" aria-expanded="false">
-              Patients
-              <svg class="slds-icon slds-icon_xx-small slds-m-left_xx-small" aria-hidden="true" style="width: 0.75em; height: 0.75em;">
-                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
-              </svg>
-            </button>
-            <div class="slds-dropdown slds-dropdown_left">
-              <ul class="slds-dropdown__list" role="menu">
-                <li class="slds-dropdown__item" role="presentation">
-                  <a href="#" role="menuitem">
-                    <span class="slds-truncate">All Patients</span>
-                  </a>
-                </li>
-                <li class="slds-dropdown__item" role="presentation">
-                  <a href="#" role="menuitem">
-                    <span class="slds-truncate">New Patient</span>
-                  </a>
-                </li>
-                <li class="slds-dropdown__item" role="presentation">
-                  <a href="#" role="menuitem">
-                    <span class="slds-truncate">Patient Groups</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <!-- Calendar Dropdown -->
-          <li class="slds-global-nav__item slds-p-horizontal_small slds-dropdown-trigger slds-dropdown-trigger_click">
-            <button class="slds-button slds-global-nav__link slds-text-title_caps" aria-haspopup="true" aria-expanded="false">
-              Calendar
-              <svg class="slds-icon slds-icon_xx-small slds-m-left_xx-small" aria-hidden="true" style="width: 0.75em; height: 0.75em;">
-                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
-              </svg>
-            </button>
-            <div class="slds-dropdown slds-dropdown_left">
-              <ul class="slds-dropdown__list" role="menu">
-                <li class="slds-dropdown__item" role="presentation">
-                  <a href="#" role="menuitem">
-                    <span class="slds-truncate">View Calendar</span>
-                  </a>
-                </li>
-                <li class="slds-dropdown__item" role="presentation">
-                  <a href="#" role="menuitem">
-                    <span class="slds-truncate">Schedule Appointment</span>
-                  </a>
-                </li>
-                <li class="slds-dropdown__item" role="presentation">
-                  <a href="#" role="menuitem">
-                    <span class="slds-truncate">Appointment Types</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </nav>
-      <!-- Center: Search Bar -->
-      <div class="slds-global-header__item" style="flex: 1; max-width: 400px;">
-        <div class="slds-form-element">
-          <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left-right">
-            <input type="text" class="slds-input" placeholder="Search..." style="min-width: 250px;" />
-            <span class="slds-icon_container slds-input__icon slds-input__icon_right" title="Search">
-              <svg class="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
-                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
-              </svg>
-            </span>
+      <div class="console-header__search">
+          <div class="console-header__search-icon">
+              <lightning-icon icon-name="utility:search" size="x-small" alternative-text="Search"></lightning-icon>
           </div>
-        </div>
+          <div class="console-header__search-text">Search...</div>
       </div>
-      <!-- Right: Utility Icons -->
-      <div class="slds-global-header__item slds-grid slds-grid_align-end" style="gap: 16px;">
-        <button class="slds-button slds-button_icon slds-global-header__button_icon" title="Starred">
-          <svg class="slds-button__icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#favorite"></use></svg>
-        </button>
-        <button class="slds-button slds-button_icon slds-global-header__button_icon" title="Add">
-          <svg class="slds-button__icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use></svg>
-        </button>
-        <button class="slds-button slds-button_icon slds-global-header__button_icon" title="Help">
-          <svg class="slds-button__icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#question"></use></svg>
-        </button>
-        <button class="slds-button slds-button_icon slds-global-header__button_icon" title="Notifications" style="position: relative;">
-          <svg class="slds-button__icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#notification"></use></svg>
-          <span class="slds-badge" style="position: absolute; top: 2px; right: 2px; background: #e02020; color: #fff; border-radius: 8px; font-size: 10px; padding: 0 5px;">3</span>
-        </button>
-        <button class="slds-button slds-button_icon slds-global-header__button_icon" title="Profile">
-          <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
-            <img alt="Profile" src="/assets/patient-avatar.jpg" />
-          </span>
-        </button>
+      <div class="console-header__actions">
+          <div class="console-header__icon-empty"></div>
+          <div class="console-header__icon-empty"></div>
+          <!-- SLDS Notification Bell Icon -->
+          <div class="console-header__icon">
+              <lightning-icon icon-name="utility:notification" size="small" alternative-text="Notifications"></lightning-icon>
+          </div>
+          <!-- SLDS Setup Icon -->
+          <div class="console-header__icon">
+              <lightning-icon icon-name="utility:setup" size="small" alternative-text="Setup"></lightning-icon>
+          </div>
+          <!-- SLDS Question Icon -->
+          <div class="console-header__icon">
+              <lightning-icon icon-name="utility:question_mark" size="small" alternative-text="Help"></lightning-icon>
+          </div>
+          <!-- SLDS Trailhead Icon -->
+          <div class="console-header__icon">
+              <lightning-icon icon-name="utility:trailhead" size="small" alternative-text="Trailhead"></lightning-icon>
+          </div>
+          <img src="https://i.imgur.com/aG6HD7A.png" alt="User Avatar" class="console-header__avatar">
       </div>
-    </div>
-  </header>
+  </div>
+
+  <!-- Horizontal Navigation Bar -->
+  <nav class="slds-context-bar">
+      <div class="slds-context-bar__primary">
+          <div class="slds-context-bar__item slds-no-hover">
+              <span class="slds-context-bar__label-action slds-context-bar__app-name">
+                  <lightning-icon icon-name="utility:apps" size="small" class="slds-context-bar__icon context-bar-icon"></lightning-icon>
+                  <span class="slds-truncate" title="Home">Makana Hospital</span>
+              </span>
+          </div>
+      </div>
+      <div class="slds-context-bar__secondary">
+          <ul class="slds-grid">
+            <li class="slds-context-bar__item">
+              <a href="#" class="slds-context-bar__label-action" title="Home">
+                  <span class="slds-truncate">Home</span>
+              </a>
+          </li>
+              <li class="slds-context-bar__item slds-is-active">
+                  <a href="#" class="slds-context-bar__label-action" title="Home">
+                      <span class="slds-truncate">Patients</span>
+                  </a>
+              </li>
+              <li class="slds-context-bar__item">
+                  <a href="#" class="slds-context-bar__label-action" title="Accounts">
+                      <span class="slds-truncate">Accounts</span>
+                  </a>
+              </li>
+              <li class="slds-context-bar__item">
+                  <a href="#" class="slds-context-bar__label-action" title="Contacts">
+                      <span class="slds-truncate">Contacts</span>
+                  </a>
+              </li>
+              <li class="slds-context-bar__item">
+                  <a href="#" class="slds-context-bar__label-action" title="Service">
+                      <span class="slds-truncate">Service</span>
+                  </a>
+              </li>
+              <li class="slds-context-bar__item">
+                  <a href="#" class="slds-context-bar__label-action" title="Sales">
+                      <span class="slds-truncate">Sales</span>
+                  </a>
+              </li>
+              <li class="slds-context-bar__item">
+                  <a href="#" class="slds-context-bar__label-action" title="Calendar">
+                      <span class="slds-truncate">Calendar</span>
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </nav>
 
   <!-- Main Content -->
-  <div class="slds-grid slds-gutters" style="margin-top: 1.5rem;">
+  <div class="slds-grid">
     <!-- Sidebar -->
-    <div class="sidebar slds-col slds-size_1-of-4 slds-p-around_medium">
+    <div class="sidebar slds-col slds-size_1-of-4">
       <!-- Patient Details Card -->
       <section class="slds-card">
-        <header class="slds-card__header slds-media slds-p-around_medium">
+        <header class="slds-card__header slds-p-around_medium">
+          <h2 class="slds-card__header-title">
+            <!-- Calendar Icon -->
+            <span class="slds-icon_container slds-icon-standard-event slds-m-right_small">
+              <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#event"></use>
+              </svg>
+            </span>
+            Patient Details
+          </h2>
+        </header>
+        <div class="slds-media slds-p-horizontal_medium slds-p-top_medium">
           <div class="slds-media__figure">
             <img class="patient-avatar" src="/assets/patient-avatar.jpg" alt="Andre Mitchel" />
           </div>
           <div class="slds-media__body slds-p-left_medium">
-            <h2 class="slds-card__header-title slds-m-bottom_x-small">Patient Details</h2>
             <div class="slds-text-heading_small">Andre Mitchel</div>
             <div class="slds-text-body_small">Patient</div>
           </div>
-        </header>
-        <div class="slds-card__body slds-card__body_inner slds-p-horizontal_medium slds-p-bottom_medium">
-          <div class="slds-grid slds-wrap slds-m-bottom_small">
+        </div>
+        <div class="slds-card__body slds-p-horizontal_medium slds-p-bottom_medium">
+          <div class="slds-grid slds-wrap slds-m-bottom_small patient-details-grid">
             <div class="slds-col slds-size_1-of-2">
               <div class="slds-text-title">Birthdate</div>
               <div>Feb 21, 1964</div>
@@ -137,7 +145,7 @@
               <div>60</div>
             </div>
           </div>
-          <div class="slds-grid slds-wrap slds-m-bottom_small">
+          <div class="slds-grid slds-wrap slds-m-bottom_small patient-details-grid">
             <div class="slds-col slds-size_1-of-2">
               <div class="slds-text-title">Languages</div>
               <div>English</div>
@@ -159,17 +167,14 @@
           </div>
           <div class="slds-m-bottom_small">
             <div class="slds-text-title">Diagnoses</div>
-            <span class="diagnosis-badge">Type 2 Diabetes</span>
-            <span class="diagnosis-badge">Hypertension</span>
-            <span class="diagnosis-badge">Obesity</span>
+            <span class="slds-badge slds-badge_lightest">Type 2 Diabetes</span>
+            <span class="slds-badge slds-badge_lightest">Hypertension</span>
+            <span class="slds-badge slds-badge_lightest">Obesity</span>
           </div>
-          <div class="slds-m-bottom_small">
-            <div class="slds-text-title">Medications</div>
-            <span class="slds-text-body_small">—</span>
-          </div>
-          <div>
-            <div class="slds-text-title">Allergies</div>
-            <span class="slds-text-body_small">—</span>
+          <!-- SLDS Accordion for Medications and Allergies with chevrons -->
+          <div class="slds-accordion" role="tablist">
+              <div class="slds-text-title">Medication</div>
+              <div class="slds-text-title">Allergies</div>
           </div>
         </div>
       </section>
@@ -177,6 +182,7 @@
       <section class="slds-card slds-m-top_medium">
         <header class="slds-card__header slds-p-around_medium">
           <h2 class="slds-card__header-title">
+            <!-- Calendar Icon -->
             <span class="slds-icon_container slds-icon-standard-event slds-m-right_small">
               <svg class="slds-icon slds-icon_small" aria-hidden="true">
                 <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#event"></use>
@@ -185,56 +191,47 @@
             Attendance History
           </h2>
         </header>
-        <div class="slds-card__body slds-card__body_inner slds-align_absolute-center slds-p-around_medium">
-          <img class="attendance-illustration" src="/assets/attendance-illustration.png" alt="No Appointments" />
-          <p class="slds-m-bottom_x-small">No Scheduled Appointments History</p>
-          <a href="#">View All</a>
+        <div class="slds-card__body slds-card__body_inner slds-p-around_medium">
+          <div class="">
+            <img src="https://i.imgur.com/7ZSLKrC.png" > 
+            <div class="attendance-title">No Scheduled Appointments History</div>
+            <a href="#" class="attendance-link">View All</a>
+          </div>
         </div>
       </section>
     </div>
     <!-- Main Content -->
-    <div class="slds-col slds-size_3-of-4">
-      <div class="slds-p-around_large">
-        <h1 class="slds-text-heading_large slds-m-bottom_small">Provider Search</h1>
-        <p class="slds-text-body_regular slds-m-bottom_large">Find and connect with healthcare providers using AI-powered search</p>
-        <div class="slds-form-element slds-m-vertical_medium">
+    <div class="main-content slds-card slds-col">
+      <div class="slds-p-around_large main-content-centered">
+        <h1 class="slds-text-heading_large slds-m-bottom_small main-heading">Provider Search</h1>
+        <p class="slds-text-body_regular slds-m-bottom_large main-subtitle">Find and connect with healthcare providers using AI-powered search</p>
+        <div class="slds-form-element slds-m-vertical_medium search-container">
           <div class="slds-form-element__control">
-            <input type="text" class="slds-input" placeholder="Tell us what type of provider you need..." />
-            <span class="slds-form-element__icon">
-              <svg class="slds-icon slds-icon-text-default" style="width: 1.5rem; height: 1.5rem;" aria-hidden="true">
+            <!-- Microphone Icon (left) -->
+            <span class="slds-form-element__icon search-icon-left">
+              <svg class="slds-icon slds-icon-text-default search-icon" aria-hidden="true">
                 <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#mic"></use>
               </svg>
             </span>
-            <span class="slds-form-element__icon">
-              <svg class="slds-icon slds-icon-text-default" style="width: 1.5rem; height: 1.5rem; margin-left: 8px;" aria-hidden="true">
+            <input type="text" class="slds-input search-input" placeholder="Tell us what type of provider you need..." />
+            <!-- Search Icon (right) -->
+            <span class="slds-form-element__icon search-icon-right">
+              <svg class="slds-icon slds-icon-text-default search-icon" aria-hidden="true">
                 <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
               </svg>
             </span>
           </div>
         </div>
         <div class="slds-m-bottom_large">
-          <span class="slds-pill">
-            <svg class="slds-icon slds-icon_xx-small slds-m-right_x-small" aria-hidden="true" style="width: 1em; height: 1em;">
-              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#date_input"></use>
-            </svg>
-            Accepts Blue Cross Blue Shield
-          </span>
-          <span class="slds-pill">
-            <svg class="slds-icon slds-icon_xx-small slds-m-right_x-small" aria-hidden="true" style="width: 1em; height: 1em;">
-              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
-            </svg>
-            Accepts new patients
-          </span>
-          <span class="slds-pill">
-            <svg class="slds-icon slds-icon_xx-small slds-m-right_x-small" aria-hidden="true" style="width: 1em; height: 1em;">
-              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#location"></use>
-            </svg>
-            Near 94109
-          </span>
+          <h3>These filters will be automatically applied to your search</h3>
+          <span class="slds-badge slds-badge_lightest">Accepts Blue Cross Blue Shield</span>
+          <span class="slds-badge slds-badge_lightest">Accepts new patients</span>
+          <span class="slds-badge slds-badge_lightest">Near 94109</span>
         </div>
-        <div class="slds-align_absolute-center slds-m-top_xx-large">
-          <img class="main-illustration" src="/assets/provider-search-illustration.png" alt="Ask a Question" />
-          <h2 class="slds-text-heading_medium slds-m-top_medium">Ask a Question</h2>
+        <div class="slds-align_absolute-center slds-m-top_xx-large empty-state">
+          <!-- Custom illustration for Ask a Question -->
+          <img class="main-illustration" src="https://i.imgur.com/TbPoQBf.png" alt="Ask a Question" width="300px">
+          <h2 class="slds-text-heading_medium">Ask a Question</h2>
           <p>Describe the patient's needs and we'll match them with the right provider</p>
         </div>
       </div>

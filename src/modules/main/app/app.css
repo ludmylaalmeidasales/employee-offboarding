@@ -10,114 +10,388 @@ h1 {
 }
 
 body {
-  background: #f8f9fb;
+  background: #F3F3F3;
+  font-family: 'SF Pro Display', 'SF Pro', 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
 }
-.sidebar {
-  min-width: 320px;
-  max-width: 350px;
+
+/* --- Modern UI Improvements from styled-components design --- */
+body, .slds-text-heading_large, .slds-text-heading_medium, .slds-card__header-title, .slds-pill, .slds-input, .slds-text-title, .slds-text-body_small {
+  font-family: 'SF Pro Display', 'SF Pro', 'Segoe UI', Arial, sans-serif;
 }
-.patient-avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  object-fit: cover;
+
+.slds-text-heading_large, .slds-card__header-title {
+  font-weight: 300;
+  color: #03234D;
+  font-size: 2rem;
+  letter-spacing: 0.19px;
+  line-height: 2.5rem;
 }
-.diagnosis-badge {
-  background: #e3f2fd;
-  color: #1976d2;
-  border-radius: 12px;
-  padding: 2px 12px;
-  margin-right: 6px;
-  font-size: 12px;
-  display: inline-block;
-  margin-bottom: 4px;
+
+.slds-text-heading_medium {
+  color: #03234D;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.75rem;
 }
-.attendance-illustration {
-  width: 60px;
-  margin-bottom: 8px;
+
+.slds-text-body_regular, .slds-text-body_small {
+  color: #5C5C5C;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375rem;
 }
-.main-illustration {
-  width: 120px;
-  margin: 32px auto 16px auto;
-  display: block;
-}
-.slds-pill {
-  background: #f4f6f9;
-  color: #444;
-  border-radius: 16px;
-  padding: 4px 14px;
-  font-size: 13px;
-  margin-right: 8px;
-  display: inline-flex;
-  align-items: center;
-}
-.slds-pill:last-child {
-  margin-right: 0;
-}
+
 .slds-card__header-title {
-  font-weight: 600;
+  color: #03234D;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
 }
-.slds-card__body_inner {
+
+.slds-input::placeholder {
+  color: #5C5C5C;
   font-size: 15px;
+  font-weight: 400;
+  opacity: 1;
 }
-.slds-text-heading_small {
-  font-weight: 500;
+
+/* Modern card styling */
+.slds-card, .slds-card__body_inner {
+  background: #fff;
+  border-radius: 20px;
+  margin: 1rem;
+  /* box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  border: 1px solid #E5E7EB; */
 }
-.slds-text-body_small {
-  color: #888;
+
+.slds-card, .slds-card__body_inner {
+  background: #fff;
+  border-radius: 20px;
+  /* box-shadow: 0 2px 8px rgba(0,0,0,0.06); */
 }
-.slds-m-top_medium {
-  margin-top: 1.5rem;
+
+.slds-card, .slds-pill, .diagnosis-badge, .slds-input {
+  border-radius: 20px;
 }
+
+/* --- Existing and previously improved styles below --- */
+.slds-grid.slds-gutters {
+  gap: 1rem;
+}
+
+.sidebar {
+  min-width: 280px;
+  max-width: 320px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.slds-card + .slds-card {
+  margin-top: 0;
+}
+
+.slds-p-around_large {
+  padding: 2.5rem;
+}
+
 .slds-m-bottom_large {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
-.slds-align_absolute-center {
-  text-align: center;
-}
+
 .slds-m-top_xx-large {
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
+
 .slds-m-top_medium {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
+
 .slds-m-bottom_x-small {
   margin-bottom: 0.5rem;
 }
+
 .slds-m-bottom_small {
   margin-bottom: 1rem;
 }
+
 .slds-m-vertical_medium {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
-.slds-p-around_large {
-  padding: 2.5rem;
+
+.slds-card__body_inner {
+  font-size: 15px;
 }
-.slds-card {
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+
+.slds-text-title {
+  color: #2E2E2E;
+  font-size: 12px;
+  font-weight: 400;
 }
-.slds-input {
-  border-radius: 8px;
-  font-size: 16px;
-  padding: 0.75rem 1rem;
-}
+
 .slds-form-element__control {
   display: flex;
   align-items: center;
 }
+
 .slds-form-element__control input {
   flex: 1;
 }
+
 .slds-form-element__icon {
   margin-left: -36px;
   z-index: 1;
   color: #888;
   cursor: pointer;
 }
+
 .slds-card__body_inner a {
   color: #1976d2;
   text-decoration: underline;
   font-size: 14px;
+}
+
+/* Header styling */
+.console-header {
+  width: 100%;
+  height: 64px;
+  background: var(--color-background-surface-container-1, white);
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  box-sizing: border-box;
+}
+
+.console-header__logo-area {
+  width: 200px;
+  padding-left: 16px;
+  padding-right: 16px;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+.console-header__search {
+  width: 483px;
+  height: 32px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background: var(--color-background-surface-container-1, white);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15) inset;
+  overflow: hidden;
+  border-radius: 10000px;
+  outline: 1px var(--color-border-border-2, #5C5C5C) solid;
+  outline-offset: -1px;
+  justify-content: flex-start;
+  gap: 8px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.console-header__search-text {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-background-on-surface-1, #5C5C5C);
+  font-size: 13px;
+  font-family: SF Pro;
+  font-weight: 400;
+  line-height: 18px;
+  word-wrap: break-word;
+}
+
+.console-header__actions {
+  padding-left: 16px;
+  padding-right: 16px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  display: flex;
+}
+
+.console-header__icon,
+.console-header__icon-empty {
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+.console-header__avatar {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  background: #E8EBF0;
+  overflow: hidden;
+  border-radius: 10000px;
+}
+
+.console-header__search-icon {
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+
+/* Navigation styling */
+nav.slds-context-bar {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Main content improvements */
+.main-content {
+  background: #fff;
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.patient-details-grid {
+  /* margin-left: -1rem; */
+  margin-right: -1rem;
+}
+
+/* Empty state styling */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  text-align: center;
+}
+
+.empty-state .slds-text-heading_medium {
+  color: #383330;
+  font-size: 20px;
+  font-weight: 590;
+  line-height: 28px;
+  margin-top: 20px;
+}
+
+.empty-state p {
+  color: #383330;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+  margin-top: 16px;
+}
+
+/* Input styling */
+.slds-input {
+  background: #fff;
+  border: 1px solid #C9C9C9;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 15px;
+  color: #5C5C5C;
+}
+
+.slds-input::placeholder {
+  color: #5C5C5C;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+/* Context bar icon styling */
+.context-bar-icon {
+  padding-right: 8px;
+}
+
+/* Badge icon styling */
+.badge-icon {
+  width: 1em;
+  height: 1em;
+}
+
+/* Accordion content hidden state */
+.accordion-content-hidden {
+  display: none;
+}
+
+/* Attendance empty state styling */
+.attendance-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.attendance-illustration {
+  margin-bottom: 12px;
+}
+
+.attendance-title {
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+}
+
+.attendance-description {
+  font-size: 14px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.attendance-link {
+  display: block;
+  text-align: center;
+}
+
+/* Main content styling */
+.main-content-centered {
+  text-align: center;
+}
+
+.main-heading {
+  font-weight: 400;
+}
+
+.main-subtitle {
+  font-size: 18px;
+}
+
+/* Search container styling */
+.search-container {
+  position: relative;
+}
+
+.search-icon-left {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-icon-right {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.search-input {
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+/* Main grid layout */
+.slds-grid {
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
