@@ -1,0 +1,9 @@
+node_modules
+__lwr_cache__
+dist
+
+.vscode
+
+package-lock.json
+
+src/assets/
