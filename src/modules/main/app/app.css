@@ -405,7 +405,6 @@ nav.slds-context-bar {
 }
 
 .search-input {
-  padding-left: 48px;
   padding-right: 48px;
   width: 100%;
   box-sizing: border-box;
@@ -471,10 +470,11 @@ nav.slds-context-bar {
   font-size: 12px;
   font-weight: 600;
   color: #6B7280;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: 0.5px;
   padding: 0 16px 8px 16px;
   margin-bottom: 4px;
+  text-align: left;
 }
 
 .dropdown-item {

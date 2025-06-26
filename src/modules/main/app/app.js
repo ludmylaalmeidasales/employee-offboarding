@@ -127,10 +127,12 @@ export default class HelloWorldApp extends LightningElement {
       if (searchInput.value.length > 0) {
         console.log('Showing dropdown');
         searchDropdown.classList.add('show');
+        this.highlightMatchingText(searchInput.value);
         console.log('Dropdown classes:', searchDropdown.className);
       } else {
         console.log('Hiding dropdown');
         searchDropdown.classList.remove('show');
+        this.clearHighlights();
       }
     };
     searchInput.addEventListener('input', this.handleInput);
@@ -167,6 +169,56 @@ export default class HelloWorldApp extends LightningElement {
     const dropdownItems = this.template.querySelectorAll('.dropdown-item');
     dropdownItems.forEach(function(item) {
       item.classList.remove('selected');
+    });
+  }
+
+  // Function to highlight matching text in dropdown items
+  highlightMatchingText(searchValue) {
+    const dropdownItems = this.template.querySelectorAll('.dropdown-item');
+    const searchLower = searchValue.toLowerCase();
+    
+    dropdownItems.forEach(item => {
+      const textElement = item.querySelector('span') || item;
+      const originalText = textElement.getAttribute('data-original-text') || textElement.textContent;
+      
+      // Store original text if not already stored
+      if (!textElement.getAttribute('data-original-text')) {
+        textElement.setAttribute('data-original-text', originalText);
+      }
+      
+      if (searchLower.length > 0) {
+        // Create highlighted version
+        const highlightedText = this.highlightText(originalText, searchValue);
+        textElement.innerHTML = highlightedText;
+      } else {
+        // Restore original text
+        textElement.innerHTML = originalText;
+      }
+    });
+  }
+
+  // Function to highlight matching text
+  highlightText(text, searchValue) {
+    if (!searchValue) return text;
+    
+    const regex = new RegExp(`(${this.escapeRegExp(searchValue)})`, 'gi');
+    return text.replace(regex, '<strong style="color: #1976D2; background-color: #EBF5FF; padding: 1px 2px; border-radius: 2px;">$1</strong>');
+  }
+
+  // Function to escape special regex characters
+  escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  // Function to clear highlights
+  clearHighlights() {
+    const dropdownItems = this.template.querySelectorAll('.dropdown-item');
+    dropdownItems.forEach(item => {
+      const textElement = item.querySelector('span') || item;
+      const originalText = textElement.getAttribute('data-original-text');
+      if (originalText) {
+        textElement.innerHTML = originalText;
+      }
     });
   }
 }
