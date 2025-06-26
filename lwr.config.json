@@ -19,7 +19,7 @@
   "assets": [
     {
       "alias": "favicon",
-      "dir": "$rootDir/src/assets/favicon.ico",
+      "file": "$rootDir/src/assets/favicon.ico",
       "urlPath": "/favicon.ico"
     },
     {
