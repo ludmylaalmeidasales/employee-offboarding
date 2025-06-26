@@ -1,6 +1,9 @@
 import { LightningElement } from 'lwc';
 
 export default class HelloWorldApp extends LightningElement {
+  // Flag to prevent duplicate event listeners
+  closeButtonListenerAdded = false;
+
   // Search dropdown functionality
   connectedCallback() {
     console.log('Component connected');
@@ -87,6 +90,9 @@ export default class HelloWorldApp extends LightningElement {
           event.preventDefault();
           if (selectedIndex >= 0) {
             this.selectItem(dropdownItems[selectedIndex]);
+          } else {
+            // If no item is selected, search with current input value
+            this.performSearch(searchInput.value);
           }
           break;
         case 'Escape':
@@ -125,8 +131,9 @@ export default class HelloWorldApp extends LightningElement {
     this.handleInput = () => {
       console.log('Input event triggered, value:', searchInput.value);
       
-      // Get the sparkle icon
+      // Get the sparkle icon and close button
       const sparkleIcon = this.template.querySelector('#sparkleIcon');
+      const closeButton = this.template.querySelector('#closeButton');
       
       if (searchInput.value.length > 0) {
         console.log('Showing dropdown');
@@ -141,6 +148,14 @@ export default class HelloWorldApp extends LightningElement {
           console.log('Sparkle icon not found');
         }
         
+        // Show close button when there's text
+        if (closeButton) {
+          closeButton.style.display = 'inline-block';
+          console.log('Close button shown');
+        } else {
+          console.log('Close button not found');
+        }
+        
         console.log('Dropdown classes:', searchDropdown.className);
       } else {
         console.log('Hiding dropdown');
@@ -152,9 +167,51 @@ export default class HelloWorldApp extends LightningElement {
           sparkleIcon.style.color = '';
           console.log('Sparkle icon color reset');
         }
+        
+        // Hide close button when input is empty
+        if (closeButton) {
+          closeButton.style.display = 'none';
+        }
       }
     };
     searchInput.addEventListener('input', this.handleInput);
+    
+    // Add click event listener for close button
+    const closeButton = this.template.querySelector('#closeButton');
+    if (closeButton) {
+      console.log('Close button found, adding click listener');
+      closeButton.addEventListener('click', () => {
+        console.log('Close button clicked');
+        
+        // Visual test - change button background temporarily
+        closeButton.style.backgroundColor = '#FF0000';
+        setTimeout(() => {
+          closeButton.style.backgroundColor = '';
+        }, 200);
+        
+        // Use the same input selector as the rest of the code
+        const inputElement = this.template.querySelector('input[type="text"]');
+        console.log('Input element found:', !!inputElement);
+        
+        if (inputElement) {
+          // Clear the input
+          inputElement.value = '';
+          console.log('Input cleared, new value:', inputElement.value);
+          
+          // Focus the input
+          inputElement.focus();
+          
+          // Trigger input event to update UI
+          this.handleInput();
+        } else {
+          console.log('Input element not found');
+        }
+        
+        console.log('Close button action completed');
+      });
+    } else {
+      console.log('Close button not found for click listener');
+    }
     
     console.log('Event listeners attached');
   }
@@ -171,8 +228,199 @@ export default class HelloWorldApp extends LightningElement {
     }
     this.clearSelection();
     
+    // Trigger search when item is selected
+    this.performSearch(value);
+    
     // Trigger search or form submission here
     console.log('Selected provider type:', value);
+  }
+
+  // Function to perform search
+  performSearch(searchQuery) {
+    console.log('Performing search for:', searchQuery);
+    
+    // Show loading state
+    this.showLoadingState();
+    
+    // Simulate API call with setTimeout
+    setTimeout(() => {
+      // Hide loading state
+      this.hideLoadingState();
+      
+      // Generate and display provider cards
+      this.displayProviderCards(searchQuery);
+    }, 2000); // 2 second delay to simulate API call
+  }
+
+  // Function to show loading state
+  showLoadingState() {
+    const emptyState = this.template.querySelector('.empty-state');
+    if (emptyState) {
+      emptyState.innerHTML = `
+        <div class="loading-state">
+          <div class="loading-spinner">
+            <lightning-icon icon-name="utility:spinner" size="large" class="spinning-icon"></lightning-icon>
+          </div>
+          <h2 class="slds-text-heading_medium">Searching for providers...</h2>
+          <p>Finding the best healthcare providers for your needs</p>
+        </div>
+      `;
+    }
+  }
+
+  // Function to hide loading state
+  hideLoadingState() {
+    console.log('Loading complete, displaying results');
+  }
+
+  // Function to display provider cards
+  displayProviderCards(searchQuery) {
+    const emptyState = this.template.querySelector('.empty-state');
+    if (emptyState) {
+      // Generate mock provider data based on search query
+      const providers = this.generateMockProviders(searchQuery);
+      const filters = this.generateFilterPills(searchQuery);
+      
+      emptyState.innerHTML = `
+        <div class="search-results">
+          <div class="search-header search-header-bar">
+            <div class="search-pills">${filters.map(f => `<span class="search-pill">${f}</span>`).join('')}</div>
+          </div>
+          <div class="search-results-toolbar">
+            <div class="provider-matches-count">Provider Matches (${providers.length})</div>
+            <div class="search-toolbar-actions">
+               <button class="slds-button slds-button_neutral">Show Map</button>
+              <div class="sort-dropdown">
+                <label for="sortBy" class="slds-assistive-text">Sort by</label>
+                <select id="sortBy" class="slds-select">
+                  <option>Sort by</option>
+                  <option>Top Rated</option>
+                  <option>Nearest</option>
+                  <option>Availability</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="providers-grid">
+            ${providers.map(provider => this.createProviderCardStyled(provider)).join('')}
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // Generate pills for filters based on search query
+  generateFilterPills(searchQuery) {
+    // Simple logic: split by keywords and return as pills
+    const pills = [];
+    if (/accept/i.test(searchQuery)) pills.push('Accepts New Patients');
+    if (/top/i.test(searchQuery)) pills.push('Top-Rated');
+    if (/cardio/i.test(searchQuery)) pills.push('Cardiologist');
+    if (/hyperten/i.test(searchQuery)) pills.push('Hypertension');
+    if (/94109|09424/.test(searchQuery)) pills.push('Near 94109');
+    // Add more as needed
+    return pills;
+  }
+
+  // Function to create styled provider card HTML
+  createProviderCardStyled(provider) {
+    // Star rating logic
+    const fullStars = Math.floor(provider.rating);
+    const halfStar = provider.rating % 1 >= 0.5;
+    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+    const starsHtml =
+      '<span class="stars">' +
+      '★'.repeat(fullStars) +
+      (halfStar ? '☆' : '') +
+      '☆'.repeat(emptyStars) +
+      '</span>';
+    const reviewHtml = provider.reviewCount > 0 ?
+      `<span class="review-count">(${provider.reviewCount} reviews)</span>` :
+      `<span class="review-count no-reviews">No Reviews</span>`;
+    return `
+      <div class="provider-card styled-provider-card">
+        <div class="provider-card-main">
+          <div class="provider-avatar">
+            <img src="${provider.image}" alt="${provider.name}" width="56" height="56">
+          </div>
+          <div class="provider-main-info">
+            <div class="provider-name-row">
+              <span class="provider-name">${provider.name}</span>
+              <span class="provider-specialty">${provider.specialty}</span>
+            </div>
+            <div class="provider-rating-row">
+              ${starsHtml} ${reviewHtml}
+            </div>
+            <div class="provider-badges">
+              ${provider.acceptsNewPatients ? '<span class="provider-badge accepting">✔ Accepting New Patients</span>' : ''}
+              <span class="provider-badge in-network">In-Network</span>
+            </div>
+          </div>
+          <div class="provider-contact">
+            <div class="provider-location">
+              <lightning-icon icon-name="utility:location" size="x-small"></lightning-icon>
+              <span>${provider.address}</span>
+            </div>
+            <div class="provider-phone">
+              <lightning-icon icon-name="utility:call" size="x-small"></lightning-icon>
+              <span>${provider.phone}</span>
+            </div>
+          </div>
+        </div>
+        <div class="provider-actions">
+          <button class="slds-button slds-button_brand">Book Appointment</button>
+          <button class="slds-button slds-button_neutral">View Profile</button>
+        </div>
+      </div>
+    `;
+  }
+
+  // Update generateMockProviders to include address and phone
+  generateMockProviders(searchQuery) {
+    let specialty = "Cardiologist";
+    if (/dermatologist/i.test(searchQuery)) specialty = "Dermatologist";
+    else if (/endocrinologist/i.test(searchQuery)) specialty = "Endocrinologist";
+    else if (/orthopedic|orthopaedic|surgeon/i.test(searchQuery)) specialty = "Orthopedic Surgeon";
+    else if (/psychiatrist/i.test(searchQuery)) specialty = "Psychiatrist";
+    else if (/pediatric/i.test(searchQuery)) specialty = "Pediatrician";
+    else if (/gastroenterologist/i.test(searchQuery)) specialty = "Gastroenterologist";
+    else if (/neurologist/i.test(searchQuery)) specialty = "Neurologist";
+    else if (/family medicine/i.test(searchQuery)) specialty = "Family Medicine Doctor";
+    // Add more specialties as needed
+
+    const baseProviders = [
+      {
+        name: "David Ho, MD",
+        specialty,
+        rating: 5,
+        reviewCount: 20,
+        acceptsNewPatients: true,
+        address: "1290 Sanchez St\nSan Francisco, CA 94114",
+        phone: "(773) 456-7890",
+        image: "https://randomuser.me/api/portraits/men/32.jpg"
+      },
+      {
+        name: "Tyra Dhillon, MD",
+        specialty,
+        rating: 0,
+        reviewCount: 0,
+        acceptsNewPatients: true,
+        address: "1290 Sanchez St\nSan Francisco, CA 94114",
+        phone: "(773) 456-7890",
+        image: "https://randomuser.me/api/portraits/women/44.jpg"
+      },
+      {
+        name: "Linda Johnson, MD",
+        specialty,
+        rating: 0,
+        reviewCount: 0,
+        acceptsNewPatients: false,
+        address: "555 Clayton Ave\nSan Francisco, CA 05555",
+        phone: "(661) 345-9087",
+        image: "https://randomuser.me/api/portraits/women/68.jpg"
+      }
+    ];
+    return baseProviders;
   }
 
   updateSelection() {

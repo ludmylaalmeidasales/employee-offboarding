@@ -236,22 +236,27 @@
             <div class="search-icon-right">
               <lightning-icon icon-name="utility:unmuted" size="x-small" style="padding-right: 14px;"></lightning-icon>
               <lightning-icon id="sparkleIcon" icon-name="utility:sparkle" size="x-small"></lightning-icon>
+              <lightning-button-icon 
+                id="closeButton" 
+                icon-name="utility:close" 
+                variant="bare" 
+                size="small" 
+                class="close-button" 
+                style="display: none;">
+              </lightning-button-icon>
             </div>
             <!-- Dropdown suggestions -->
             <div class="search-dropdown" id="search-dropdown">
               <div class="dropdown-section">
                 <div class="dropdown-section-title">Suggested search queries</div>
+                <!-- Cardiologist -->
                 <div class="dropdown-item" data-value="Find a cardiologist for hypertension management">
                   <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
                   <span>Find a cardiologist for hypertension management</span>
                 </div>
-                <div class="dropdown-item" data-value="Find a cardiologist near 09424">
+                <div class="dropdown-item" data-value="Find a top-rated cardiologist near me">
                   <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a cardiologist near 09424</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a top-rated cardiologist">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a top-rated cardiologist</span>
+                  <span>Find a top-rated cardiologist near me</span>
                 </div>
                 <div class="dropdown-item" data-value="Find a cardiologist for heart disease">
                   <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
@@ -273,40 +278,196 @@
                   <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
                   <span>Find a cardiologist for arrhythmia</span>
                 </div>
-              </div>
-              <div class="dropdown-section">
-                <div class="dropdown-section-title">More suggestions</div>
+                <!-- Dermatologist -->
                 <div class="dropdown-item" data-value="Find a dermatologist for skin rash treatment">
                   <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
                   <span>Find a dermatologist for skin rash treatment</span>
                 </div>
+                <div class="dropdown-item" data-value="Find a dermatologist for acne">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a dermatologist for acne</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a dermatologist for eczema">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a dermatologist for eczema</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a dermatologist for mole check">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a dermatologist for mole check</span>
+                </div>
+                <!-- Endocrinologist -->
                 <div class="dropdown-item" data-value="Find an endocrinologist for diabetes care">
                   <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
                   <span>Find an endocrinologist for diabetes care</span>
                 </div>
+                <div class="dropdown-item" data-value="Find an endocrinologist for thyroid issues">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find an endocrinologist for thyroid issues</span>
+                </div>
+                <div class="dropdown-item" data-value="Find an endocrinologist for hormone imbalance">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find an endocrinologist for hormone imbalance</span>
+                </div>
+                <!-- Orthopedic Surgeon -->
                 <div class="dropdown-item" data-value="Find an orthopedic surgeon for knee pain">
                   <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
                   <span>Find an orthopedic surgeon for knee pain</span>
                 </div>
+                <div class="dropdown-item" data-value="Find an orthopedic surgeon for hip replacement">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find an orthopedic surgeon for hip replacement</span>
+                </div>
+                <div class="dropdown-item" data-value="Find an orthopedic surgeon for sports injury">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find an orthopedic surgeon for sports injury</span>
+                </div>
+                <!-- Psychiatrist -->
                 <div class="dropdown-item" data-value="Find a psychiatrist for anxiety treatment">
                   <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
                   <span>Find a psychiatrist for anxiety treatment</span>
                 </div>
+                <div class="dropdown-item" data-value="Find a psychiatrist for depression">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a psychiatrist for depression</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a psychiatrist for ADHD">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a psychiatrist for ADHD</span>
+                </div>
+                <!-- Pediatrician -->
                 <div class="dropdown-item" data-value="Find a pediatrician for child wellness check">
                   <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
                   <span>Find a pediatrician for child wellness check</span>
                 </div>
+                <div class="dropdown-item" data-value="Find a pediatrician for immunizations">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a pediatrician for immunizations</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a pediatrician for asthma management">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a pediatrician for asthma management</span>
+                </div>
+                <!-- Gastroenterologist -->
                 <div class="dropdown-item" data-value="Find a gastroenterologist for stomach issues">
                   <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
                   <span>Find a gastroenterologist for stomach issues</span>
                 </div>
+                <div class="dropdown-item" data-value="Find a gastroenterologist for colonoscopy">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a gastroenterologist for colonoscopy</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a gastroenterologist for IBS">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a gastroenterologist for IBS</span>
+                </div>
+                <!-- Neurologist -->
                 <div class="dropdown-item" data-value="Find a neurologist for migraine treatment">
                   <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
                   <span>Find a neurologist for migraine treatment</span>
                 </div>
+                <div class="dropdown-item" data-value="Find a neurologist for epilepsy">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a neurologist for epilepsy</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a neurologist for multiple sclerosis">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a neurologist for multiple sclerosis</span>
+                </div>
+                <!-- Family Medicine Doctor -->
                 <div class="dropdown-item" data-value="Find a family medicine doctor for annual physical">
                   <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
                   <span>Find a family medicine doctor for annual physical</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a family medicine doctor for preventive care">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a family medicine doctor for preventive care</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a family medicine doctor for chronic disease management">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a family medicine doctor for chronic disease management</span>
+                </div>
+                <!-- Nutritionist -->
+                <div class="dropdown-item" data-value="Find a nutritionist for weight loss">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a nutritionist for weight loss</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a nutritionist for diabetes management">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a nutritionist for diabetes management</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a nutritionist for sports nutrition">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a nutritionist for sports nutrition</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a nutritionist for meal planning">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a nutritionist for meal planning</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a nutritionist for food allergies">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a nutritionist for food allergies</span>
+                </div>
+                <!-- Dentist -->
+                <div class="dropdown-item" data-value="Find a dentist for routine cleaning">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a dentist for routine cleaning</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a dentist for cavity filling">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a dentist for cavity filling</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a dentist for root canal">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a dentist for root canal</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a dentist for wisdom teeth removal">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a dentist for wisdom teeth removal</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a dentist for cosmetic dentistry">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a dentist for cosmetic dentistry</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a pediatric dentist">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a pediatric dentist</span>
+                </div>
+                <!-- Vision/Eye Care -->
+                <div class="dropdown-item" data-value="Find an optometrist for eye exam">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find an optometrist for eye exam</span>
+                </div>
+                <div class="dropdown-item" data-value="Find an ophthalmologist for cataract surgery">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find an ophthalmologist for cataract surgery</span>
+                </div>
+                <div class="dropdown-item" data-value="Find an optometrist for contact lens fitting">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find an optometrist for contact lens fitting</span>
+                </div>
+                <div class="dropdown-item" data-value="Find an ophthalmologist for glaucoma treatment">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find an ophthalmologist for glaucoma treatment</span>
+                </div>
+                <div class="dropdown-item" data-value="Find an optometrist for dry eye treatment">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find an optometrist for dry eye treatment</span>
+                </div>
+                <div class="dropdown-item" data-value="Find an ophthalmologist for LASIK surgery">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find an ophthalmologist for LASIK surgery</span>
+                </div>
+              </div>
+              <div class="dropdown-section">
+                <div class="dropdown-section-title">More suggestions</div>
+                <!-- You can add more general or location-based queries here if desired -->
+                <div class="dropdown-item" data-value="Find a provider near me">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a provider near me</span>
+                </div>
+                <div class="dropdown-item" data-value="Find a top-rated provider">
+                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
+                  <span>Find a top-rated provider</span>
                 </div>
               </div>
             </div>
