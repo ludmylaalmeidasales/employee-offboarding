@@ -1,8 +1,243 @@
 <template>
-  <main>
-    <img src="/public/assets/recipes-logo.png" alt="logo" />
-    <h1>Hello World!</h1>
+  <!-- Global Navigation Bar -->
+  <header class="slds-global-header_container">
+    <div class="slds-global-header slds-grid slds-grid_align-spread slds-p-horizontal_medium" role="banner">
+      <!-- Left: Logo and App Name -->
+      <div class="slds-global-header__item">
+        <div class="slds-global-header__logo">
+          <img src="/assets/recipes-logo.png" alt="Makana Hospital Logo" style="height: 32px; vertical-align: middle; margin-right: 10px;" />
+          <span class="slds-text-heading_medium" style="vertical-align: middle; font-weight: 600; color: #16325c;">Makana Hospital</span>
+        </div>
+      </div>
+      <!-- Center: Navigation -->
+      <nav class="slds-global-header__item" aria-label="Main navigation">
+        <ul class="slds-global-nav slds-list_horizontal slds-has-dividers_right slds-p-left_large" style="margin: 0;">
+          <li class="slds-global-nav__item slds-p-horizontal_small">
+            <a href="#" class="slds-global-nav__link slds-text-title_caps">Home</a>
+          </li>
+          <!-- Patients Dropdown -->
+          <li class="slds-global-nav__item slds-p-horizontal_small slds-dropdown-trigger slds-dropdown-trigger_click">
+            <button class="slds-button slds-global-nav__link slds-text-title_caps" aria-haspopup="true" aria-expanded="false">
+              Patients
+              <svg class="slds-icon slds-icon_xx-small slds-m-left_xx-small" aria-hidden="true" style="width: 0.75em; height: 0.75em;">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+              </svg>
+            </button>
+            <div class="slds-dropdown slds-dropdown_left">
+              <ul class="slds-dropdown__list" role="menu">
+                <li class="slds-dropdown__item" role="presentation">
+                  <a href="#" role="menuitem">
+                    <span class="slds-truncate">All Patients</span>
+                  </a>
+                </li>
+                <li class="slds-dropdown__item" role="presentation">
+                  <a href="#" role="menuitem">
+                    <span class="slds-truncate">New Patient</span>
+                  </a>
+                </li>
+                <li class="slds-dropdown__item" role="presentation">
+                  <a href="#" role="menuitem">
+                    <span class="slds-truncate">Patient Groups</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!-- Calendar Dropdown -->
+          <li class="slds-global-nav__item slds-p-horizontal_small slds-dropdown-trigger slds-dropdown-trigger_click">
+            <button class="slds-button slds-global-nav__link slds-text-title_caps" aria-haspopup="true" aria-expanded="false">
+              Calendar
+              <svg class="slds-icon slds-icon_xx-small slds-m-left_xx-small" aria-hidden="true" style="width: 0.75em; height: 0.75em;">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+              </svg>
+            </button>
+            <div class="slds-dropdown slds-dropdown_left">
+              <ul class="slds-dropdown__list" role="menu">
+                <li class="slds-dropdown__item" role="presentation">
+                  <a href="#" role="menuitem">
+                    <span class="slds-truncate">View Calendar</span>
+                  </a>
+                </li>
+                <li class="slds-dropdown__item" role="presentation">
+                  <a href="#" role="menuitem">
+                    <span class="slds-truncate">Schedule Appointment</span>
+                  </a>
+                </li>
+                <li class="slds-dropdown__item" role="presentation">
+                  <a href="#" role="menuitem">
+                    <span class="slds-truncate">Appointment Types</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <!-- Center: Search Bar -->
+      <div class="slds-global-header__item" style="flex: 1; max-width: 400px;">
+        <div class="slds-form-element">
+          <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left-right">
+            <input type="text" class="slds-input" placeholder="Search..." style="min-width: 250px;" />
+            <span class="slds-icon_container slds-input__icon slds-input__icon_right" title="Search">
+              <svg class="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- Right: Utility Icons -->
+      <div class="slds-global-header__item slds-grid slds-grid_align-end" style="gap: 16px;">
+        <button class="slds-button slds-button_icon slds-global-header__button_icon" title="Starred">
+          <svg class="slds-button__icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#favorite"></use></svg>
+        </button>
+        <button class="slds-button slds-button_icon slds-global-header__button_icon" title="Add">
+          <svg class="slds-button__icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#add"></use></svg>
+        </button>
+        <button class="slds-button slds-button_icon slds-global-header__button_icon" title="Help">
+          <svg class="slds-button__icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#question"></use></svg>
+        </button>
+        <button class="slds-button slds-button_icon slds-global-header__button_icon" title="Notifications" style="position: relative;">
+          <svg class="slds-button__icon" aria-hidden="true"><use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#notification"></use></svg>
+          <span class="slds-badge" style="position: absolute; top: 2px; right: 2px; background: #e02020; color: #fff; border-radius: 8px; font-size: 10px; padding: 0 5px;">3</span>
+        </button>
+        <button class="slds-button slds-button_icon slds-global-header__button_icon" title="Profile">
+          <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+            <img alt="Profile" src="/assets/patient-avatar.jpg" />
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-    <main-accordion-group></main-accordion-group>
-  </main>
+  <!-- Main Content -->
+  <div class="slds-grid slds-gutters" style="margin-top: 1.5rem;">
+    <!-- Sidebar -->
+    <div class="sidebar slds-col slds-size_1-of-4 slds-p-around_medium">
+      <!-- Patient Details Card -->
+      <section class="slds-card">
+        <header class="slds-card__header slds-media slds-p-around_medium">
+          <div class="slds-media__figure">
+            <img class="patient-avatar" src="/assets/patient-avatar.jpg" alt="Andre Mitchel" />
+          </div>
+          <div class="slds-media__body slds-p-left_medium">
+            <h2 class="slds-card__header-title slds-m-bottom_x-small">Patient Details</h2>
+            <div class="slds-text-heading_small">Andre Mitchel</div>
+            <div class="slds-text-body_small">Patient</div>
+          </div>
+        </header>
+        <div class="slds-card__body slds-card__body_inner slds-p-horizontal_medium slds-p-bottom_medium">
+          <div class="slds-grid slds-wrap slds-m-bottom_small">
+            <div class="slds-col slds-size_1-of-2">
+              <div class="slds-text-title">Birthdate</div>
+              <div>Feb 21, 1964</div>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+              <div class="slds-text-title">Age</div>
+              <div>60</div>
+            </div>
+          </div>
+          <div class="slds-grid slds-wrap slds-m-bottom_small">
+            <div class="slds-col slds-size_1-of-2">
+              <div class="slds-text-title">Languages</div>
+              <div>English</div>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+              <div class="slds-text-title">Gender</div>
+              <div>Male</div>
+            </div>
+          </div>
+          <div class="slds-m-bottom_small">
+            <div class="slds-text-title">Preferred Communication</div>
+            <a href="tel:8673463496">(867) 346-3496</a>
+          </div>
+          <div class="slds-m-bottom_small">
+            <div class="slds-text-title">Address</div>
+            <a href="https://maps.google.com/?q=34 Pine Street, Apt 5B, San Francisco, CA 94109" target="_blank">
+              34 Pine Street, Apt 5B,<br>San Francisco, CA 94109
+            </a>
+          </div>
+          <div class="slds-m-bottom_small">
+            <div class="slds-text-title">Diagnoses</div>
+            <span class="diagnosis-badge">Type 2 Diabetes</span>
+            <span class="diagnosis-badge">Hypertension</span>
+            <span class="diagnosis-badge">Obesity</span>
+          </div>
+          <div class="slds-m-bottom_small">
+            <div class="slds-text-title">Medications</div>
+            <span class="slds-text-body_small">—</span>
+          </div>
+          <div>
+            <div class="slds-text-title">Allergies</div>
+            <span class="slds-text-body_small">—</span>
+          </div>
+        </div>
+      </section>
+      <!-- Attendance History Card -->
+      <section class="slds-card slds-m-top_medium">
+        <header class="slds-card__header slds-p-around_medium">
+          <h2 class="slds-card__header-title">
+            <span class="slds-icon_container slds-icon-standard-event slds-m-right_small">
+              <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#event"></use>
+              </svg>
+            </span>
+            Attendance History
+          </h2>
+        </header>
+        <div class="slds-card__body slds-card__body_inner slds-align_absolute-center slds-p-around_medium">
+          <img class="attendance-illustration" src="/assets/attendance-illustration.png" alt="No Appointments" />
+          <p class="slds-m-bottom_x-small">No Scheduled Appointments History</p>
+          <a href="#">View All</a>
+        </div>
+      </section>
+    </div>
+    <!-- Main Content -->
+    <div class="slds-col slds-size_3-of-4">
+      <div class="slds-p-around_large">
+        <h1 class="slds-text-heading_large slds-m-bottom_small">Provider Search</h1>
+        <p class="slds-text-body_regular slds-m-bottom_large">Find and connect with healthcare providers using AI-powered search</p>
+        <div class="slds-form-element slds-m-vertical_medium">
+          <div class="slds-form-element__control">
+            <input type="text" class="slds-input" placeholder="Tell us what type of provider you need..." />
+            <span class="slds-form-element__icon">
+              <svg class="slds-icon slds-icon-text-default" style="width: 1.5rem; height: 1.5rem;" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#mic"></use>
+              </svg>
+            </span>
+            <span class="slds-form-element__icon">
+              <svg class="slds-icon slds-icon-text-default" style="width: 1.5rem; height: 1.5rem; margin-left: 8px;" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="slds-m-bottom_large">
+          <span class="slds-pill">
+            <svg class="slds-icon slds-icon_xx-small slds-m-right_x-small" aria-hidden="true" style="width: 1em; height: 1em;">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#date_input"></use>
+            </svg>
+            Accepts Blue Cross Blue Shield
+          </span>
+          <span class="slds-pill">
+            <svg class="slds-icon slds-icon_xx-small slds-m-right_x-small" aria-hidden="true" style="width: 1em; height: 1em;">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+            </svg>
+            Accepts new patients
+          </span>
+          <span class="slds-pill">
+            <svg class="slds-icon slds-icon_xx-small slds-m-right_x-small" aria-hidden="true" style="width: 1em; height: 1em;">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#location"></use>
+            </svg>
+            Near 94109
+          </span>
+        </div>
+        <div class="slds-align_absolute-center slds-m-top_xx-large">
+          <img class="main-illustration" src="/assets/provider-search-illustration.png" alt="Ask a Question" />
+          <h2 class="slds-text-heading_medium slds-m-top_medium">Ask a Question</h2>
+          <p>Describe the patient's needs and we'll match them with the right provider</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>

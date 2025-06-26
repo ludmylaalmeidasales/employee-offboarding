@@ -8,3 +8,116 @@ main {
 h1 {
     color: #1798c1;
 }
+
+body {
+  background: #f8f9fb;
+}
+.sidebar {
+  min-width: 320px;
+  max-width: 350px;
+}
+.patient-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.diagnosis-badge {
+  background: #e3f2fd;
+  color: #1976d2;
+  border-radius: 12px;
+  padding: 2px 12px;
+  margin-right: 6px;
+  font-size: 12px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.attendance-illustration {
+  width: 60px;
+  margin-bottom: 8px;
+}
+.main-illustration {
+  width: 120px;
+  margin: 32px auto 16px auto;
+  display: block;
+}
+.slds-pill {
+  background: #f4f6f9;
+  color: #444;
+  border-radius: 16px;
+  padding: 4px 14px;
+  font-size: 13px;
+  margin-right: 8px;
+  display: inline-flex;
+  align-items: center;
+}
+.slds-pill:last-child {
+  margin-right: 0;
+}
+.slds-card__header-title {
+  font-weight: 600;
+}
+.slds-card__body_inner {
+  font-size: 15px;
+}
+.slds-text-heading_small {
+  font-weight: 500;
+}
+.slds-text-body_small {
+  color: #888;
+}
+.slds-m-top_medium {
+  margin-top: 1.5rem;
+}
+.slds-m-bottom_large {
+  margin-bottom: 2rem;
+}
+.slds-align_absolute-center {
+  text-align: center;
+}
+.slds-m-top_xx-large {
+  margin-top: 3rem;
+}
+.slds-m-top_medium {
+  margin-top: 1.5rem;
+}
+.slds-m-bottom_x-small {
+  margin-bottom: 0.5rem;
+}
+.slds-m-bottom_small {
+  margin-bottom: 1rem;
+}
+.slds-m-vertical_medium {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.slds-p-around_large {
+  padding: 2.5rem;
+}
+.slds-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.slds-input {
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 0.75rem 1rem;
+}
+.slds-form-element__control {
+  display: flex;
+  align-items: center;
+}
+.slds-form-element__control input {
+  flex: 1;
+}
+.slds-form-element__icon {
+  margin-left: -36px;
+  z-index: 1;
+  color: #888;
+  cursor: pointer;
+}
+.slds-card__body_inner a {
+  color: #1976d2;
+  text-decoration: underline;
+  font-size: 14px;
+}
