@@ -1,5 +1,6 @@
 main {
-    margin: 30px;
+    margin: 0 !important;
+    padding: 0 !important;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +13,7 @@ h1 {
 body {
   background: #F3F3F3;
   font-family: 'SF Pro Display', 'SF Pro', 'Segoe UI', Arial, sans-serif;
-  margin: 0;
+  margin: 0!important;
   padding: 0;
   overflow-x: hidden;
   width: 100%;
@@ -68,12 +69,6 @@ body, .slds-text-heading_large, .slds-text-heading_medium, .slds-card__header-ti
   border: 1px solid #E5E7EB; */
 }
 
-.slds-card, .slds-card__body_inner {
-  background: #fff;
-  border-radius: 20px;
-  /* box-shadow: 0 2px 8px rgba(0,0,0,0.06); */
-}
-
 .slds-card, .slds-pill, .diagnosis-badge, .slds-input {
   border-radius: 20px;
 }
@@ -91,7 +86,7 @@ body, .slds-text-heading_large, .slds-text-heading_medium, .slds-card__header-ti
 }
 
 .slds-card + .slds-card {
-  margin-top: 0;
+  margin-top: 1rem;
 }
 
 .slds-p-around_large {
@@ -203,7 +198,7 @@ body, .slds-text-heading_large, .slds-text-heading_medium, .slds-card__header-ti
   flex-direction: column;
   color: var(--color-background-on-surface-1, #5C5C5C);
   font-size: 13px;
-  font-family: SF Pro;
+  /* font-family: SF Pro; */
   font-weight: 400;
   line-height: 18px;
   word-wrap: break-word;
@@ -244,6 +239,12 @@ body, .slds-text-heading_large, .slds-text-heading_medium, .slds-card__header-ti
 nav.slds-context-bar {
   margin-top: 0 !important;
   padding-top: 0 !important;
+}
+
+/* Active navigation item styling */
+.slds-context-bar__item.slds-is-active {
+  font-weight: 800;
+  border-bottom-color: 3px solid #0250D9;
 }
 
 /* Main content improvements */
@@ -398,6 +399,7 @@ nav.slds-context-bar {
   max-width: 100%;
   overflow-x: hidden;
   box-sizing: border-box;
+  padding: 0 !important;
 }
 
 /* Accordion styling to match the referenced website */
@@ -430,27 +432,21 @@ nav.slds-context-bar {
   display: flex;
   align-items: center;
   gap: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  cursor: default;
+  pointer-events: none;
 }
 
 .slds-accordion__summary-action:hover {
-  background: #F8F9FA;
-  color: #0176D3;
+  background: transparent;
+  color: #03234D;
 }
 
 .slds-accordion__summary-action:focus {
-  outline: 2px solid #0176D3;
-  outline-offset: 2px;
+  outline: none;
 }
 
 .section-arrow-icon {
-  transition: transform 0.2s ease;
   color: #5C5C5C;
-}
-
-.slds-accordion__summary-action:hover .section-arrow-icon {
-  color: #0176D3;
 }
 
 .slds-accordion__content {
@@ -485,8 +481,68 @@ nav.slds-context-bar {
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
+  margin-inline-start: 0;
 }
 
 .badge-icon-spacing {
   padding-right: 4px;
+}
+
+/* Diagnosis badges styling */
+.diagnosis-badges-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  margin-inline-start: 0;
+}
+
+.diagnosis-badge {
+  background-color: #D8E6FE !important;
+  color: #0B5CAB !important;
+  border: 0px solid #B8D4FE;
+  border-radius: 4px;
+  margin-inline-start: 0;
+}
+
+/* Remove outer margins and gaps */
+template {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Remove all possible margin sources */
+.console-header {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.slds-context-bar {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Keep card margins for proper spacing */
+.slds-card {
+  margin: 1rem;
+}
+
+.slds-card__body_inner {
+  margin: 0 !important;
+}
+
+/* Override any SLDS default margins */
+.slds-p-around_medium,
+.slds-p-horizontal_medium,
+.slds-p-vertical_medium,
+.slds-p-bottom_medium {
+  margin: 0 !important;
+}
+
+/* Remove any container margins */
+.container,
+.wrapper,
+.content {
+  margin: 0 !important;
+  padding: 0 !important;
 }

@@ -2,21 +2,21 @@
   <!-- Custom Global Header -->
   <div class="console-header">
     <div class="console-header__logo-area">
-      <!-- Static SVG Logo -->
+
       <img src="https://i.imgur.com/N2xTFkk.png" width="40px">
     </div>
     <div class="console-header__search">
       <div class="console-header__search-icon">
         <lightning-icon icon-name="utility:search" size="x-small" alternative-text="Search"></lightning-icon>
       </div>
-      <div class="console-header__search-text">Search...</div>
+      <h3 class="console-header__search-text">Search...</h3>
     </div>
     <div class="console-header__actions">
-      <div class="console-header__icon-empty"></div>
-      <div class="console-header__icon-empty"></div>
-      <!-- SLDS Notification Bell Icon -->
       <div class="console-header__icon">
-        <lightning-icon icon-name="utility:notification" size="small" alternative-text="Notifications"></lightning-icon>
+        <lightning-icon icon-name="utility:agent_astro" size="small" alternative-text="Notifications"></lightning-icon>
+      </div>
+      <div class="console-header__icon">
+        <lightning-icon icon-name="utility:new" size="small" alternative-text="Notifications"></lightning-icon>
       </div>
       <!-- SLDS Setup Icon -->
       <div class="console-header__icon">
@@ -28,7 +28,11 @@
       </div>
       <!-- SLDS Trailhead Icon -->
       <div class="console-header__icon">
-        <lightning-icon icon-name="utility:trailhead" size="small" alternative-text="Trailhead"></lightning-icon>
+        <lightning-icon icon-name="utility:trailhead_alt" size="small" alternative-text="Trailhead"></lightning-icon>
+      </div>
+      <!-- SLDS Notification Bell Icon -->
+      <div class="console-header__icon">
+        <lightning-icon icon-name="utility:notification" size="small" alternative-text="Notifications"></lightning-icon>
       </div>
       <img src="https://i.imgur.com/aG6HD7A.png" alt="User Avatar" class="console-header__avatar">
     </div>
@@ -39,8 +43,8 @@
     <div class="slds-context-bar__primary">
       <div class="slds-context-bar__item slds-no-hover">
         <span class="slds-context-bar__label-action slds-context-bar__app-name">
-          <lightning-icon icon-name="utility:apps" size="small"
-            class="slds-context-bar__icon context-bar-icon"></lightning-icon>
+          <!-- <lightning-icon icon-name="utility:apps" size="small" class=" context-bar-icon"></lightning-icon> -->
+           <img src="https://i.imgur.com/3ooe8ew.png" style="width: 20px; height: 20px; margin-right: 10px;">
           <span class="slds-truncate" title="Home">Makana Hospital</span>
         </span>
       </div>
@@ -53,8 +57,8 @@
           </a>
         </li>
         <li class="slds-context-bar__item slds-is-active">
-          <a href="#" class="slds-context-bar__label-action" title="Home">
-            <span class="slds-truncate">Patients</span>
+          <a href="#" class="slds-context-bar__label-action" title="Patients" style="overflow-x:visible;">
+            <span class="slds-truncate" style="color: #0250D9; font-weight: 700;">Patients</span>
           </a>
         </li>
         <li class="slds-context-bar__item">
@@ -104,7 +108,7 @@
             </div>
           </div>
         </header>
-        <div class="slds-media slds-p-horizontal_medium">
+        <div class="slds-media slds-p-horizontal_medium .slds-p-vertical_medium">
           <div class="slds-media__figure">
             <img src="https://i.imgur.com/cyoy6Tu.png" alt="Andre Mitchel" width="60px">
           </div>
@@ -145,10 +149,23 @@
             </a>
           </div>
           <div class="slds-m-bottom_small">
-            <div class="slds-text-title">Diagnoses</div>
-            <span class="slds-badge slds-badge_lightest">Type 2 Diabetes</span>
-            <span class="slds-badge slds-badge_lightest">Hypertension</span>
-            <span class="slds-badge slds-badge_lightest">Obesity</span>
+            <section class="slds-accordion__section">
+              <div class="slds-accordion__summary" id="accordion-diagnoses-summary" role="tab" aria-controls="accordion-diagnoses-content" aria-expanded="false" tabindex="0">
+                <h3 class="slds-accordion__summary-heading">
+                  <button class="slds-button slds-accordion__summary-action" aria-controls="accordion-diagnoses-content" aria-expanded="false" tabindex="-1">
+                    <lightning-icon class="section-arrow-icon slds-icon-utility-chevrondown slds-icon_container" icon-name="utility:chevrondown" size="x-small"></lightning-icon>
+                    <span class="slds-accordion__summary-content">Diagnoses</span>
+                  </button>
+                </h3>
+              </div>
+              <div role="region" aria-labelledby="accordion-diagnoses-summary">
+                <div class="diagnosis-badges-container">
+                  <span class="slds-badge slds-badge_lightest diagnosis-badge">Type 2 Diabetes</span>
+                  <span class="slds-badge slds-badge_lightest diagnosis-badge">Hypertension</span>
+                  <span class="slds-badge slds-badge_lightest diagnosis-badge">Obesity</span>
+                </div>
+              </div>
+            </section>
           </div>
           <!-- SLDS Accordion for Medications and Allergies with chevrons -->
           <div class="slds-accordion" role="tablist">
