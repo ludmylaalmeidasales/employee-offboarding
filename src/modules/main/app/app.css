@@ -485,6 +485,8 @@ nav.slds-context-bar {
   transition: background-color 0.15s ease;
   font-size: 14px;
   color: #374151;
+  text-align: left;
+  justify-content: flex-start;
 }
 
 .dropdown-item:hover {
