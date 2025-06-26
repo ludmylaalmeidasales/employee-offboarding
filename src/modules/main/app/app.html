@@ -230,12 +230,57 @@
           using AI-powered search</p>
         <div class="slds-form-element slds-m-vertical_medium search-container">
           <div class="slds-form-element__control">
-            <input type="text" class="slds-input search-input"
+            <input type="text" class="slds-input search-input" id="provider-search-input"
               placeholder="Tell us what type of provider you need..." />
             <!-- Icons positioned inside the input -->
             <div class="search-icon-right">
-              <lightning-icon icon-name="utility:unmuted" size="small" style="padding-right: 14px;"></lightning-icon>
-              <lightning-icon icon-name="utility:sparkle" size="small"></lightning-icon>
+              <lightning-icon icon-name="utility:unmuted" size="x-small" style="padding-right: 14px;"></lightning-icon>
+              <lightning-icon icon-name="utility:sparkle" size="x-small"></lightning-icon>
+            </div>
+            <!-- Dropdown suggestions -->
+            <div class="search-dropdown" id="search-dropdown">
+              <div class="dropdown-section">
+                <div class="dropdown-section-title">Common Provider Types</div>
+                <div class="dropdown-item" data-value="Primary Care Physician">
+                  <lightning-icon icon-name="utility:user" size="x-small" class="dropdown-icon"></lightning-icon>
+                  Primary Care Physician
+                </div>
+                <div class="dropdown-item" data-value="Cardiologist">
+                  <lightning-icon icon-name="utility:heart" size="x-small" class="dropdown-icon"></lightning-icon>
+                  Cardiologist
+                </div>
+                <div class="dropdown-item" data-value="Dermatologist">
+                  <lightning-icon icon-name="utility:user" size="x-small" class="dropdown-icon"></lightning-icon>
+                  Dermatologist
+                </div>
+                <div class="dropdown-item" data-value="Endocrinologist">
+                  <lightning-icon icon-name="utility:user" size="x-small" class="dropdown-icon"></lightning-icon>
+                  Endocrinologist
+                </div>
+                <div class="dropdown-item" data-value="Orthopedist">
+                  <lightning-icon icon-name="utility:user" size="x-small" class="dropdown-icon"></lightning-icon>
+                  Orthopedist
+                </div>
+              </div>
+              <div class="dropdown-section">
+                <div class="dropdown-section-title">Specialties</div>
+                <div class="dropdown-item" data-value="Diabetes Management">
+                  <lightning-icon icon-name="utility:user" size="x-small" class="dropdown-icon"></lightning-icon>
+                  Diabetes Management
+                </div>
+                <div class="dropdown-item" data-value="Hypertension Treatment">
+                  <lightning-icon icon-name="utility:user" size="x-small" class="dropdown-icon"></lightning-icon>
+                  Hypertension Treatment
+                </div>
+                <div class="dropdown-item" data-value="Weight Management">
+                  <lightning-icon icon-name="utility:user" size="x-small" class="dropdown-icon"></lightning-icon>
+                  Weight Management
+                </div>
+                <div class="dropdown-item" data-value="Mental Health">
+                  <lightning-icon icon-name="utility:user" size="x-small" class="dropdown-icon"></lightning-icon>
+                  Mental Health
+                </div>
+              </div>
             </div>
           </div>
         </div>
