@@ -3,6 +3,7 @@ import { LightningElement } from 'lwc';
 export default class HelloWorldApp extends LightningElement {
   // Flag to prevent duplicate event listeners
   closeButtonListenerAdded = false;
+  isTyping = false; // Add reactive property to track typing state
 
   // Search dropdown functionality
   connectedCallback() {
@@ -15,6 +16,11 @@ export default class HelloWorldApp extends LightningElement {
     setTimeout(() => {
       this.setupDropdown();
     }, 100);
+  }
+
+  // Getter for sparkle icon source
+  get sparkleIconSrc() {
+    return this.isTyping ? 'https://i.imgur.com/i7mWNdj.png' : 'https://i.imgur.com/Vo3O5Wb.png';
   }
 
   setupDropdown() {
@@ -136,54 +142,8 @@ export default class HelloWorldApp extends LightningElement {
       item.addEventListener('mouseenter', this.handleItemMouseEnter);
     });
 
-    // Show dropdown when user starts typing
-    this.handleInput = () => {
-      console.log('Input event triggered, value:', searchInput.value);
-      
-      // Get the sparkle icon and close button
-      const sparkleIcon = this.template.querySelector('#sparkleIcon');
-      const closeButton = this.template.querySelector('#closeButton');
-      
-      if (searchInput.value.length > 0) {
-        console.log('Showing dropdown');
-        searchDropdown.classList.add('show');
-        this.filterAndHighlightSuggestions(searchInput.value, searchDropdown);
-        
-        // Make sparkle icon blue when typing
-        if (sparkleIcon) {
-          sparkleIcon.style.color = '#1976D2';
-          console.log('Sparkle icon found and colored blue');
-        } else {
-          console.log('Sparkle icon not found');
-        }
-        
-        // Show close button when there's text
-        if (closeButton) {
-          closeButton.style.display = 'inline-block';
-          console.log('Close button shown');
-        } else {
-          console.log('Close button not found');
-        }
-        
-        console.log('Dropdown classes:', searchDropdown.className);
-      } else {
-        console.log('Hiding dropdown');
-        searchDropdown.classList.remove('show');
-        this.showAllSuggestions();
-        
-        // Reset sparkle icon color when input is empty
-        if (sparkleIcon) {
-          sparkleIcon.style.color = '';
-          console.log('Sparkle icon color reset');
-        }
-        
-        // Hide close button when input is empty
-        if (closeButton) {
-          closeButton.style.display = 'none';
-        }
-      }
-    };
-    searchInput.addEventListener('input', this.handleInput);
+    // Add input event listener using the class-level handleInput method
+    searchInput.addEventListener('input', () => this.handleInput());
     
     // Add click event listener for close button
     const closeButton = this.template.querySelector('#closeButton');
@@ -344,6 +304,9 @@ export default class HelloWorldApp extends LightningElement {
       
       emptyState.innerHTML = `
         <div class="search-results" style="width: 100%;">
+         <div class="filter-pills" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+            ${filterPills}
+          </div>
           <div class="search-results-toolbar" style="display: flex; align-items: start; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
             <div class="provider-matches-count" style="font-weight: 400; color: #2E2E2E; font-size: 1.2rem; letter-spacing: 0.19px; text-align: left;">Provider Matches (${providers.length})</div>
             <div class="search-toolbar-actions" style="display: flex; align-items: center; gap: 1rem; flex-shrink: 0;">
@@ -362,10 +325,6 @@ export default class HelloWorldApp extends LightningElement {
               </div>
             </div>
           </div>
-          
-          <div class="filter-pills" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-            ${filterPills}
-          </div>
 
           <div class="provider-cards-container">
             ${providers.map(provider => this.createProviderCardStyled(provider)).join('')}
@@ -373,7 +332,6 @@ export default class HelloWorldApp extends LightningElement {
           
           <div class="load-more-container" style="display: flex; justify-content: center; margin-top: 2rem; padding: 1rem;">
             <button class="slds-button slds-button_neutral slds-button_large" style="min-width: 200px;">
-              <lightning-icon icon-name="utility:add" size="small" class="slds-button__icon slds-button__icon_left"></lightning-icon>
               Load More Providers
             </button>
           </div>
@@ -664,6 +622,68 @@ export default class HelloWorldApp extends LightningElement {
   // Function to escape special regex characters
   escapeRegExp(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  // Simple method to handle sparkle icon change
+  handleInputChange(event) {
+    this.isTyping = event.target.value.length > 0;
+    console.log('Input changed, isTyping:', this.isTyping);
+  }
+
+  // Handle input changes - moved to class level
+  handleInput() {
+    const searchInput = this.template.querySelector('input[type="text"]');
+    const searchDropdown = this.template.querySelector('.search-dropdown');
+    
+    if (!searchInput || !searchDropdown) {
+      console.log('Elements not found in handleInput');
+      return;
+    }
+    
+    console.log('Input event triggered, value:', searchInput.value);
+    
+    // Get the sparkle icon and close button
+    const sparkleIcon = this.template.querySelector('#sparkleIcon');
+    const closeButton = this.template.querySelector('#closeButton');
+    
+    if (searchInput.value.length > 0) {
+      console.log('Showing dropdown');
+      searchDropdown.classList.add('show');
+      this.filterAndHighlightSuggestions(searchInput.value, searchDropdown);
+      
+      // Change sparkle icon to custom image when typing
+      if (sparkleIcon) {
+        sparkleIcon.src = 'https://i.imgur.com/i7mWNdj.png';
+        console.log('Sparkle icon changed to custom image');
+      } else {
+        console.log('Sparkle icon not found');
+      }
+      
+      // Show close button when there's text
+      if (closeButton) {
+        closeButton.style.display = 'inline-block';
+        console.log('Close button shown');
+      } else {
+        console.log('Close button not found');
+      }
+      
+      console.log('Dropdown classes:', searchDropdown.className);
+    } else {
+      console.log('Hiding dropdown');
+      searchDropdown.classList.remove('show');
+      this.showAllSuggestions();
+      
+      // Restore sparkle icon when input is empty
+      if (sparkleIcon) {
+        sparkleIcon.src = 'https://i.imgur.com/Vo3O5Wb.png';
+        console.log('Sparkle icon restored');
+      }
+      
+      // Hide close button when input is empty
+      if (closeButton) {
+        closeButton.style.display = 'none';
+      }
+    }
   }
 }
 

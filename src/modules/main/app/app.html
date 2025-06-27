@@ -231,11 +231,12 @@
         <div class="slds-form-element slds-m-vertical_medium search-container">
           <div class="slds-form-element__control">
             <input type="text" class="slds-input search-input" id="searchInput"
-              placeholder="Tell us what type of provider you need..." />
+              placeholder="Tell us what type of provider you need..." 
+              oninput={handleInputChange} />
             <!-- Icons positioned inside the input -->
             <div class="search-icon-right">
               <lightning-icon icon-name="utility:unmuted" size="x-small" style="padding-right: 14px;"></lightning-icon>
-              <lightning-icon id="sparkleIcon" icon-name="utility:sparkle" size="x-small"></lightning-icon>
+              <img id="sparkleIcon" src={sparkleIconSrc} alt="Sparkle" style="width: 30px; height: 30px; vertical-align: middle;">
               <lightning-button-icon 
                 id="closeButton" 
                 icon-name="utility:close" 
