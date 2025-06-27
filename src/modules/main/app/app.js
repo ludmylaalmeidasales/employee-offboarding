@@ -277,7 +277,7 @@ export default class HelloWorldApp extends LightningElement {
             <div class="provider-matches-count" style="font-weight: 400; color: #2E2E2E; font-size: 1.2rem; letter-spacing: 0.19px; text-align: left;">Provider Matches (5)</div>
             <div class="search-toolbar-actions" style="display: flex; align-items: center; gap: 1rem; flex-shrink: 0;">
               <button class="slds-button slds-button_neutral">
-                <img src="https://i.imgur.com/069Jif6.png" alt="Map" style="width: 16px; height: 16px; margin-right: 8px; vertical-align: middle;">
+                <img src="https://i.imgur.com/069Jif6.png" alt="Map" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;">
                 Show Map
               </button>
               <div class="sort-dropdown">
@@ -294,7 +294,7 @@ export default class HelloWorldApp extends LightningElement {
 
           <div class="loading-stencils">
             ${Array(3).fill().map(() => `
-              <div class="provider-card-stencil" style="background: #ffffff; border: 1px solid #C9C9C9; border-radius: 20px; padding: 2rem; margin: 0 0 1.5rem 0; display: flex; flex-direction: column; width: 100%; max-width: 100%;">
+              <div class="provider-card-stencil" style="background: #ffffff; border: 1px solid #C9C9C9; border-radius: 12px; padding: 2rem; margin: 0 0 1.5rem 0; display: flex; flex-direction: column; width: 100%; max-width: 100%;">
                 <div class="provider-card-main" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 1.5rem; width: 100%;">
                   <div class="provider-avatar-stencil" style="flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite;"></div>
                   <div class="provider-main-info" style="flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between;">
@@ -302,11 +302,11 @@ export default class HelloWorldApp extends LightningElement {
                     <div class="provider-specialty-stencil" style="width: 150px; height: 18px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 4px; margin-bottom: 12px;"></div>
                     <div class="provider-rating-stencil" style="width: 120px; height: 20px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 4px; margin-bottom: 12px;"></div>
                     <div class="provider-badges-stencil" style="display: flex; flex-direction: column; gap: 8px;">
-                      <div style="width: 140px; height: 16px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 4px;"></div>
-                      <div style="width: 100px; height: 16px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 4px;"></div>
+                      <div style="width: 140px; height: 20px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 4px;"></div>
+                      <div style="width: 100px; height: 20px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 4px;"></div>
                     </div>
                   </div>
-                  <div class="provider-contact" style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-width: 200px; gap: 0.75rem; flex-shrink: 0;">
+                  <div class="provider-contact" style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-width: 200px; gap: 0.5rem; flex-shrink: 0;">
                     <div class="contact-stencil" style="width: 180px; height: 40px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 12px;"></div>
                     <div class="contact-stencil" style="width: 140px; height: 40px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 12px;"></div>
                   </div>
@@ -348,10 +348,10 @@ export default class HelloWorldApp extends LightningElement {
             <div class="provider-matches-count" style="font-weight: 400; color: #2E2E2E; font-size: 1.2rem; letter-spacing: 0.19px; text-align: left;">Provider Matches (${providers.length})</div>
             <div class="search-toolbar-actions" style="display: flex; align-items: center; gap: 1rem; flex-shrink: 0;">
               <button class="slds-button slds-button_neutral">
-                <img src="https://i.imgur.com/069Jif6.png" alt="Map" style="width: 16px; height: 16px; margin-right: 8px; vertical-align: middle;">
+                <img src="https://i.imgur.com/069Jif6.png" alt="Map" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;">
                 Show Map
               </button>
-              <div class="sort-dropdown">
+              <div class="sort-dropdown" style="width: 100px;">
                 <label for="sortBy" class="slds-assistive-text">Sort by</label>
                 <select id="sortBy" class="slds-select">
                   <option>Sort by</option>
@@ -434,9 +434,9 @@ export default class HelloWorldApp extends LightningElement {
       pills.push(`"${searchQuery}"`);
     }
     
-    return pills.map(pill => `<span class="slds-pill slds-pill_bare" style="background: #fff; color: #374151; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 400; border: 1px solid #5C5C5C; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.5rem; height: 26px;">
+    return pills.map(pill => `<span class="slds-pill slds-pill_bare" style="background: #fff; color: #374151; padding: 0.5rem 1rem; border-radius: 12px; font-size: 0.875rem; font-weight: 400; border: 1px solid #5C5C5C; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.5rem; height: 26px;">
       <span class="slds-pill__label">${pill}</span>
-      <img src="https://i.imgur.com/OF4DQQ9.png" alt="filter icon" style="width: 16px; height: 16px; object-fit: contain;">
+      <img src="https://i.imgur.com/OF4DQQ9.png" alt="filter icon" style="width: 20px; height: 20px; object-fit: contain;">
     </span>`).join('');
   }
 
@@ -456,38 +456,46 @@ export default class HelloWorldApp extends LightningElement {
       `<span class="review-count">(${provider.reviewCount} reviews)</span>` :
       `<span class="review-count no-reviews">No Reviews</span>`;
     return `
-      <div class="provider-card styled-provider-card" style="background: #ffffff; border: 1px solid #C9C9C9; border-radius: 20px; padding: 2rem; margin: 0 0 1.5rem 0; display: flex; flex-direction: column; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; width: 100%; max-width: 100%;">
+      <div class="provider-card styled-provider-card" style="background: #ffffff; border: 1px solid #C9C9C9; border-radius: 12px; padding: 2rem; margin: 0 0 1.5rem 0; display: flex; flex-direction: column; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; width: 100%; max-width: 100%;">
         <div class="provider-card-main" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 1rem; width: 100%;">
-          <div class="provider-avatar" style="flex-shrink: 0;">
-            <img src="${provider.image}" alt="${provider.name}" width="64" height="64" style="border-radius: 50%; width: 64px; height: 64px; object-fit: cover;">
+          <div class="provider-info-section" style="flex: 1; display: flex; align-items: flex-start; gap: 1.5rem; min-width: 0;">
+            <div class="provider-avatar" style="flex-shrink: 0;">
+              <img src="${provider.image}" alt="${provider.name}" width="64" height="64" style="border-radius: 50%; width: 64px; height: 64px; object-fit: cover;">
+            </div>
+            <div class="provider-main-info" style="flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between;">
+              <div class="provider-name-row" style="display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 0.5rem; align-items: flex-start;">
+                <span class="provider-name" style="font-size: 1.25rem; font-weight: 700; color: #1f2937; line-height: 1.3; text-align: left;">${provider.name}</span>
+                <span class="provider-specialty" style="font-size: 1.05rem; color: #6b7280; font-weight: 500; line-height: 1.4; text-align: left;">${provider.specialty}</span>
+              </div>
+              <div class="provider-rating-row" style="margin: 0.5rem 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                <span class="stars" style="color: #f59e0b; font-size: 1.2rem; letter-spacing: 0.05em;">${starsHtml}</span>
+                <span class="review-count" style="color: #6b7280; font-size: 1rem; font-weight: 500;">${reviewHtml}</span>
+              </div>
+              <div class="provider-badges" style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.5rem;">
+                ${provider.acceptsNewPatients ? 
+                  `<span class="provider-badge accepting" style="display: inline-flex; align-items: center; font-size: 0.9rem; font-weight: 600;">
+                    <img src="https://i.imgur.com/jO0KyPm.png" alt="Accepting New Patients" style="width: 20px; height: 20px; margin-right: 6px; flex-shrink: 0;">
+                    Accepting New Patients
+                  </span>` : ''
+                }
+                <span class="provider-badge in-network" style="display: inline-flex; align-items: center; font-size: 0.9rem; font-weight: 600;">
+                  <img src="https://i.imgur.com/kVJY5hL.png" alt="In-Network" style="width: 20px; height: 20px; margin-right: 6px; flex-shrink: 0;">
+                  In-Network
+                </span>
+              </div>
+            </div>
           </div>
-          <div class="provider-main-info" style="flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between;">
-            <div class="provider-name-row" style="display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 0.5rem; align-items: flex-start;">
-              <span class="provider-name" style="font-size: 1.25rem; font-weight: 700; color: #1f2937; line-height: 1.3; text-align: left;">${provider.name}</span>
-              <span class="provider-specialty" style="font-size: 1.05rem; color: #6b7280; font-weight: 500; line-height: 1.4; text-align: left;">${provider.specialty}</span>
-            </div>
-            <div class="provider-rating-row" style="margin: 0.5rem 0 0.75rem 0; display: flex; align-items: center; gap: 0.75rem;">
-              <span class="stars" style="color: #f59e0b; font-size: 1.2rem; letter-spacing: 0.05em;">${starsHtml}</span>
-              <span class="review-count" style="color: #6b7280; font-size: 1rem; font-weight: 500;">${reviewHtml}</span>
-            </div>
-            <div class="provider-badges" style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.5rem;">
-              ${provider.acceptsNewPatients ? 
-                `<span class="provider-badge accepting" style="display: inline-flex; align-items: center; font-size: 0.9rem; font-weight: 600;">✓ Accepting New Patients</span>` : ''
-              }
-              <span class="provider-badge in-network" style="display: inline-flex; align-items: center; font-size: 0.9rem; font-weight: 600;">In-Network</span>
-            </div>
-          </div>
-          <div class="provider-contact" style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-width: 200px; gap: 0.75rem; flex-shrink: 0;">
-            <div class="provider-location" style="display: flex; align-items: center; gap: 0.75rem; color: #4b5563; font-size: 1rem; font-weight: 500; padding: 0.5rem 0.75rem; border-radius: 12px; transition: background-color 0.2s ease;">
-    
+          <div class="provider-contact" style="flex: 1; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 0.5rem; min-width: 0;">
+            <div class="provider-location" style="display: flex; align-items: center; gap: 0.5rem; color: #4b5563; font-size: 1rem; font-weight: 500; padding: 0.5rem 0.5rem; border-radius: 12px; transition: background-color 0.2s ease;">
+              <img src="https://i.imgur.com/0Z3n526.png" alt="Location" style="width: 20px; height: 20px; flex-shrink: 0;">
               <span>${provider.address.replace('\n', '<br>')}</span>
             </div>
-            <div class="provider-phone" style="display: flex; align-items: center; gap: 0.75rem; color: #4b5563; font-size: 1rem; font-weight: 500; padding: 0.5rem 0.75rem; border-radius: 12px; transition: background-color 0.2s ease;">
-              
+            <div class="provider-phone" style="display: flex; align-items: center; gap: 0.5rem; color: #4b5563; font-size: 1rem; font-weight: 500; padding: 0.5rem 0.5rem; border-radius: 12px; transition: background-color 0.2s ease;">
+              <img src="https://i.imgur.com/K82hdBE.png" alt="Phone" style="width: 20px; height: 20px; flex-shrink: 0;">
               <span>${provider.phone}</span>
             </div>
           </div>
-          <div class="provider-actions" style="display: flex; flex-direction: column; gap: 1rem; min-width: 150px; align-items: flex-end; justify-content: center; flex-shrink: 0;">
+          <div class="provider-actions" style="flex: 1; display: flex; flex-direction: column; gap: 1rem; align-items: flex-end; justify-content: center; min-width: 0;">
             <button class="slds-button slds-button_brand">Book Appointment</button>
             <button class="slds-button slds-button_neutral">View Profile</button>
           </div>
@@ -516,27 +524,27 @@ export default class HelloWorldApp extends LightningElement {
         rating: 5,
         reviewCount: 20,
         acceptsNewPatients: true,
-        address: "1290 Sanchez St\nSan Francisco, CA 94114",
+        address: "1290 Sanchez St San Francisco, CA 94114",
         phone: "(773) 456-7890",
         image: "https://i.imgur.com/yDLi9lY.png"
       },
       {
         name: "Tyra Dhillon, MD",
         specialty,
-        rating: 0,
-        reviewCount: 0,
+        rating: 4.2,
+        reviewCount: 8,
         acceptsNewPatients: true,
-        address: "1290 Sanchez St\nSan Francisco, CA 94114",
+        address: "1290 Sanchez St San Francisco, CA 94114",
         phone: "(773) 456-7890",
         image: "https://i.imgur.com/hKDCXJQ.png"
       },
       {
         name: "Michael Rodriguez, MD",
         specialty,
-        rating: 0,
-        reviewCount: 0,
-        acceptsNewPatients: false,
-        address: "555 Clayton Ave\nSan Francisco, CA 05555",
+        rating: 4.7,
+        reviewCount: 12,
+        acceptsNewPatients: true,
+        address: "555 Clayton Ave San Francisco, CA 05555",
         phone: "(661) 345-9087",
         image: "https://i.imgur.com/QVeOtMG.png"
       },
@@ -546,7 +554,7 @@ export default class HelloWorldApp extends LightningElement {
         rating: 4.5,
         reviewCount: 15,
         acceptsNewPatients: true,
-        address: "1234 Market St\nSan Francisco, CA 94102",
+        address: "1234 Market St San Francisco, CA 94102",
         phone: "(415) 555-0123",
         image: "https://i.imgur.com/qjcPfIK.png"
       },
@@ -555,8 +563,8 @@ export default class HelloWorldApp extends LightningElement {
         specialty,
         rating: 4.8,
         reviewCount: 32,
-        acceptsNewPatients: false,
-        address: "789 Castro St\nSan Francisco, CA 94114",
+        acceptsNewPatients: true,
+        address: "789 Castro St San Francisco, CA 94114",
         phone: "(415) 555-0456",
         image: "https://i.imgur.com/MduIjHq.png"
       }
