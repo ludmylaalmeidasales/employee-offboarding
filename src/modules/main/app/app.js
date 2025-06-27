@@ -71,31 +71,40 @@ export default class HelloWorldApp extends LightningElement {
 
     // Handle keyboard navigation
     this.handleKeydown = (event) => {
-      if (!searchDropdown.classList.contains('show')) {
-        return;
-      }
-
       switch(event.key) {
         case 'ArrowDown':
+          if (!searchDropdown.classList.contains('show')) {
+            return;
+          }
           event.preventDefault();
           selectedIndex = Math.min(selectedIndex + 1, dropdownItems.length - 1);
           this.updateSelection();
           break;
         case 'ArrowUp':
+          if (!searchDropdown.classList.contains('show')) {
+            return;
+          }
           event.preventDefault();
           selectedIndex = Math.max(selectedIndex - 1, -1);
           this.updateSelection();
           break;
         case 'Enter':
           event.preventDefault();
-          if (selectedIndex >= 0) {
+          if (searchDropdown.classList.contains('show') && selectedIndex >= 0) {
             this.selectItem(dropdownItems[selectedIndex]);
           } else {
-            // If no item is selected, search with current input value
+            // If no item is selected or dropdown is not visible, search with current input value
             this.performSearch(searchInput.value);
+            // Hide dropdown after performing search
+            searchDropdown.classList.remove('show');
+            selectedIndex = -1;
+            this.clearSelection();
           }
           break;
         case 'Escape':
+          if (!searchDropdown.classList.contains('show')) {
+            return;
+          }
           searchDropdown.classList.remove('show');
           selectedIndex = -1;
           this.clearSelection();
@@ -239,6 +248,12 @@ export default class HelloWorldApp extends LightningElement {
   performSearch(searchQuery) {
     console.log('Performing search for:', searchQuery);
     
+    // Hide the filters-container when search starts
+    const filtersContainer = this.template.querySelector('.filters-container');
+    if (filtersContainer) {
+      filtersContainer.style.display = 'none';
+    }
+    
     // Show loading state
     this.showLoadingState();
     
@@ -257,14 +272,61 @@ export default class HelloWorldApp extends LightningElement {
     const emptyState = this.template.querySelector('.empty-state');
     if (emptyState) {
       emptyState.innerHTML = `
-        <div class="loading-state">
-          <div class="loading-spinner">
-            <lightning-icon icon-name="utility:spinner" size="large" class="spinning-icon"></lightning-icon>
+        <div class="loading-container" style="width: 100%;">
+          <div class="search-results-toolbar" style="display: flex; align-items: start; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+            <div class="provider-matches-count" style="font-weight: 400; color: #2E2E2E; font-size: 1.2rem; letter-spacing: 0.19px; text-align: left;">Provider Matches (5)</div>
+            <div class="search-toolbar-actions" style="display: flex; align-items: center; gap: 1rem; flex-shrink: 0;">
+              <button class="slds-button slds-button_neutral">
+                <img src="https://i.imgur.com/069Jif6.png" alt="Map" style="width: 16px; height: 16px; margin-right: 8px; vertical-align: middle;">
+                Show Map
+              </button>
+              <div class="sort-dropdown">
+                <label for="sortBy" class="slds-assistive-text">Sort by</label>
+                <select id="sortBy" class="slds-select">
+                  <option>Sort by</option>
+                  <option>Top Rated</option>
+                  <option>Nearest</option>
+                  <option>Availability</option>
+                </select>
+              </div>
+            </div>
           </div>
-          <h2 class="slds-text-heading_medium">Searching for providers...</h2>
-          <p>Finding the best healthcare providers for your needs</p>
+
+          <div class="loading-stencils">
+            ${Array(3).fill().map(() => `
+              <div class="provider-card-stencil" style="background: #ffffff; border: 1px solid #C9C9C9; border-radius: 20px; padding: 2rem; margin: 0 0 1.5rem 0; display: flex; flex-direction: column; width: 100%; max-width: 100%;">
+                <div class="provider-card-main" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 1.5rem; width: 100%;">
+                  <div class="provider-avatar-stencil" style="flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite;"></div>
+                  <div class="provider-main-info" style="flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div class="provider-name-stencil" style="width: 200px; height: 24px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 4px; margin-bottom: 8px;"></div>
+                    <div class="provider-specialty-stencil" style="width: 150px; height: 18px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 4px; margin-bottom: 12px;"></div>
+                    <div class="provider-rating-stencil" style="width: 120px; height: 20px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 4px; margin-bottom: 12px;"></div>
+                    <div class="provider-badges-stencil" style="display: flex; flex-direction: column; gap: 8px;">
+                      <div style="width: 140px; height: 16px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 4px;"></div>
+                      <div style="width: 100px; height: 16px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 4px;"></div>
+                    </div>
+                  </div>
+                  <div class="provider-contact" style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-width: 200px; gap: 0.75rem; flex-shrink: 0;">
+                    <div class="contact-stencil" style="width: 180px; height: 40px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 12px;"></div>
+                    <div class="contact-stencil" style="width: 140px; height: 40px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 12px;"></div>
+                  </div>
+                  <div class="provider-actions" style="display: flex; flex-direction: column; gap: 1rem; min-width: 150px; align-items: flex-end; justify-content: center; flex-shrink: 0;">
+                    <div class="button-stencil" style="width: 140px; height: 36px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 4px;"></div>
+                    <div class="button-stencil" style="width: 120px; height: 36px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 4px;"></div>
+                  </div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
         </div>
+        <style>
+          @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+          }
+        </style>
       `;
+      emptyState.style.display = 'block';
     }
   }
 
@@ -277,16 +339,18 @@ export default class HelloWorldApp extends LightningElement {
   displayProviderCards(searchQuery) {
     const emptyState = this.template.querySelector('.empty-state');
     if (emptyState) {
-      // Generate mock provider data based on search query
       const providers = this.generateMockProviders(searchQuery);
-      const filters = this.generateFilterPills(searchQuery);
+      const filterPills = this.generateFilterPills(searchQuery);
       
       emptyState.innerHTML = `
         <div class="search-results" style="width: 100%;">
           <div class="search-results-toolbar" style="display: flex; align-items: start; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
             <div class="provider-matches-count" style="font-weight: 400; color: #2E2E2E; font-size: 1.2rem; letter-spacing: 0.19px; text-align: left;">Provider Matches (${providers.length})</div>
             <div class="search-toolbar-actions" style="display: flex; align-items: center; gap: 1rem; flex-shrink: 0;">
-               <button class="slds-button slds-button_neutral">Show Map</button>
+              <button class="slds-button slds-button_neutral">
+                <img src="https://i.imgur.com/069Jif6.png" alt="Map" style="width: 16px; height: 16px; margin-right: 8px; vertical-align: middle;">
+                Show Map
+              </button>
               <div class="sort-dropdown">
                 <label for="sortBy" class="slds-assistive-text">Sort by</label>
                 <select id="sortBy" class="slds-select">
@@ -298,25 +362,82 @@ export default class HelloWorldApp extends LightningElement {
               </div>
             </div>
           </div>
-          <div class="providers-grid">
+          
+          <div class="filter-pills" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+            ${filterPills}
+          </div>
+
+          <div class="provider-cards-container">
             ${providers.map(provider => this.createProviderCardStyled(provider)).join('')}
+          </div>
+          
+          <div class="load-more-container" style="display: flex; justify-content: center; margin-top: 2rem; padding: 1rem;">
+            <button class="slds-button slds-button_neutral slds-button_large" style="min-width: 200px;">
+              <lightning-icon icon-name="utility:add" size="small" class="slds-button__icon slds-button__icon_left"></lightning-icon>
+              Load More Providers
+            </button>
           </div>
         </div>
       `;
+      emptyState.style.display = 'block';
     }
   }
 
   // Generate pills for filters based on search query
   generateFilterPills(searchQuery) {
-    // Simple logic: split by keywords and return as pills
     const pills = [];
-    if (/accept/i.test(searchQuery)) pills.push('Accepts New Patients');
-    if (/top/i.test(searchQuery)) pills.push('Top-Rated');
-    if (/cardio/i.test(searchQuery)) pills.push('Cardiologist');
-    if (/hyperten/i.test(searchQuery)) pills.push('Hypertension');
-    if (/94109|09424/.test(searchQuery)) pills.push('Near 94109');
-    // Add more as needed
-    return pills;
+    const searchLower = searchQuery.toLowerCase();
+    
+    // Always include these default pills
+    pills.push('Accepting New Patients');
+    pills.push('Blue Cross Blue Shield');
+    
+    // Specialty-based pills
+    if (/cardio/i.test(searchLower)) pills.push('Cardiologist');
+    if (/dermatologist/i.test(searchLower)) pills.push('Dermatologist');
+    if (/endocrinologist/i.test(searchLower)) pills.push('Endocrinologist');
+    if (/orthopedic|orthopaedic|surgeon/i.test(searchLower)) pills.push('Orthopedic Surgeon');
+    if (/psychiatrist/i.test(searchLower)) pills.push('Psychiatrist');
+    if (/pediatric/i.test(searchLower)) pills.push('Pediatrician');
+    if (/gastroenterologist/i.test(searchLower)) pills.push('Gastroenterologist');
+    if (/neurologist/i.test(searchLower)) pills.push('Neurologist');
+    if (/family medicine|family doctor/i.test(searchLower)) pills.push('Family Medicine');
+    
+    // Location-based pills
+    if (/san francisco|sf/i.test(searchLower)) pills.push('San Francisco, CA');
+    if (/94114|94102|94109/i.test(searchLower)) pills.push('San Francisco, CA');
+    if (/castro/i.test(searchLower)) pills.push('Castro District');
+    if (/market st/i.test(searchLower)) pills.push('Market Street Area');
+    
+    // Insurance and acceptance pills
+    if (/accept|accepting/i.test(searchLower)) pills.push('Accepts New Patients');
+    if (/blue cross|bcbs/i.test(searchLower)) pills.push('Blue Cross Blue Shield');
+    if (/insurance/i.test(searchLower)) pills.push('In-Network');
+    
+    // Rating and quality pills
+    if (/top|best|rated/i.test(searchLower)) pills.push('Top-Rated');
+    if (/5 star|five star/i.test(searchLower)) pills.push('5-Star Rated');
+    if (/reviews/i.test(searchLower)) pills.push('Highly Reviewed');
+    
+    // Medical condition pills
+    if (/heart|cardiac/i.test(searchLower)) pills.push('Cardiac Care');
+    if (/skin|dermatology/i.test(searchLower)) pills.push('Dermatology');
+    if (/diabetes|endocrine/i.test(searchLower)) pills.push('Diabetes Care');
+    if (/bone|joint|orthopedic/i.test(searchLower)) pills.push('Orthopedic Care');
+    if (/mental|psychiatry/i.test(searchLower)) pills.push('Mental Health');
+    if (/child|pediatric/i.test(searchLower)) pills.push('Pediatric Care');
+    if (/digestive|gastro/i.test(searchLower)) pills.push('Gastroenterology');
+    if (/brain|neurology/i.test(searchLower)) pills.push('Neurology');
+    
+    // If no specific pills were generated, add a general one based on the search
+    if (pills.length === 2 && searchQuery.trim()) { // Only the 2 default pills
+      pills.push(`"${searchQuery}"`);
+    }
+    
+    return pills.map(pill => `<span class="slds-pill slds-pill_bare" style="background: #fff; color: #374151; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 400; border: 1px solid #5C5C5C; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.5rem; height: 26px;">
+      <span class="slds-pill__label">${pill}</span>
+      <img src="https://i.imgur.com/OF4DQQ9.png" alt="filter icon" style="width: 16px; height: 16px; object-fit: contain;">
+    </span>`).join('');
   }
 
   // Function to create styled provider card HTML
@@ -336,7 +457,7 @@ export default class HelloWorldApp extends LightningElement {
       `<span class="review-count no-reviews">No Reviews</span>`;
     return `
       <div class="provider-card styled-provider-card" style="background: #ffffff; border: 1px solid #C9C9C9; border-radius: 20px; padding: 2rem; margin: 0 0 1.5rem 0; display: flex; flex-direction: column; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; width: 100%; max-width: 100%;">
-        <div class="provider-card-main" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 1.5rem; width: 100%;">
+        <div class="provider-card-main" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 1rem; width: 100%;">
           <div class="provider-avatar" style="flex-shrink: 0;">
             <img src="${provider.image}" alt="${provider.name}" width="64" height="64" style="border-radius: 50%; width: 64px; height: 64px; object-fit: cover;">
           </div>
@@ -356,7 +477,7 @@ export default class HelloWorldApp extends LightningElement {
               <span class="provider-badge in-network" style="display: inline-flex; align-items: center; font-size: 0.9rem; font-weight: 600;">In-Network</span>
             </div>
           </div>
-          <div class="provider-contact" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 200px; gap: 0.75rem; flex-shrink: 0;">
+          <div class="provider-contact" style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-width: 200px; gap: 0.75rem; flex-shrink: 0;">
             <div class="provider-location" style="display: flex; align-items: center; gap: 0.75rem; color: #4b5563; font-size: 1rem; font-weight: 500; padding: 0.5rem 0.75rem; border-radius: 12px; transition: background-color 0.2s ease;">
     
               <span>${provider.address.replace('\n', '<br>')}</span>
@@ -537,3 +658,4 @@ export default class HelloWorldApp extends LightningElement {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
 }
+
