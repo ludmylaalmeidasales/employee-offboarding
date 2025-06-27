@@ -282,13 +282,10 @@ export default class HelloWorldApp extends LightningElement {
       const filters = this.generateFilterPills(searchQuery);
       
       emptyState.innerHTML = `
-        <div class="search-results">
-          <div class="search-header search-header-bar">
-            <div class="search-pills">${filters.map(f => `<span class="search-pill">${f}</span>`).join('')}</div>
-          </div>
-          <div class="search-results-toolbar">
-            <div class="provider-matches-count">Provider Matches (${providers.length})</div>
-            <div class="search-toolbar-actions">
+        <div class="search-results" style="width: 100%;">
+          <div class="search-results-toolbar" style="display: flex; align-items: start; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+            <div class="provider-matches-count" style="font-weight: 400; color: #2E2E2E; font-size: 1.2rem; letter-spacing: 0.19px; text-align: left;">Provider Matches (${providers.length})</div>
+            <div class="search-toolbar-actions" style="display: flex; align-items: center; gap: 1rem; flex-shrink: 0;">
                <button class="slds-button slds-button_neutral">Show Map</button>
               <div class="sort-dropdown">
                 <label for="sortBy" class="slds-assistive-text">Sort by</label>
@@ -338,38 +335,41 @@ export default class HelloWorldApp extends LightningElement {
       `<span class="review-count">(${provider.reviewCount} reviews)</span>` :
       `<span class="review-count no-reviews">No Reviews</span>`;
     return `
-      <div class="provider-card styled-provider-card">
-        <div class="provider-card-main">
-          <div class="provider-avatar">
-            <img src="${provider.image}" alt="${provider.name}" width="56" height="56">
+      <div class="provider-card styled-provider-card" style="background: #ffffff; border: 1px solid #C9C9C9; border-radius: 20px; padding: 2rem; margin: 0 0 1.5rem 0; display: flex; flex-direction: column; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; width: 100%; max-width: 100%;">
+        <div class="provider-card-main" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 1.5rem; width: 100%;">
+          <div class="provider-avatar" style="flex-shrink: 0;">
+            <img src="${provider.image}" alt="${provider.name}" width="64" height="64" style="border-radius: 50%; width: 64px; height: 64px; object-fit: cover;">
           </div>
-          <div class="provider-main-info">
-            <div class="provider-name-row">
-              <span class="provider-name">${provider.name}</span>
-              <span class="provider-specialty">${provider.specialty}</span>
+          <div class="provider-main-info" style="flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between;">
+            <div class="provider-name-row" style="display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 0.5rem; align-items: flex-start;">
+              <span class="provider-name" style="font-size: 1.25rem; font-weight: 700; color: #1f2937; line-height: 1.3; text-align: left;">${provider.name}</span>
+              <span class="provider-specialty" style="font-size: 1.05rem; color: #6b7280; font-weight: 500; line-height: 1.4; text-align: left;">${provider.specialty}</span>
             </div>
-            <div class="provider-rating-row">
-              ${starsHtml} ${reviewHtml}
+            <div class="provider-rating-row" style="margin: 0.5rem 0 0.75rem 0; display: flex; align-items: center; gap: 0.75rem;">
+              <span class="stars" style="color: #f59e0b; font-size: 1.2rem; letter-spacing: 0.05em;">${starsHtml}</span>
+              <span class="review-count" style="color: #6b7280; font-size: 1rem; font-weight: 500;">${reviewHtml}</span>
             </div>
-            <div class="provider-badges">
-              ${provider.acceptsNewPatients ? '<span class="provider-badge accepting">✔ Accepting New Patients</span>' : ''}
-              <span class="provider-badge in-network">In-Network</span>
+            <div class="provider-badges" style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.5rem;">
+              ${provider.acceptsNewPatients ? 
+                `<span class="provider-badge accepting" style="display: inline-flex; align-items: center; font-size: 0.9rem; font-weight: 600;">✓ Accepting New Patients</span>` : ''
+              }
+              <span class="provider-badge in-network" style="display: inline-flex; align-items: center; font-size: 0.9rem; font-weight: 600;">In-Network</span>
             </div>
           </div>
-          <div class="provider-contact">
-            <div class="provider-location">
-              <lightning-icon icon-name="utility:location" size="x-small"></lightning-icon>
-              <span>${provider.address}</span>
+          <div class="provider-contact" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 200px; gap: 0.75rem; flex-shrink: 0;">
+            <div class="provider-location" style="display: flex; align-items: center; gap: 0.75rem; color: #4b5563; font-size: 1rem; font-weight: 500; padding: 0.5rem 0.75rem; border-radius: 12px; transition: background-color 0.2s ease;">
+    
+              <span>${provider.address.replace('\n', '<br>')}</span>
             </div>
-            <div class="provider-phone">
-              <lightning-icon icon-name="utility:call" size="x-small"></lightning-icon>
+            <div class="provider-phone" style="display: flex; align-items: center; gap: 0.75rem; color: #4b5563; font-size: 1rem; font-weight: 500; padding: 0.5rem 0.75rem; border-radius: 12px; transition: background-color 0.2s ease;">
+              
               <span>${provider.phone}</span>
             </div>
           </div>
-        </div>
-        <div class="provider-actions">
-          <button class="slds-button slds-button_brand">Book Appointment</button>
-          <button class="slds-button slds-button_neutral">View Profile</button>
+          <div class="provider-actions" style="display: flex; flex-direction: column; gap: 1rem; min-width: 150px; align-items: flex-end; justify-content: center; flex-shrink: 0;">
+            <button class="slds-button slds-button_brand">Book Appointment</button>
+            <button class="slds-button slds-button_neutral">View Profile</button>
+          </div>
         </div>
       </div>
     `;
@@ -397,7 +397,7 @@ export default class HelloWorldApp extends LightningElement {
         acceptsNewPatients: true,
         address: "1290 Sanchez St\nSan Francisco, CA 94114",
         phone: "(773) 456-7890",
-        image: "https://randomuser.me/api/portraits/men/32.jpg"
+        image: "https://i.imgur.com/yDLi9lY.png"
       },
       {
         name: "Tyra Dhillon, MD",
@@ -407,17 +407,37 @@ export default class HelloWorldApp extends LightningElement {
         acceptsNewPatients: true,
         address: "1290 Sanchez St\nSan Francisco, CA 94114",
         phone: "(773) 456-7890",
-        image: "https://randomuser.me/api/portraits/women/44.jpg"
+        image: "https://i.imgur.com/hKDCXJQ.png"
       },
       {
-        name: "Linda Johnson, MD",
+        name: "Michael Rodriguez, MD",
         specialty,
         rating: 0,
         reviewCount: 0,
         acceptsNewPatients: false,
         address: "555 Clayton Ave\nSan Francisco, CA 05555",
         phone: "(661) 345-9087",
-        image: "https://randomuser.me/api/portraits/women/68.jpg"
+        image: "https://i.imgur.com/QVeOtMG.png"
+      },
+      {
+        name: "Sarah Chen, MD",
+        specialty,
+        rating: 4.5,
+        reviewCount: 15,
+        acceptsNewPatients: true,
+        address: "1234 Market St\nSan Francisco, CA 94102",
+        phone: "(415) 555-0123",
+        image: "https://i.imgur.com/qjcPfIK.png"
+      },
+      {
+        name: "Raj Patel, MD",
+        specialty,
+        rating: 4.8,
+        reviewCount: 32,
+        acceptsNewPatients: false,
+        address: "789 Castro St\nSan Francisco, CA 94114",
+        phone: "(415) 555-0456",
+        image: "https://i.imgur.com/MduIjHq.png"
       }
     ];
     return baseProviders;
