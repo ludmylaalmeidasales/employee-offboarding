@@ -4,6 +4,7 @@ export default class HelloWorldApp extends LightningElement {
   // Flag to prevent duplicate event listeners
   closeButtonListenerAdded = false;
   isTyping = false; // Add reactive property to track typing state
+  resultsLoaded = false; // Add reactive property to track when results are loaded
 
   // Search dropdown functionality
   connectedCallback() {
@@ -20,6 +21,9 @@ export default class HelloWorldApp extends LightningElement {
 
   // Getter for sparkle icon source
   get sparkleIconSrc() {
+    if (this.resultsLoaded) {
+      return 'https://i.imgur.com/jtks6DY.png';
+    }
     return this.isTyping ? 'https://i.imgur.com/i7mWNdj.png' : 'https://i.imgur.com/Vo3O5Wb.png';
   }
 
@@ -208,6 +212,9 @@ export default class HelloWorldApp extends LightningElement {
   performSearch(searchQuery) {
     console.log('Performing search for:', searchQuery);
     
+    // Reset results loaded state
+    this.resultsLoaded = false;
+    
     // Hide the filters-container when search starts
     const filtersContainer = this.template.querySelector('.filters-container');
     if (filtersContainer) {
@@ -287,6 +294,9 @@ export default class HelloWorldApp extends LightningElement {
         </style>
       `;
       emptyState.style.display = 'block';
+      
+      // Set results loaded to true to change the icon
+      this.resultsLoaded = true;
     }
   }
 
@@ -304,7 +314,7 @@ export default class HelloWorldApp extends LightningElement {
       
       emptyState.innerHTML = `
         <div class="search-results" style="width: 100%;">
-         <div class="filter-pills" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+         <div class="filter-pills" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
             ${filterPills}
           </div>
           <div class="search-results-toolbar" style="display: flex; align-items: start; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
@@ -338,6 +348,9 @@ export default class HelloWorldApp extends LightningElement {
         </div>
       `;
       emptyState.style.display = 'block';
+      
+      // Set results loaded to true to change the icon
+      this.resultsLoaded = true;
     }
   }
 
