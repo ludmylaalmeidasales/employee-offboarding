@@ -407,7 +407,7 @@ export default class HelloWorldApp extends LightningElement {
     
     return pills.map(pill => `<span class="slds-pill slds-pill_bare" style="background: #fff; color: #374151; padding: 0.5rem 1rem; border-radius: 12px; font-size: 0.875rem; font-weight: 400; border: 1px solid #5C5C5C; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.5rem; height: 26px;">
       <span class="slds-pill__label">${pill}</span>
-      <img src="https://i.imgur.com/OF4DQQ9.png" alt="filter icon" style="width: 20px; height: 20px; object-fit: contain;">
+      <img src="https://i.imgur.com/OF4DQQ9.png" alt="filter icon" style="width: 20px; height: 20px; object-fit: contain; cursor: pointer;" onclick="this.parentElement.remove()">
     </span>`).join('');
   }
 
@@ -697,6 +697,51 @@ export default class HelloWorldApp extends LightningElement {
         closeButton.style.display = 'none';
       }
     }
+  }
+
+  // Handle sparkle icon click to reset page
+  handleSparkleIconClick() {
+    // Reset all state
+    this.resultsLoaded = false;
+    this.isTyping = false;
+    
+    // Clear the search input
+    const searchInput = this.template.querySelector('input[type="text"]');
+    if (searchInput) {
+      searchInput.value = '';
+    }
+    
+    // Hide the search dropdown
+    const searchDropdown = this.template.querySelector('.search-dropdown');
+    if (searchDropdown) {
+      searchDropdown.classList.remove('show');
+    }
+    
+    // Reset the empty state to show the original content
+    const emptyState = this.template.querySelector('.empty-state');
+    if (emptyState) {
+      emptyState.style.display = 'none';
+    }
+    
+    // Show the filters container and ensure proper layout
+    const filtersContainer = this.template.querySelector('.filters-container');
+    if (filtersContainer) {
+      filtersContainer.style.display = 'flex';
+      // Force a reflow to ensure proper layout
+      filtersContainer.offsetHeight;
+    }
+    
+    // Clear any selection
+    this.clearSelection();
+    
+    // Trigger a re-render to ensure proper layout restoration
+    setTimeout(() => {
+      if (filtersContainer) {
+        filtersContainer.style.display = 'flex';
+      }
+    }, 10);
+    
+    console.log('Page reset to original state');
   }
 }
 

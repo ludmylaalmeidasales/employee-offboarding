@@ -236,7 +236,7 @@
             <!-- Icons positioned inside the input -->
             <div class="search-icon-right">
               <lightning-icon icon-name="utility:unmuted" size="x-small" style="padding-right: 14px;"></lightning-icon>
-              <img id="sparkleIcon" src={sparkleIconSrc} alt="Sparkle" style="width: 30px; height: 30px; vertical-align: middle;">
+              <img id="sparkleIcon" src={sparkleIconSrc} alt="Sparkle" style="width: 30px; height: 30px; vertical-align: middle; cursor: pointer;" onclick={handleSparkleIconClick}>
               <lightning-button-icon 
                 id="closeButton" 
                 icon-name="utility:close" 
