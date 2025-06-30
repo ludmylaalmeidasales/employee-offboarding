@@ -9,6 +9,8 @@ export default class HelloWorldApp extends LightningElement {
   // Search dropdown functionality
   connectedCallback() {
     console.log('Component connected');
+    // Make the gender filter removal method available globally
+    window.handleGenderFilterRemoval = (pillType) => this.handleGenderFilterRemoval(pillType);
   }
 
   renderedCallback() {
@@ -297,6 +299,30 @@ export default class HelloWorldApp extends LightningElement {
       
       // Set results loaded to true to change the icon
       this.resultsLoaded = true;
+      
+      // Make component instance available for inline handlers
+      emptyState.__componentInstance = this;
+      
+      // Add event listener for gender filter removal
+      const filterPillsContainer = emptyState.querySelector('.filter-pills');
+      if (filterPillsContainer) {
+        filterPillsContainer.addEventListener('genderFilterRemoved', (event) => {
+          console.log('Gender filter removed:', event.detail.pill);
+          // Get the current search input value
+          const searchInput = this.template.querySelector('input[type="text"]');
+          if (searchInput && searchInput.value.trim()) {
+            // Remove gender keywords from the search query
+            let searchQuery = searchInput.value.trim();
+            searchQuery = searchQuery.replace(/\b(female|woman|women|male|man|men)\b/gi, '').trim();
+            
+            // Update the search input with the cleaned query
+            searchInput.value = searchQuery;
+            
+            // Trigger a new search without the gender filter
+            this.performSearch(searchQuery);
+          }
+        });
+      }
     }
   }
 
@@ -409,10 +435,18 @@ export default class HelloWorldApp extends LightningElement {
       pills.push(`"${searchQuery}"`);
     }
     
-    return pills.map(pill => `<span class="slds-pill slds-pill_bare" style="background: #fff; color: #374151; padding: 0.5rem 1rem; border-radius: 12px; font-size: 0.875rem; font-weight: 400; border: 1px solid #5C5C5C; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.5rem; height: 26px;">
-      <span class="slds-pill__label">${pill}</span>
-      <img src="https://i.imgur.com/OF4DQQ9.png" alt="filter icon" style="width: 20px; height: 20px; object-fit: contain; cursor: pointer;" onclick="this.parentElement.remove()">
-    </span>`).join('');
+    return pills.map(pill => {
+      const isGenderPill = pill === 'Female Provider' || pill === 'Male Provider';
+      const dataAttribute = isGenderPill ? `data-gender-pill="${pill}"` : '';
+      const clickHandler = isGenderPill ? 
+        `onclick="this.parentElement.remove(); window.handleGenderFilterRemoval('${pill}')"` : 
+        `onclick="this.parentElement.remove()"`;
+      
+      return `<span class="slds-pill slds-pill_bare" style="background: #fff; color: #374151; padding: 0.5rem 1rem; border-radius: 12px; font-size: 0.875rem; font-weight: 400; border: 1px solid #5C5C5C; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.5rem; height: 26px;" ${dataAttribute}>
+        <span class="slds-pill__label">${pill}</span>
+        <img src="https://i.imgur.com/OF4DQQ9.png" alt="filter icon" style="width: 20px; height: 20px; object-fit: contain; cursor: pointer;" ${clickHandler}>
+      </span>`;
+    }).join('');
   }
 
   // Function to create styled provider card HTML
@@ -791,6 +825,24 @@ export default class HelloWorldApp extends LightningElement {
       } else {
         console.log('No search query to perform');
       }
+    }
+  }
+
+  // Handle gender filter removal
+  handleGenderFilterRemoval(pillType) {
+    console.log('Gender filter removed:', pillType);
+    // Get the current search input value
+    const searchInput = this.template.querySelector('input[type="text"]');
+    if (searchInput && searchInput.value.trim()) {
+      // Remove gender keywords from the search query
+      let searchQuery = searchInput.value.trim();
+      searchQuery = searchQuery.replace(/\b(female|woman|women|male|man|men)\b/gi, '').trim();
+      
+      // Update the search input with the cleaned query
+      searchInput.value = searchQuery;
+      
+      // Trigger a new search without the gender filter
+      this.performSearch(searchQuery);
     }
   }
 }
