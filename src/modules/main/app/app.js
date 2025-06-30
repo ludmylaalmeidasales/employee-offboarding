@@ -363,6 +363,10 @@ export default class HelloWorldApp extends LightningElement {
     pills.push('Accepting New Patients');
     pills.push('Blue Cross Blue Shield');
     
+    // Gender-based pills
+    if (/\b(female|woman|women)\b/i.test(searchLower)) pills.push('Female Provider');
+    if (/\b(male|man|men)\b/i.test(searchLower)) pills.push('Male Provider');
+    
     // Specialty-based pills
     if (/cardio/i.test(searchLower)) pills.push('Cardiologist');
     if (/dermatologist/i.test(searchLower)) pills.push('Dermatologist');
@@ -477,6 +481,8 @@ export default class HelloWorldApp extends LightningElement {
 
   // Update generateMockProviders to include address and phone
   generateMockProviders(searchQuery) {
+    console.log('generateMockProviders called with searchQuery:', searchQuery);
+    
     let specialty = "Cardiologist";
     if (/dermatologist/i.test(searchQuery)) specialty = "Dermatologist";
     else if (/endocrinologist/i.test(searchQuery)) specialty = "Endocrinologist";
@@ -488,6 +494,8 @@ export default class HelloWorldApp extends LightningElement {
     else if (/family medicine/i.test(searchQuery)) specialty = "Family Medicine Doctor";
     // Add more specialties as needed
 
+    console.log('Specialty determined:', specialty);
+
     const baseProviders = [
       {
         name: "David Ho, MD",
@@ -497,7 +505,8 @@ export default class HelloWorldApp extends LightningElement {
         acceptsNewPatients: true,
         address: "1290 Sanchez St San Francisco, CA 94114",
         phone: "(773) 456-7890",
-        image: "https://i.imgur.com/yDLi9lY.png"
+        image: "https://i.imgur.com/yDLi9lY.png",
+        gender: "Male"
       },
       {
         name: "Tyra Dhillon, MD",
@@ -507,7 +516,8 @@ export default class HelloWorldApp extends LightningElement {
         acceptsNewPatients: true,
         address: "1290 Sanchez St San Francisco, CA 94114",
         phone: "(773) 456-7890",
-        image: "https://i.imgur.com/hKDCXJQ.png"
+        image: "https://i.imgur.com/hKDCXJQ.png",
+        gender: "Female"
       },
       {
         name: "Michael Rodriguez, MD",
@@ -517,7 +527,8 @@ export default class HelloWorldApp extends LightningElement {
         acceptsNewPatients: true,
         address: "555 Clayton Ave San Francisco, CA 05555",
         phone: "(661) 345-9087",
-        image: "https://i.imgur.com/QVeOtMG.png"
+        image: "https://i.imgur.com/QVeOtMG.png",
+        gender: "Male"
       },
       {
         name: "Sarah Chen, MD",
@@ -527,7 +538,8 @@ export default class HelloWorldApp extends LightningElement {
         acceptsNewPatients: true,
         address: "1234 Market St San Francisco, CA 94102",
         phone: "(415) 555-0123",
-        image: "https://i.imgur.com/qjcPfIK.png"
+        image: "https://i.imgur.com/qjcPfIK.png",
+        gender: "Female"
       },
       {
         name: "Raj Patel, MD",
@@ -537,10 +549,29 @@ export default class HelloWorldApp extends LightningElement {
         acceptsNewPatients: true,
         address: "789 Castro St San Francisco, CA 94114",
         phone: "(415) 555-0456",
-        image: "https://i.imgur.com/MduIjHq.png"
+        image: "https://i.imgur.com/MduIjHq.png",
+        gender: "Male"
       }
     ];
-    return baseProviders;
+
+    // Filter by gender if specified in search query
+    const searchLower = searchQuery.toLowerCase();
+    let filteredProviders = baseProviders;
+    
+    console.log('Checking for gender keywords in:', searchLower);
+    console.log('Female keywords found:', /\b(female|woman|women)\b/i.test(searchLower));
+    console.log('Male keywords found:', /\b(male|man|men)\b/i.test(searchLower));
+    
+    if (/\b(female|woman|women)\b/i.test(searchLower)) {
+      filteredProviders = baseProviders.filter(provider => provider.gender === "Female");
+      console.log('Filtering for female providers, found:', filteredProviders.length);
+    } else if (/\b(male|man|men)\b/i.test(searchLower)) {
+      filteredProviders = baseProviders.filter(provider => provider.gender === "Male");
+      console.log('Filtering for male providers, found:', filteredProviders.length);
+    }
+
+    console.log('Final providers returned:', filteredProviders.length);
+    return filteredProviders;
   }
 
   updateSelection() {
@@ -699,49 +730,68 @@ export default class HelloWorldApp extends LightningElement {
     }
   }
 
-  // Handle sparkle icon click to reset page
+  // Handle sparkle icon click to reset page or trigger search
   handleSparkleIconClick() {
-    // Reset all state
-    this.resultsLoaded = false;
-    this.isTyping = false;
-    
-    // Clear the search input
-    const searchInput = this.template.querySelector('input[type="text"]');
-    if (searchInput) {
-      searchInput.value = '';
-    }
-    
-    // Hide the search dropdown
-    const searchDropdown = this.template.querySelector('.search-dropdown');
-    if (searchDropdown) {
-      searchDropdown.classList.remove('show');
-    }
-    
-    // Reset the empty state to show the original content
-    const emptyState = this.template.querySelector('.empty-state');
-    if (emptyState) {
-      emptyState.style.display = 'none';
-    }
-    
-    // Show the filters container and ensure proper layout
-    const filtersContainer = this.template.querySelector('.filters-container');
-    if (filtersContainer) {
-      filtersContainer.style.display = 'flex';
-      // Force a reflow to ensure proper layout
-      filtersContainer.offsetHeight;
-    }
-    
-    // Clear any selection
-    this.clearSelection();
-    
-    // Trigger a re-render to ensure proper layout restoration
-    setTimeout(() => {
+    // If results are loaded, reset the page
+    if (this.resultsLoaded) {
+      // Reset all state
+      this.resultsLoaded = false;
+      this.isTyping = false;
+      
+      // Clear the search input
+      const searchInput = this.template.querySelector('input[type="text"]');
+      if (searchInput) {
+        searchInput.value = '';
+      }
+      
+      // Hide the search dropdown
+      const searchDropdown = this.template.querySelector('.search-dropdown');
+      if (searchDropdown) {
+        searchDropdown.classList.remove('show');
+      }
+      
+      // Reset the empty state to show the original content with main illustration
+      const emptyState = this.template.querySelector('.empty-state');
+      if (emptyState) {
+        emptyState.style.display = 'block';
+        // Restore the original empty state content
+        emptyState.innerHTML = `
+          <!-- Custom illustration for Ask a Question -->
+          <img class="main-illustration" src="https://i.imgur.com/TbPoQBf.png" alt="Ask a Question" width="300px">
+          <h2 class="slds-text-heading_medium">Ask a Question</h2>
+          <p>Describe the patient's needs and we'll match them with the right provider</p>
+        `;
+      }
+      
+      // Show the filters container and ensure proper layout
+      const filtersContainer = this.template.querySelector('.filters-container');
       if (filtersContainer) {
         filtersContainer.style.display = 'flex';
+        // Force a reflow to ensure proper layout
+        filtersContainer.offsetHeight;
       }
-    }, 10);
-    
-    console.log('Page reset to original state');
+      
+      // Clear any selection
+      this.clearSelection();
+      
+      // Trigger a re-render to ensure proper layout restoration
+      setTimeout(() => {
+        if (filtersContainer) {
+          filtersContainer.style.display = 'flex';
+        }
+      }, 10);
+      
+      console.log('Page reset to original state');
+    } else {
+      // If no results are loaded, trigger search with current input value
+      const searchInput = this.template.querySelector('input[type="text"]');
+      if (searchInput && searchInput.value.trim()) {
+        console.log('Triggering search from sparkle icon click');
+        this.performSearch(searchInput.value.trim());
+      } else {
+        console.log('No search query to perform');
+      }
+    }
   }
 }
 
