@@ -863,6 +863,10 @@ template {
   background: #fff;
 }
 
+.slds-context-bar__item.slds-is-active .slds-context-bar__label-action {
+  border-bottom: 3px solid #0250D9 !important;
+}
+
 /* Provider Card Redesign */
 .styled-provider-card {
   background: #fff;
