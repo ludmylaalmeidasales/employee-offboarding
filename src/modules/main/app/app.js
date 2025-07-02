@@ -350,7 +350,7 @@ export default class HelloWorldApp extends LightningElement {
               ${filterPills}
             </div>
           <div class="search-results-toolbar" style="display: flex; align-items: start; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
-            <div class="provider-matches-count" style="font-weight: 400; color: #2E2E2E; font-size: 1.2rem; letter-spacing: 0.19px; text-align: left;">Provider Matches (${providers.length})</div>
+            <div class="provider-matches-count" style="font-weight: 400; color: #2E2E2E; font-size: 1.2rem; letter-spacing: 0.19px; text-align: left;">Search Results (${providers.length})</div>
             <div class="search-toolbar-actions" style="display: flex; align-items: center; gap: 1rem; flex-shrink: 0;">
               <button class="slds-button slds-button_neutral">
                 <img src="https://i.imgur.com/069Jif6.png" alt="Map" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;">
