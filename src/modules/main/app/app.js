@@ -334,15 +334,21 @@ export default class HelloWorldApp extends LightningElement {
   // Function to display provider cards
   displayProviderCards(searchQuery) {
     const emptyState = this.template.querySelector('.empty-state');
+    const filtersContainer = this.template.querySelector('.filters-container').parentElement;
     if (emptyState) {
       const providers = this.generateMockProviders(searchQuery);
       const filterPills = this.generateFilterPills(searchQuery);
       
-      emptyState.innerHTML = `
-        <div class="search-results" style="width: 100%;">
-         <div class="filter-pills" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-            ${filterPills}
-          </div>
+      // Hide the filters container to remove the space it takes up
+      if (filtersContainer) {
+        filtersContainer.style.display = 'none';
+      }
+      
+              emptyState.innerHTML = `
+          <div class="search-results" style="width: 100%;">
+           <div class="filter-pills" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;">
+              ${filterPills}
+            </div>
           <div class="search-results-toolbar" style="display: flex; align-items: start; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
             <div class="provider-matches-count" style="font-weight: 400; color: #2E2E2E; font-size: 1.2rem; letter-spacing: 0.19px; text-align: left;">Provider Matches (${providers.length})</div>
             <div class="search-toolbar-actions" style="display: flex; align-items: center; gap: 1rem; flex-shrink: 0;">
@@ -378,6 +384,28 @@ export default class HelloWorldApp extends LightningElement {
       // Set results loaded to true to change the icon
       this.resultsLoaded = true;
     }
+  }
+
+  // Function to reset the view to initial state
+  resetView() {
+    const emptyState = this.template.querySelector('.empty-state');
+    const filtersContainer = this.template.querySelector('.filters-container').parentElement;
+    
+    if (emptyState) {
+      emptyState.innerHTML = `
+        <!-- Custom illustration for Ask a Question -->
+        <img class="main-illustration" src="https://i.imgur.com/TbPoQBf.png" alt="Ask a Question" width="300px">
+        <h2 class="slds-text-heading_medium">Ask a Question</h2>
+        <p>Describe the patient's needs and we'll match them with the right provider</p>
+      `;
+      emptyState.style.display = 'block';
+    }
+    
+    if (filtersContainer) {
+      filtersContainer.style.display = 'block';
+    }
+    
+    this.resultsLoaded = false;
   }
 
   // Generate pills for filters based on search query
@@ -784,36 +812,11 @@ export default class HelloWorldApp extends LightningElement {
         searchDropdown.classList.remove('show');
       }
       
-      // Reset the empty state to show the original content with main illustration
-      const emptyState = this.template.querySelector('.empty-state');
-      if (emptyState) {
-        emptyState.style.display = 'block';
-        // Restore the original empty state content
-        emptyState.innerHTML = `
-          <!-- Custom illustration for Ask a Question -->
-          <img class="main-illustration" src="https://i.imgur.com/TbPoQBf.png" alt="Ask a Question" width="300px">
-          <h2 class="slds-text-heading_medium">Ask a Question</h2>
-          <p>Describe the patient's needs and we'll match them with the right provider</p>
-        `;
-      }
-      
-      // Show the filters container and ensure proper layout
-      const filtersContainer = this.template.querySelector('.filters-container');
-      if (filtersContainer) {
-        filtersContainer.style.display = 'flex';
-        // Force a reflow to ensure proper layout
-        filtersContainer.offsetHeight;
-      }
+      // Use the resetView function to restore the original state
+      this.resetView();
       
       // Clear any selection
       this.clearSelection();
-      
-      // Trigger a re-render to ensure proper layout restoration
-      setTimeout(() => {
-        if (filtersContainer) {
-          filtersContainer.style.display = 'flex';
-        }
-      }, 10);
       
       console.log('Page reset to original state');
     } else {
