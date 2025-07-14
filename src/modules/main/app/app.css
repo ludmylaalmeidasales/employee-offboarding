@@ -1003,3 +1003,43 @@ template {
   flex-direction: column;
   gap: 1.5rem;
 }
+
+/* Provider Checkbox Styling */
+.provider-checkbox {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  z-index: 10;
+}
+
+.provider-checkbox lightning-input {
+  --slds-c-checkbox-color-background-checked: #0070d2;
+  --slds-c-checkbox-color-border-checked: #0070d2;
+  --slds-c-checkbox-color-background: #ffffff;
+  --slds-c-checkbox-color-border: #dddbda;
+  --slds-c-checkbox-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.provider-checkbox lightning-input:hover {
+  --slds-c-checkbox-color-border: #0070d2;
+  --slds-c-checkbox-shadow: 0 0 3px rgba(0, 112, 210, 0.3);
+}
+
+/* Provider avatar container needs relative positioning */
+.provider-avatar {
+  position: relative;
+}
+
+/* Loading state checkbox stencil */
+.provider-checkbox-stencil {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  z-index: 10;
+}

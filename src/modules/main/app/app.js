@@ -479,6 +479,7 @@ export default class HelloWorldApp extends LightningElement {
 
   // Function to create styled provider card HTML
   createProviderCardStyled(provider) {
+    console.log('Creating provider card with checkbox for:', provider.name);
     // Star rating logic
     const fullStars = Math.floor(provider.rating);
     const halfStar = provider.rating % 1 >= 0.5;
@@ -496,7 +497,15 @@ export default class HelloWorldApp extends LightningElement {
       <div class="provider-card styled-provider-card" style="background: #ffffff; border: 1px solid #C9C9C9; border-radius: 12px; padding: 2rem; margin: 0 0 1.5rem 0; display: flex; flex-direction: column; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; width: 100%; max-width: 100%;">
         <div class="provider-card-main" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 1rem; width: 100%;">
           <div class="provider-info-section" style="flex: 1; display: flex; align-items: flex-start; gap: 1.5rem; min-width: 0;">
-            <div class="provider-avatar" style="flex-shrink: 0;">
+            <div class="provider-avatar" style="flex-shrink: 0; position: relative;">
+              <div class="provider-checkbox" style="position: absolute; top: -8px; left: -16px; z-index: 10; background: white; border-radius: 50%; padding: 2px;">
+                <div class="slds-checkbox">
+                  <input type="checkbox" name="provider-select" id="provider-${provider.name.replace(/\s+/g, '-').toLowerCase()}" style="transform: scale(1.2);">
+                  <label class="slds-checkbox__label" for="provider-${provider.name.replace(/\s+/g, '-').toLowerCase()}">
+                    <span class="slds-checkbox_faux"></span>
+                  </label>
+                </div>
+              </div>
               <img src="${provider.image}" alt="${provider.name}" width="64" height="64" style="border-radius: 50%; width: 64px; height: 64px; object-fit: cover;">
             </div>
             <div class="provider-main-info" style="flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between;">
