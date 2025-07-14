@@ -246,8 +246,11 @@ export default class HelloWorldApp extends LightningElement {
             <div class="provider-matches-count" style="font-weight: 400; color: #2E2E2E; font-size: 1.2rem; letter-spacing: 0.19px; text-align: left;">Provider Matches (5)</div>
             <div class="search-toolbar-actions" style="display: flex; align-items: center; gap: 1rem; flex-shrink: 0;">
               <button class="slds-button slds-button_neutral">
-                <img src="https://i.imgur.com/069Jif6.png" alt="Map" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;">
+                <img src="https://i.imgur.com/069Jif6.png" alt="Map" style="width: 15px; height: auto; margin-right: 8px; vertical-align: middle;">
                 Show Map
+              </button>
+              <button class="slds-button slds-button_neutral">
+                Create Referral
               </button>
               <div class="sort-dropdown">
                 <label for="sortBy" class="slds-assistive-text">Sort by Recommended</label>
@@ -351,10 +354,13 @@ export default class HelloWorldApp extends LightningElement {
             </div>
           <div class="search-results-toolbar" style="display: flex; align-items: start; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
             <div class="provider-matches-count" style="font-weight: 400; color: #2E2E2E; font-size: 1.2rem; letter-spacing: 0.19px; text-align: left;">Search Results (${providers.length})</div>
-            <div class="search-toolbar-actions" style="display: flex; align-items: center; gap: 1rem; flex-shrink: 0;">
+            <div class="search-toolbar-actions" style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
               <button class="slds-button slds-button_neutral">
-                <img src="https://i.imgur.com/069Jif6.png" alt="Map" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;">
+                <img src="https://i.imgur.com/069Jif6.png" alt="Map" style="width: 15px; height: auto; margin-right: 8px; vertical-align: middle;">
                 Show Map
+              </button>
+              <button class="slds-button slds-button_neutral">
+                Create Referral
               </button>
               <div class="sort-dropdown">
                 <label for="sortBy" class="slds-assistive-text">Sort by Recommended</label>
@@ -477,7 +483,7 @@ export default class HelloWorldApp extends LightningElement {
       // For the Filters pill (last pill), put X icon before text
       if (isFiltersPill) {
         return `<span class="slds-pill slds-pill_bare" style="background: #fff; color: #374151; padding: 0.5rem 0.75rem; border-radius: 12px; font-size: 0.875rem; font-weight: 400; border: 1px solid #5C5C5C; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.5rem; height: 26px;" ${dataAttribute}>
-          <img src="https://i.imgur.com/OBjJuWs.png" alt="filter icon" style="width: 20px; height: 20px; object-fit: contain;">
+          <img src="https://i.imgur.com/OBjJuWs.png" alt="filter icon" style="width: 17px; height: auto; object-fit: contain;">
           <span class="slds-pill__label">${pill}</span>
         </span>`;
       }
@@ -485,7 +491,7 @@ export default class HelloWorldApp extends LightningElement {
       // For all other pills, keep original structure (text first, then X icon)
       return `<span class="slds-pill slds-pill_bare" style="background: #fff; color: #374151; padding: 0.5rem 0.75rem; border-radius: 12px; font-size: 0.875rem; font-weight: 400; border: 1px solid #5C5C5C; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.5rem; height: 26px;" ${dataAttribute}>
         <span class="slds-pill__label">${pill}</span>
-        <img src="https://i.imgur.com/OF4DQQ9.png" alt="filter icon" style="width: 20px; height: 20px; object-fit: contain; cursor: pointer;" ${clickHandler}>
+        <img src="https://i.imgur.com/OF4DQQ9.png" alt="filter icon" style="width: 17px; height: auto; object-fit: contain; cursor: pointer;" ${clickHandler}>
       </span>`;
     }).join('');
   }
@@ -508,7 +514,7 @@ export default class HelloWorldApp extends LightningElement {
       `<span class="review-count no-reviews">No Reviews</span>`;
     return `
       <div class="provider-card styled-provider-card" style="background: #ffffff; border: 1px solid #C9C9C9; border-radius: 12px; padding: 2rem; margin: 0 0 1.5rem 0; display: flex; flex-direction: column; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; width: 100%; max-width: 100%;">
-        <div class="provider-card-main" style="display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 1rem; width: 100%;">
+        <div class="provider-card-main" style="display: flex; align-items: flex-start; gap: 2rem; width: 100%;">
           <div class="provider-info-section" style="flex: 1; display: flex; align-items: flex-start; gap: 1.5rem; min-width: 0;">
             <div class="provider-avatar" style="flex-shrink: 0; position: relative;">
               <div class="provider-checkbox" style="position: absolute; top: -8px; left: -16px; z-index: 10; background: white; border-radius: 50%; padding: 2px;">
@@ -519,7 +525,7 @@ export default class HelloWorldApp extends LightningElement {
                   </label>
                 </div>
               </div>
-              <img src="${provider.image}" alt="${provider.name}" width="64" height="64" style="border-radius: 50%; width: 64px; height: 64px; object-fit: cover;">
+              <img src="${provider.image}" alt="${provider.name}" width="64" height="64" style="border-radius: 50%; width: 64px; height: 64px; object-fit: cover; margin-left: 10px;">
             </div>
             <div class="provider-main-info" style="flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: space-between;">
               <div class="provider-name-row" style="display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 0.5rem; align-items: flex-start;">
