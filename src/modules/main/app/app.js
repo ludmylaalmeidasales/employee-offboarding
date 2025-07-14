@@ -250,9 +250,9 @@ export default class HelloWorldApp extends LightningElement {
                 Show Map
               </button>
               <div class="sort-dropdown">
-                <label for="sortBy" class="slds-assistive-text">Sort by</label>
+                <label for="sortBy" class="slds-assistive-text">Sort by Recommended</label>
                 <select id="sortBy" class="slds-select">
-                  <option>Sort by</option>
+                  <option>Sort by Recommended</option>
                   <option>Top Rated</option>
                   <option>Nearest</option>
                   <option>Availability</option>
@@ -356,10 +356,10 @@ export default class HelloWorldApp extends LightningElement {
                 <img src="https://i.imgur.com/069Jif6.png" alt="Map" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;">
                 Show Map
               </button>
-              <div class="sort-dropdown" style="width: 100px;">
-                <label for="sortBy" class="slds-assistive-text">Sort by</label>
+              <div class="sort-dropdown">
+                <label for="sortBy" class="slds-assistive-text">Sort by Recommended</label>
                 <select id="sortBy" class="slds-select">
-                  <option>Sort by</option>
+                  <option>Sort by Recommended</option>
                   <option>Top Rated</option>
                   <option>Nearest</option>
                   <option>Availability</option>
@@ -463,14 +463,27 @@ export default class HelloWorldApp extends LightningElement {
       pills.push(`"${searchQuery}"`);
     }
     
-    return pills.map(pill => {
+    // Always add Filters pill at the end
+    pills.push('Filters');
+    
+    return pills.map((pill, index) => {
       const isGenderPill = pill === 'Female Provider' || pill === 'Male Provider';
+      const isFiltersPill = pill === 'Filters';
       const dataAttribute = isGenderPill ? `data-gender-pill="${pill}"` : '';
       const clickHandler = isGenderPill ? 
         `onclick="this.parentElement.remove(); window.handleGenderFilterRemoval('${pill}')"` : 
         `onclick="this.parentElement.remove()"`;
       
-      return `<span class="slds-pill slds-pill_bare" style="background: #fff; color: #374151; padding: 0.5rem 1rem; border-radius: 12px; font-size: 0.875rem; font-weight: 400; border: 1px solid #5C5C5C; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.5rem; height: 26px;" ${dataAttribute}>
+      // For the Filters pill (last pill), put X icon before text
+      if (isFiltersPill) {
+        return `<span class="slds-pill slds-pill_bare" style="background: #fff; color: #374151; padding: 0.5rem 0.75rem; border-radius: 12px; font-size: 0.875rem; font-weight: 400; border: 1px solid #5C5C5C; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.5rem; height: 26px;" ${dataAttribute}>
+          <img src="https://i.imgur.com/OBjJuWs.png" alt="filter icon" style="width: 20px; height: 20px; object-fit: contain;">
+          <span class="slds-pill__label">${pill}</span>
+        </span>`;
+      }
+      
+      // For all other pills, keep original structure (text first, then X icon)
+      return `<span class="slds-pill slds-pill_bare" style="background: #fff; color: #374151; padding: 0.5rem 0.75rem; border-radius: 12px; font-size: 0.875rem; font-weight: 400; border: 1px solid #5C5C5C; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.5rem; height: 26px;" ${dataAttribute}>
         <span class="slds-pill__label">${pill}</span>
         <img src="https://i.imgur.com/OF4DQQ9.png" alt="filter icon" style="width: 20px; height: 20px; object-fit: contain; cursor: pointer;" ${clickHandler}>
       </span>`;
