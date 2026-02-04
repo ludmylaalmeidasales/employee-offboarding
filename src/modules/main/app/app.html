@@ -253,7 +253,7 @@
           </div>
         </div>
         <!-- Alerts card (same structure as Asset Overview) -->
-        <section class="slds-card alerts-card slds-m-top_medium">
+        <section class="slds-card alerts-card">
           <header class="slds-card__header slds-p-around_medium alerts-card-header">
             <div class="slds-media">
               <div class="slds-media__figure">
@@ -292,7 +292,7 @@
           </footer>
         </section>
         <!-- Tabs card -->
-        <div class="slds-card asset-tabs-card slds-m-top_medium">
+        <div class="slds-card asset-tabs-card">
           <div class="asset-tabs slds-p-around_medium">
             <ul class="slds-tabs_default__nav" role="tablist">
               <li class={detailsTabClass} role="presentation">
@@ -519,8 +519,292 @@
             </template>
             <template if:true={isRelatedTab}>
               <div class="slds-tabs_default__content slds-show" role="tabpanel">
-                <div class="tab-placeholder slds-p-around_large">
-                  <p class="slds-text-body_regular slds-text-color_weak">Related content will appear here.</p>
+                <div class="related-lists-section slds-p-around_medium">
+                  <!-- Product Order (1) -->
+                  <section class="related-list-card slds-card slds-m-bottom_medium">
+                    <header class="slds-card__header slds-p-around_small related-list-header">
+                      <div class="slds-media">
+                        <div class="slds-media__figure">
+                          <lightning-icon icon-name="standard:orders" size="small" class="related-list-icon related-list-icon-purple"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                          <h3 class="slds-card__header-title related-list-title">Product Order (1)</h3>
+                        </div>
+                      </div>
+                      <button class="slds-button slds-button_neutral related-list-new">New</button>
+                    </header>
+                    <div class="slds-card__body slds-p-horizontal_small slds-p-bottom_small">
+                      <div class="related-list-table-wrap">
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered related-list-table">
+                          <thead>
+                            <tr class="slds-line-height_reset">
+                              <th class="slds-cell-shrink" scope="col"><input type="checkbox" class="slds-checkbox" aria-label="Select all" /></th>
+                              <th scope="col"><span class="slds-truncate" title="Product Order">Product Orde...</span></th>
+                              <th scope="col"><span class="slds-truncate" title="Asset">Asset</span></th>
+                              <th scope="col"><span class="slds-truncate">—</span></th>
+                              <th scope="col"><span class="slds-truncate">—</span></th>
+                              <th class="slds-cell-shrink" scope="col"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="slds-cell-shrink"><input type="checkbox" class="slds-checkbox" aria-label="Select row" /></td>
+                              <td><a href="#">PO-19825623</a></td>
+                              <td>MacBook</td>
+                              <td>—</td>
+                              <td>—</td>
+                              <td class="slds-cell-shrink"><lightning-icon icon-name="utility:info" size="x-small" class="related-list-info-icon"></lightning-icon></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p class="related-list-view-all"><a href="#">View All</a></p>
+                    </div>
+                  </section>
+                  <!-- Fulfillment Order Line Item (1) -->
+                  <section class="related-list-card slds-card slds-m-bottom_medium">
+                    <header class="slds-card__header slds-p-around_small related-list-header">
+                      <div class="slds-media">
+                        <div class="slds-media__figure">
+                          <lightning-icon icon-name="standard:product" size="small" class="related-list-icon related-list-icon-gray"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                          <h3 class="slds-card__header-title related-list-title">Fulfillment Order Line Item (1)</h3>
+                        </div>
+                      </div>
+                      <button class="slds-button slds-button_neutral related-list-new">New</button>
+                    </header>
+                    <div class="slds-card__body slds-p-horizontal_small slds-p-bottom_small">
+                      <div class="related-list-table-wrap">
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered related-list-table">
+                          <thead>
+                            <tr class="slds-line-height_reset">
+                              <th class="slds-cell-shrink" scope="col"><input type="checkbox" class="slds-checkbox" aria-label="Select all" /></th>
+                              <th scope="col"><span class="slds-truncate">Product Orde...</span></th>
+                              <th scope="col"><span class="slds-truncate">Asset</span></th>
+                              <th scope="col"><span class="slds-truncate">—</span></th>
+                              <th scope="col"><span class="slds-truncate">—</span></th>
+                              <th class="slds-cell-shrink" scope="col"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="slds-cell-shrink"><input type="checkbox" class="slds-checkbox" aria-label="Select row" /></td>
+                              <td><a href="#">FOLI-45678923</a></td>
+                              <td>MacBook</td>
+                              <td>—</td>
+                              <td>—</td>
+                              <td class="slds-cell-shrink"><lightning-icon icon-name="utility:info" size="x-small" class="related-list-info-icon"></lightning-icon></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p class="related-list-view-all"><a href="#">View All</a></p>
+                    </div>
+                  </section>
+                  <!-- Return Order Line Item (0) -->
+                  <section class="related-list-card slds-card slds-m-bottom_medium">
+                    <header class="slds-card__header slds-p-around_small related-list-header">
+                      <div class="slds-media">
+                        <div class="slds-media__figure">
+                          <lightning-icon icon-name="standard:shipment" size="small" class="related-list-icon related-list-icon-green"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                          <h3 class="slds-card__header-title related-list-title">Return Order Line Item (0)</h3>
+                        </div>
+                      </div>
+                      <button class="slds-button slds-button_neutral related-list-new">New</button>
+                    </header>
+                  </section>
+                  <!-- Service Contract (0) -->
+                  <section class="related-list-card slds-card slds-m-bottom_medium">
+                    <header class="slds-card__header slds-p-around_small related-list-header">
+                      <div class="slds-media">
+                        <div class="slds-media__figure">
+                          <lightning-icon icon-name="standard:record" size="small" class="related-list-icon related-list-icon-blue"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                          <h3 class="slds-card__header-title related-list-title">Service Contract (0)</h3>
+                        </div>
+                      </div>
+                      <button class="slds-button slds-button_neutral related-list-new">New</button>
+                    </header>
+                  </section>
+                  <!-- Work Orders (0) -->
+                  <section class="related-list-card slds-card slds-m-bottom_medium">
+                    <header class="slds-card__header slds-p-around_small related-list-header">
+                      <div class="slds-media">
+                        <div class="slds-media__figure">
+                          <lightning-icon icon-name="standard:work_order" size="small" class="related-list-icon related-list-icon-green"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                          <h3 class="slds-card__header-title related-list-title">Work Orders (0)</h3>
+                        </div>
+                      </div>
+                      <button class="slds-button slds-button_neutral related-list-new">New</button>
+                    </header>
+                  </section>
+                  <!-- Maintenance Plan (0) -->
+                  <section class="related-list-card slds-card slds-m-bottom_medium">
+                    <header class="slds-card__header slds-p-around_small related-list-header">
+                      <div class="slds-media">
+                        <div class="slds-media__figure">
+                          <lightning-icon icon-name="standard:maintenance_plan" size="small" class="related-list-icon related-list-icon-blue"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                          <h3 class="slds-card__header-title related-list-title">Maintenance Plan (0)</h3>
+                        </div>
+                      </div>
+                      <button class="slds-button slds-button_neutral related-list-new">New</button>
+                    </header>
+                  </section>
+                  <!-- Warranty (1) -->
+                  <section class="related-list-card slds-card slds-m-bottom_medium">
+                    <header class="slds-card__header slds-p-around_small related-list-header">
+                      <div class="slds-media">
+                        <div class="slds-media__figure">
+                          <lightning-icon icon-name="standard:warranty" size="small" class="related-list-icon related-list-icon-blue"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                          <h3 class="slds-card__header-title related-list-title">Warranty (1)</h3>
+                        </div>
+                      </div>
+                      <button class="slds-button slds-button_neutral related-list-new">New</button>
+                    </header>
+                    <div class="slds-card__body slds-p-horizontal_small slds-p-bottom_small">
+                      <div class="related-list-table-wrap">
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered related-list-table">
+                          <thead>
+                            <tr class="slds-line-height_reset">
+                              <th class="slds-cell-shrink" scope="col"><input type="checkbox" class="slds-checkbox" aria-label="Select all" /></th>
+                              <th scope="col"><span class="slds-truncate">Warranty</span></th>
+                              <th scope="col"><span class="slds-truncate">Asset</span></th>
+                              <th scope="col"><span class="slds-truncate">—</span></th>
+                              <th scope="col"><span class="slds-truncate">—</span></th>
+                              <th class="slds-cell-shrink" scope="col"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="slds-cell-shrink"><input type="checkbox" class="slds-checkbox" aria-label="Select row" /></td>
+                              <td><a href="#">W-87121126</a></td>
+                              <td>MacBook</td>
+                              <td>—</td>
+                              <td>—</td>
+                              <td class="slds-cell-shrink"><lightning-icon icon-name="utility:info" size="x-small" class="related-list-info-icon"></lightning-icon></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p class="related-list-view-all"><a href="#">View All</a></p>
+                    </div>
+                  </section>
+                  <!-- Incidents (3) -->
+                  <section class="related-list-card slds-card slds-m-bottom_medium">
+                    <header class="slds-card__header slds-p-around_small related-list-header">
+                      <div class="slds-media">
+                        <div class="slds-media__figure">
+                          <lightning-icon icon-name="standard:incident" size="small" class="related-list-icon related-list-icon-red"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                          <h3 class="slds-card__header-title related-list-title">Incidents (3)</h3>
+                        </div>
+                      </div>
+                      <button class="slds-button slds-button_neutral related-list-new">New</button>
+                    </header>
+                    <div class="slds-card__body slds-p-horizontal_small slds-p-bottom_small">
+                      <div class="related-list-table-wrap">
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered related-list-table">
+                          <thead>
+                            <tr class="slds-line-height_reset">
+                              <th class="slds-cell-shrink" scope="col"><input type="checkbox" class="slds-checkbox" aria-label="Select all" /></th>
+                              <th scope="col"><span class="slds-truncate">Incident</span></th>
+                              <th scope="col"><span class="slds-truncate">Priority</span></th>
+                              <th scope="col"><span class="slds-truncate">Status</span></th>
+                              <th class="slds-cell-shrink" scope="col"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="slds-cell-shrink"><input type="checkbox" class="slds-checkbox" aria-label="Select row" /></td>
+                              <td><a href="#">INC-00000043</a></td>
+                              <td>High</td>
+                              <td>Resolved</td>
+                              <td class="slds-cell-shrink"><lightning-icon icon-name="utility:info" size="x-small" class="related-list-info-icon"></lightning-icon></td>
+                            </tr>
+                            <tr>
+                              <td class="slds-cell-shrink"><input type="checkbox" class="slds-checkbox" aria-label="Select row" /></td>
+                              <td><a href="#">INC-00000012</a></td>
+                              <td>Medium</td>
+                              <td>Closed</td>
+                              <td class="slds-cell-shrink"><lightning-icon icon-name="utility:info" size="x-small" class="related-list-info-icon"></lightning-icon></td>
+                            </tr>
+                            <tr>
+                              <td class="slds-cell-shrink"><input type="checkbox" class="slds-checkbox" aria-label="Select row" /></td>
+                              <td><a href="#">INC-00000053</a></td>
+                              <td>High</td>
+                              <td>Closed</td>
+                              <td class="slds-cell-shrink"><lightning-icon icon-name="utility:info" size="x-small" class="related-list-info-icon"></lightning-icon></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p class="related-list-view-all"><a href="#">View All</a></p>
+                    </div>
+                  </section>
+                  <!-- Change Request (1) -->
+                  <section class="related-list-card slds-card slds-m-bottom_medium">
+                    <header class="slds-card__header slds-p-around_small related-list-header">
+                      <div class="slds-media">
+                        <div class="slds-media__figure">
+                          <lightning-icon icon-name="standard:change_request" size="small" class="related-list-icon related-list-icon-green"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                          <h3 class="slds-card__header-title related-list-title">Change Request (1)</h3>
+                        </div>
+                      </div>
+                      <button class="slds-button slds-button_neutral related-list-new">New</button>
+                    </header>
+                    <div class="slds-card__body slds-p-horizontal_small slds-p-bottom_small">
+                      <div class="related-list-table-wrap">
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered related-list-table">
+                          <thead>
+                            <tr class="slds-line-height_reset">
+                              <th class="slds-cell-shrink" scope="col"><input type="checkbox" class="slds-checkbox" aria-label="Select all" /></th>
+                              <th scope="col"><span class="slds-truncate">Change Request</span></th>
+                              <th scope="col"><span class="slds-truncate">Priority</span></th>
+                              <th scope="col"><span class="slds-truncate">Status</span></th>
+                              <th class="slds-cell-shrink" scope="col"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="slds-cell-shrink"><input type="checkbox" class="slds-checkbox" aria-label="Select row" /></td>
+                              <td><a href="#">INC-00000043</a></td>
+                              <td>High</td>
+                              <td>Resolved</td>
+                              <td class="slds-cell-shrink"><lightning-icon icon-name="utility:info" size="x-small" class="related-list-info-icon"></lightning-icon></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p class="related-list-view-all"><a href="#">View All</a></p>
+                    </div>
+                  </section>
+                  <!-- Problem (0) -->
+                  <section class="related-list-card slds-card slds-m-bottom_medium">
+                    <header class="slds-card__header slds-p-around_small related-list-header">
+                      <div class="slds-media">
+                        <div class="slds-media__figure">
+                          <lightning-icon icon-name="standard:problem" size="small" class="related-list-icon related-list-icon-orange"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                          <h3 class="slds-card__header-title related-list-title">Problem (0)</h3>
+                        </div>
+                      </div>
+                      <button class="slds-button slds-button_neutral related-list-new">New</button>
+                    </header>
+                  </section>
                 </div>
               </div>
             </template>
