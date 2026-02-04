@@ -1327,6 +1327,17 @@ template {
   text-decoration: underline;
 }
 
+a.record-link,
+.related-list-table a.record-link {
+  color: var(--slds-g-color-accent-2, #0176d3) !important;
+  text-decoration: none;
+}
+a.record-link:hover,
+.related-list-table a.record-link:hover {
+  text-decoration: underline;
+  color: var(--slds-g-color-accent-3, #014486) !important;
+}
+
 .related-list-view-all {
   text-align: center;
   margin: 0;
