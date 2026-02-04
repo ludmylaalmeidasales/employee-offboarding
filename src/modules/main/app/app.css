@@ -964,6 +964,9 @@ template {
   justify-content: flex-end;
 }
 
+.asset-more-actions-icon {
+  --slds-c-icon-color-foreground-default: var(--slds-g-color-accent-2, #0176d3);
+}
 
 .asset-overview-icon lightning-icon {
   --slds-c-icon-color-foreground-default: #5B21B6;
