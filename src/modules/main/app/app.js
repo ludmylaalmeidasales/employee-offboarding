@@ -5,7 +5,7 @@ export default class HelloWorldApp extends LightningElement {
   closeButtonListenerAdded = false;
   isTyping = false; // Add reactive property to track typing state
   resultsLoaded = false; // Add reactive property to track when results are loaded
-  activeTab = 'details'; // Asset tabs: details | fulfillment | service | hierarchy | related
+  activeTab = 'details'; // Asset tabs: details | fulfillment | service | configuration | related
   alertsAccordionOpen = false;
   detailsAccordionOpen = true;
   financialAccordionOpen = true;
@@ -48,8 +48,8 @@ export default class HelloWorldApp extends LightningElement {
   get serviceTabClass() {
     return 'slds-tabs_default__item' + (this.activeTab === 'service' ? ' slds-is-active' : '');
   }
-  get hierarchyTabClass() {
-    return 'slds-tabs_default__item' + (this.activeTab === 'hierarchy' ? ' slds-is-active' : '');
+  get configurationTabClass() {
+    return 'slds-tabs_default__item' + (this.activeTab === 'configuration' ? ' slds-is-active' : '');
   }
   get relatedTabClass() {
     return 'slds-tabs_default__item' + (this.activeTab === 'related' ? ' slds-is-active' : '');
@@ -64,8 +64,8 @@ export default class HelloWorldApp extends LightningElement {
   get isServiceTab() {
     return this.activeTab === 'service';
   }
-  get isHierarchyTab() {
-    return this.activeTab === 'hierarchy';
+  get isConfigurationTab() {
+    return this.activeTab === 'configuration';
   }
   get isRelatedTab() {
     return this.activeTab === 'related';

@@ -150,12 +150,6 @@
             </div>
           </div>
           <div class="slds-grid slds-wrap slds-m-bottom_small asset-details-grid">
-            <div class="slds-col slds-size_1-of-1">
-              <div class="slds-text-title">Unique Identifier</div>
-              <div>8a7e5e5c-a15d-43b1-b3d0-0182abc9</div>
-            </div>
-          </div>
-          <div class="slds-grid slds-wrap slds-m-bottom_small asset-details-grid">
             <div class="slds-col slds-size_1-of-2">
               <div class="slds-text-title">Last Logged User</div>
               <a href="#" class="detail-link"><lightning-icon icon-name="standard:person_account" size="x-small"
@@ -301,15 +295,15 @@
               </li>
               <li class={fulfillmentTabClass} role="presentation">
                 <a class="slds-tabs_default__link" href="javascript:void(0)" role="tab" data-tab="fulfillment"
-                  onclick={handleTabClick} aria-selected={isFulfillmentTab}>Fulfillment History</a>
+                  onclick={handleTabClick} aria-selected={isFulfillmentTab}>Lifecycle &amp; Fulfillment</a>
               </li>
               <li class={serviceTabClass} role="presentation">
                 <a class="slds-tabs_default__link" href="javascript:void(0)" role="tab" data-tab="service"
                   onclick={handleTabClick} aria-selected={isServiceTab}>Service &amp; Support</a>
               </li>
-              <li class={hierarchyTabClass} role="presentation">
-                <a class="slds-tabs_default__link" href="javascript:void(0)" role="tab" data-tab="hierarchy"
-                  onclick={handleTabClick} aria-selected={isHierarchyTab}>Hierarchy</a>
+              <li class={configurationTabClass} role="presentation">
+                <a class="slds-tabs_default__link" href="javascript:void(0)" role="tab" data-tab="configuration"
+                  onclick={handleTabClick} aria-selected={isConfigurationTab}>Configuration</a>
               </li>
               <li class={relatedTabClass} role="presentation">
                 <a class="slds-tabs_default__link" href="javascript:void(0)" role="tab" data-tab="related"
@@ -346,11 +340,6 @@
                           <span class="slds-text-title">Serial Number</span>
                           <span class="detail-value-editable">C02ZP7XJMD9W <lightning-icon icon-name="utility:edit"
                               size="xx-small" class="edit-icon"></lightning-icon></span>
-                        </div>
-                        <div class="detail-row">
-                          <span class="slds-text-title">Unique Identifier</span>
-                          <span class="detail-value-editable">8a7e5e5c-a15d-43b1-b3d0-0182abc9 <lightning-icon
-                              icon-name="utility:edit" size="xx-small" class="edit-icon"></lightning-icon></span>
                         </div>
                       </div>
                     </template>
@@ -496,9 +485,97 @@
             </template>
             <template if:true={isFulfillmentTab}>
               <div class="slds-tabs_default__content slds-show" role="tabpanel">
-                <div class="tab-placeholder slds-p-around_large">
-                  <p class="slds-text-body_regular slds-text-color_weak">Fulfillment History content will appear here.
-                  </p>
+                <div class="related-lists-section fulfillment-history-section">
+                  <!-- Fulfillment Order Line Item -->
+                  <section class="related-list-card slds-card slds-card_boundary slds-m-bottom_medium">
+                    <header class="slds-card__header slds-p-around_small related-list-header">
+                      <div class="slds-media">
+                        <div class="slds-media__figure">
+                          <lightning-icon icon-name="standard:product" size="small" class="related-list-icon related-list-icon-gray"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                          <h3 class="slds-card__header-title related-list-title">Fulfillment Order Line Item</h3>
+                        </div>
+                      </div>
+                      <button class="slds-button slds-button_neutral related-list-new">New</button>
+                    </header>
+                    <div class="slds-card__body slds-p-horizontal_small">
+                      <div class="related-list-table-wrap">
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered related-list-table fulfillment-history-table">
+                          <thead>
+                            <tr class="slds-line-height_reset">
+                              <th class="slds-cell-shrink" scope="col"><input type="checkbox" class="slds-checkbox" aria-label="Select all" /></th>
+                              <th scope="col"><span class="slds-truncate">Name</span></th>
+                              <th scope="col"><span class="slds-truncate">Location</span></th>
+                              <th scope="col"><span class="slds-truncate">Status</span></th>
+                              <th scope="col"><span class="slds-truncate">Date</span></th>
+                              <th class="slds-cell-shrink" scope="col"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="slds-cell-shrink"><input type="checkbox" class="slds-checkbox" aria-label="Select row" /></td>
+                              <td><a href="#" class="record-link">FOLI-45678923</a></td>
+                              <td><a href="#" class="record-link">Chicago</a></td>
+                              <td>Completed</td>
+                              <td>01/15/26</td>
+                              <td class="slds-cell-shrink"><lightning-icon icon-name="utility:info" size="x-small" class="related-list-info-icon"></lightning-icon></td>
+                            </tr>
+                            <tr>
+                              <td class="slds-cell-shrink"><input type="checkbox" class="slds-checkbox" aria-label="Select row" /></td>
+                              <td><a href="#" class="record-link">FOLI-9832</a></td>
+                              <td><a href="#" class="record-link">Chicago</a></td>
+                              <td>Completed</td>
+                              <td>02/01/26</td>
+                              <td class="slds-cell-shrink"><lightning-icon icon-name="utility:info" size="x-small" class="related-list-info-icon"></lightning-icon></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p class="related-list-view-all"><a href="#">View All</a></p>
+                    </div>
+                  </section>
+                  <!-- Return Order Line Item -->
+                  <section class="related-list-card slds-card slds-card_boundary slds-m-bottom_medium">
+                    <header class="slds-card__header slds-p-around_small related-list-header">
+                      <div class="slds-media">
+                        <div class="slds-media__figure">
+                          <lightning-icon icon-name="standard:shipment" size="small" class="related-list-icon related-list-icon-green"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                          <h3 class="slds-card__header-title related-list-title">Return Order Line Item</h3>
+                        </div>
+                      </div>
+                      <button class="slds-button slds-button_neutral related-list-new">New</button>
+                    </header>
+                    <div class="slds-card__body slds-p-horizontal_small">
+                      <div class="related-list-table-wrap">
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered related-list-table fulfillment-history-table">
+                          <thead>
+                            <tr class="slds-line-height_reset">
+                              <th class="slds-cell-shrink" scope="col"><input type="checkbox" class="slds-checkbox" aria-label="Select all" /></th>
+                              <th scope="col"><span class="slds-truncate">Name</span></th>
+                              <th scope="col"><span class="slds-truncate">Location</span></th>
+                              <th scope="col"><span class="slds-truncate">Status</span></th>
+                              <th scope="col"><span class="slds-truncate">Date</span></th>
+                              <th class="slds-cell-shrink" scope="col"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="slds-cell-shrink"><input type="checkbox" class="slds-checkbox" aria-label="Select row" /></td>
+                              <td><a href="#" class="record-link">ROLI-8273</a></td>
+                              <td><a href="#" class="record-link">Chicago</a></td>
+                              <td>Completed</td>
+                              <td>01/28/26</td>
+                              <td class="slds-cell-shrink"><lightning-icon icon-name="utility:info" size="x-small" class="related-list-info-icon"></lightning-icon></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p class="related-list-view-all"><a href="#">View All</a></p>
+                    </div>
+                  </section>
                 </div>
               </div>
             </template>
@@ -510,10 +587,10 @@
                 </div>
               </div>
             </template>
-            <template if:true={isHierarchyTab}>
+            <template if:true={isConfigurationTab}>
               <div class="slds-tabs_default__content slds-show" role="tabpanel">
                 <div class="tab-placeholder slds-p-around_large">
-                  <p class="slds-text-body_regular slds-text-color_weak">Hierarchy content will appear here.</p>
+                  <p class="slds-text-body_regular slds-text-color_weak">Configuration content will appear here.</p>
                 </div>
               </div>
             </template>

@@ -1338,6 +1338,42 @@ a.record-link:hover,
   color: var(--slds-g-color-accent-3, #014486) !important;
 }
 
+/* Lifecycle & Fulfillment: fixed column widths so both tables align */
+.fulfillment-history-table {
+  table-layout: fixed;
+  width: 100%;
+}
+.fulfillment-history-table th:nth-child(1),
+.fulfillment-history-table td:nth-child(1) {
+  width: 2.5rem;
+  box-sizing: border-box;
+}
+.fulfillment-history-table th:nth-child(2),
+.fulfillment-history-table td:nth-child(2) {
+  width: 22%;
+  box-sizing: border-box;
+}
+.fulfillment-history-table th:nth-child(3),
+.fulfillment-history-table td:nth-child(3) {
+  width: 22%;
+  box-sizing: border-box;
+}
+.fulfillment-history-table th:nth-child(4),
+.fulfillment-history-table td:nth-child(4) {
+  width: 22%;
+  box-sizing: border-box;
+}
+.fulfillment-history-table th:nth-child(5),
+.fulfillment-history-table td:nth-child(5) {
+  width: 18%;
+  box-sizing: border-box;
+}
+.fulfillment-history-table th:nth-child(6),
+.fulfillment-history-table td:nth-child(6) {
+  width: 2.5rem;
+  box-sizing: border-box;
+}
+
 .related-list-view-all {
   text-align: center;
   margin: 0;
