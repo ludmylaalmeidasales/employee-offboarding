@@ -5,6 +5,8 @@ export default class HelloWorldApp extends LightningElement {
   closeButtonListenerAdded = false;
   isTyping = false; // Add reactive property to track typing state
   resultsLoaded = false; // Add reactive property to track when results are loaded
+  activeTab = 'details'; // Asset tabs: details | fulfillment | service | hierarchy | related
+  alertsAccordionOpen = false;
 
   // Search dropdown functionality
   connectedCallback() {
@@ -19,6 +21,63 @@ export default class HelloWorldApp extends LightningElement {
     setTimeout(() => {
       this.setupDropdown();
     }, 100);
+  }
+
+  // Tab click handler
+  handleTabClick(event) {
+    event.preventDefault();
+    const tab = event.currentTarget.dataset.tab;
+    if (tab) {
+      this.activeTab = tab;
+    }
+  }
+
+  // Tab active state getters
+  get detailsTabClass() {
+    return 'slds-tabs_default__item' + (this.activeTab === 'details' ? ' slds-is-active' : '');
+  }
+  get fulfillmentTabClass() {
+    return 'slds-tabs_default__item' + (this.activeTab === 'fulfillment' ? ' slds-is-active' : '');
+  }
+  get serviceTabClass() {
+    return 'slds-tabs_default__item' + (this.activeTab === 'service' ? ' slds-is-active' : '');
+  }
+  get hierarchyTabClass() {
+    return 'slds-tabs_default__item' + (this.activeTab === 'hierarchy' ? ' slds-is-active' : '');
+  }
+  get relatedTabClass() {
+    return 'slds-tabs_default__item' + (this.activeTab === 'related' ? ' slds-is-active' : '');
+  }
+
+  get isDetailsTab() {
+    return this.activeTab === 'details';
+  }
+  get isFulfillmentTab() {
+    return this.activeTab === 'fulfillment';
+  }
+  get isServiceTab() {
+    return this.activeTab === 'service';
+  }
+  get isHierarchyTab() {
+    return this.activeTab === 'hierarchy';
+  }
+  get isRelatedTab() {
+    return this.activeTab === 'related';
+  }
+
+  get alertsAccordionChevron() {
+    return this.alertsAccordionOpen ? 'utility:chevrondown' : 'utility:chevronright';
+  }
+
+  handleAlertsAccordionClick() {
+    this.alertsAccordionOpen = !this.alertsAccordionOpen;
+  }
+
+  handleAlertsAccordionKeydown(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      this.handleAlertsAccordionClick();
+    }
   }
 
   // Getter for sparkle icon source
@@ -337,7 +396,8 @@ export default class HelloWorldApp extends LightningElement {
   // Function to display provider cards
   displayProviderCards(searchQuery) {
     const emptyState = this.template.querySelector('.empty-state');
-    const filtersContainer = this.template.querySelector('.filters-container').parentElement;
+    const filtersContainerEl = this.template.querySelector('.filters-container');
+    const filtersContainer = filtersContainerEl ? filtersContainerEl.parentElement : null;
     if (emptyState) {
       const providers = this.generateMockProviders(searchQuery);
       const filterPills = this.generateFilterPills(searchQuery);
@@ -395,14 +455,15 @@ export default class HelloWorldApp extends LightningElement {
   // Function to reset the view to initial state
   resetView() {
     const emptyState = this.template.querySelector('.empty-state');
-    const filtersContainer = this.template.querySelector('.filters-container').parentElement;
+    const filtersContainerEl = this.template.querySelector('.filters-container');
+    const filtersContainer = filtersContainerEl ? filtersContainerEl.parentElement : null;
     
     if (emptyState) {
       emptyState.innerHTML = `
         <!-- Custom illustration for Ask a Question -->
         <img class="main-illustration" src="https://i.imgur.com/TbPoQBf.png" alt="Ask a Question" width="300px">
         <h2 class="slds-text-heading_medium">Ask a Question</h2>
-        <p>Describe the patient's needs and we'll match them with the right provider</p>
+        <p>Describe the asset requirements and we'll match them with the right provider</p>
       `;
       emptyState.style.display = 'block';
     }

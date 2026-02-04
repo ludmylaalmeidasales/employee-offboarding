@@ -44,8 +44,8 @@
       <div class="slds-context-bar__item slds-no-hover">
         <span class="slds-context-bar__label-action slds-context-bar__app-name">
           <!-- <lightning-icon icon-name="utility:apps" size="small" class=" context-bar-icon"></lightning-icon> -->
-           <img src="https://i.imgur.com/3ooe8ew.png" style="width: 20px; height: 20px; margin-right: 10px;">
-          <span class="slds-truncate" title="Home">Makana Hospital</span>
+          <img src="https://i.imgur.com/3ooe8ew.png" style="width: 20px; height: 20px; margin-right: 10px;">
+          <span class="slds-truncate" title="Home">ITAM Console</span>
         </span>
       </div>
     </div>
@@ -53,12 +53,12 @@
       <ul class="slds-grid">
         <li class="slds-context-bar__item">
           <a href="#" class="slds-context-bar__label-action" title="Home">
-            <span class="slds-truncate">Home</span>
+            <span class="slds-truncate">Asset</span>
           </a>
         </li>
         <li class="slds-context-bar__item slds-is-active">
-          <a href="#" class="slds-context-bar__label-action" title="Patients" style="overflow-x:visible;">
-            <span class="slds-truncate" style="color: #0250D9; font-weight: 700;">Patients</span>
+          <a href="#" class="slds-context-bar__label-action" title="Assets" style="overflow-x:visible;">
+            <span class="slds-truncate" style="color: #0250D9; font-weight: 700;">MacBook Pro 16...</span>
           </a>
         </li>
         <li class="slds-context-bar__item">
@@ -91,422 +91,425 @@
   </nav>
 
   <!-- Main Content -->
-  <div class="slds-grid">
-    <!-- Sidebar -->
+  <div class="slds-grid body-grid">
+    <!-- Left Sidebar: Asset Overview -->
     <div class="sidebar slds-col slds-size_1-of-4">
-      <!-- Patient Details Card -->
+      <!-- Asset Overview Card -->
       <section class="slds-card">
         <header class="slds-card__header slds-p-around_medium">
           <div class="slds-media">
-            <div class="slds-media__figure">
-              <lightning-icon icon-name="action:user" size="xx-small"></lightning-icon>
+            <div class="slds-media__figure asset-overview-icon">
+              <lightning-icon icon-name="standard:asset_audit" size="small"></lightning-icon>
             </div>
             <div class="slds-media__body">
-              <h2 class="slds-card__header-title">
-                Patient Details
-              </h2>
+              <h2 class="slds-card__header-title">Asset Overview</h2>
             </div>
           </div>
         </header>
-        <div class="slds-media slds-p-horizontal_medium .slds-p-vertical_medium">
+        <div class="slds-media slds-p-horizontal_medium slds-p-bottom_small">
           <div class="slds-media__figure">
-            <img src="https://i.imgur.com/cyoy6Tu.png" alt="Andre Mitchel" width="60px">
+            <img src="https://i.imgur.com/nyLCrJZ.png" alt="MacBook Pro" width="60px" class="asset-image-placeholder">
           </div>
           <div class="slds-media__body slds-p-left_medium">
-            <div class="slds-text-heading_small" style="font-weight: 700; color: #03234D;">Andre Mitchel</div>
-            <div class="slds-text-body_small">Patient</div>
+            <div class="slds-text-heading_small" style="font-weight: 700; color: #03234D;">MacBook Pro 16 in (2021)
+            </div>
+            <div class="slds-text-body_small">Laptop</div>
+            <span class="slds-badge slds-badge_lightest assigned-badge">Assigned</span>
           </div>
         </div>
-        <div class="slds-card__body slds-p-horizontal_medium slds-p-bottom_medium" style="padding-top: 10px;">
-          <div class="slds-grid slds-wrap slds-m-bottom_small patient-details-grid">
+        <div class="slds-card__body slds-p-horizontal_medium slds-p-bottom_medium" style="padding-top: 0;">
+          <div class="slds-grid slds-wrap slds-m-bottom_small asset-details-grid">
             <div class="slds-col slds-size_1-of-2">
-              <div class="slds-text-title">Birthdate</div>
-              <div>Feb 21, 1964</div>
+              <div class="slds-text-title">Serial Number</div>
+              <div>C02ZP7XJMD9W</div>
             </div>
             <div class="slds-col slds-size_1-of-2">
-              <div class="slds-text-title">Age</div>
-              <div>60</div>
+              <div class="slds-text-title">Account</div>
+              <a href="#" class="detail-link"><lightning-icon icon-name="standard:person_account" size="x-small"
+                  class="detail-link-icon"></lightning-icon> Asset Owner</a>
             </div>
           </div>
-          <div class="slds-grid slds-wrap slds-m-bottom_small patient-details-grid">
+          <div class="slds-grid slds-wrap slds-m-bottom_small asset-details-grid">
             <div class="slds-col slds-size_1-of-2">
-              <div class="slds-text-title">Languages</div>
-              <div>English</div>
+              <div class="slds-text-title">Location</div>
+              <div>Remote, Texas</div>
             </div>
             <div class="slds-col slds-size_1-of-2">
-              <div class="slds-text-title">Gender</div>
-              <div>Male</div>
+              <div class="slds-text-title">Warranty Status</div>
+              <span class="slds-badge slds-theme_error">Out of Warranty</span>
             </div>
           </div>
-          <div class="slds-m-bottom_small">
-            <div class="slds-text-title">Preferred Communication</div>
-            <a href="tel:8673463496">(867) 346-3496</a>
+          <div class="slds-grid slds-wrap slds-m-bottom_small asset-details-grid">
+            <div class="slds-col slds-size_1-of-2">
+              <div class="slds-text-title">Warranty End Date</div>
+              <div>01/01/2026</div>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+              <div class="slds-text-title">Purchase Order</div>
+              <a href="#">PO-19825623</a>
+            </div>
           </div>
-          <div class="slds-m-bottom_small">
-            <div class="slds-text-title">Address</div>
-            <a href="https://maps.google.com/?q=34 Pine Street, Apt 5B, San Francisco, CA 94109" target="_blank">
-              34 Pine Street, Apt 5B,<br>San Francisco, CA 94109
-            </a>
+          <div class="slds-grid slds-wrap slds-m-bottom_small asset-details-grid">
+            <div class="slds-col slds-size_1-of-1">
+              <div class="slds-text-title">Unique Identifier</div>
+              <div>8a7e5e5c-a15d-43b1-b3d0-0182abc9</div>
+            </div>
           </div>
-          <div class="slds-m-bottom_small">
-            <section class="slds-accordion__section">
-              <div class="slds-accordion__summary" id="accordion-diagnoses-summary" role="tab" aria-controls="accordion-diagnoses-content" aria-expanded="false" tabindex="0" style="padding-left: 10px;">
-                <h3 class="slds-accordion__summary-heading">
-                  <button class="slds-button slds-accordion__summary-action" aria-controls="accordion-diagnoses-content" aria-expanded="false" tabindex="-1">
-                    <lightning-icon class="section-arrow-icon slds-icon-utility-chevrondown slds-icon_container" icon-name="utility:chevrondown" size="x-small"></lightning-icon>
-                    <span class="slds-accordion__summary-content">Diagnoses</span>
-                  </button>
-                </h3>
-              </div>
-              <div role="region" aria-labelledby="accordion-diagnoses-summary" >
-                <div class="diagnosis-badges-container">
-                  <span class="slds-badge slds-badge_lightest diagnosis-badge">Type 2 Diabetes</span>
-                  <span class="slds-badge slds-badge_lightest diagnosis-badge">Hypertension</span>
-                  <span class="slds-badge slds-badge_lightest diagnosis-badge">Obesity</span>
-                </div>
-              </div>
-            </section>
+          <div class="slds-grid slds-wrap slds-m-bottom_small asset-details-grid">
+            <div class="slds-col slds-size_1-of-2">
+              <div class="slds-text-title">Last Logged User</div>
+              <a href="#" class="detail-link"><lightning-icon icon-name="standard:person_account" size="x-small"
+                  class="detail-link-icon"></lightning-icon> Asset Owner</a>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+              <div class="slds-text-title">Last Logged Date</div>
+              <div>02/16/2026, 8:59am</div>
+            </div>
           </div>
-          <div class="slds-m-bottom_small">
-            <section class="slds-accordion__section">
-              <div class="slds-accordion__summary" id="accordion-medications-summary" role="tab" aria-controls="accordion-medications-content" aria-expanded="false" tabindex="0"  style="padding-left: 10px;">
-                <h3 class="slds-accordion__summary-heading">
-                  <button class="slds-button slds-accordion__summary-action" aria-controls="accordion-medications-content" aria-expanded="false" tabindex="-1">
-                    <lightning-icon class="section-arrow-icon slds-icon-utility-chevrondown slds-icon_container" icon-name="utility:chevronright" size="x-small"></lightning-icon>
-                    <span class="slds-accordion__summary-content">Medication</span>
-                  </button>
-                </h3>
-              </div>
-              <div id="accordion-medications-content" class="slds-accordion__content accordion-content-hidden" role="region" aria-labelledby="accordion-medications-summary">
-                <span class="slds-text-body_small">—</span>
-              </div>
-            </section>
-          </div>
-          <div class="slds-m-bottom_small">
-            <section class="slds-accordion__section">
-              <div class="slds-accordion__summary" id="accordion-allergies-summary" role="tab" aria-controls="accordion-allergies-content" aria-expanded="false" tabindex="0"  style="padding-left: 10px;">
-                <h3 class="slds-accordion__summary-heading">
-                  <button class="slds-button slds-accordion__summary-action" aria-controls="accordion-allergies-content" aria-expanded="false" tabindex="-1">
-                    <lightning-icon class="section-arrow-icon slds-icon-utility-chevrondown slds-icon_container" icon-name="utility:chevronright" size="x-small"></lightning-icon>
-                    <span class="slds-accordion__summary-content">Allergies</span>
-                  </button>
-                </h3>
-              </div>
-              <div id="accordion-allergies-content" class="slds-accordion__content accordion-content-hidden" role="region" aria-labelledby="accordion-allergies-summary">
-                <span class="slds-text-body_small">—</span>
-              </div>
-            </section>
-          </div>
+
         </div>
       </section>
-      <!-- Attendance History Card -->
+      <!-- Asset Health Card -->
       <section class="slds-card slds-m-top_medium">
         <header class="slds-card__header slds-p-around_medium">
           <div class="slds-media">
             <div class="slds-media__figure">
-              <lightning-icon icon-name="action:new_event" size="xx-small"></lightning-icon>
+              <lightning-icon icon-name="standard:metrics" size="small"></lightning-icon>
             </div>
             <div class="slds-media__body">
-              <h2 class="slds-card__header-title">
-                Attendance History
-              </h2>
+              <h2 class="slds-card__header-title">Asset Health</h2>
             </div>
           </div>
         </header>
         <div class="slds-card__body slds-card__body_inner slds-p-around_medium">
-          <div class="">
-            <img src="https://i.imgur.com/7ZSLKrC.png">
-            <div class="attendance-title">No Scheduled Appointments History</div>
-            <a href="#" class="attendance-link">View All</a>
+          <div class="asset-health-ring-section">
+            <div class="asset-health-ring">
+              <span class="asset-health-value">77%</span>
+            </div>
+            <div class="asset-health-days-block">
+              <span class="asset-health-days-main">3 years and 40 days</span>
+              <span class="asset-health-days-sub">in service</span>
+            </div>
+          </div>
+          <div class="asset-health-content">
+            <div class="asset-health-text">
+              <div class="asset-health-row">
+                <div>
+                  <div class="slds-text-title">End of Life Date</div>
+                  <div>5/28/2026</div>
+                </div>
+                <div>
+                  <div class="slds-text-title">Upgrade Eligibility</div>
+                  <span class="slds-badge slds-theme_info">Eligible</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+      <!-- Repairs Card -->
+      <section class="slds-card slds-m-top_medium">
+        <header class="slds-card__header slds-p-around_medium">
+          <div class="slds-media">
+            <div class="slds-media__figure">
+              <lightning-icon icon-name="custom:custom19" size="small" title="Repairs"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+              <h2 class="slds-card__header-title">Repairs</h2>
+            </div>
+          </div>
+        </header>
+        <div class="slds-card__body slds-card__body_inner slds-p-around_medium">
+          <div class="repairs-empty-state">
+            <img src="https://i.imgur.com/7ZSLKrC.png" alt="No repairs">
+            <p class="repairs-empty-message">No repairs have been created</p>
+          </div>
+        </div>
+      </section>
+      <!-- To Do List Card -->
+      <section class="slds-card slds-m-top_medium">
+        <header class="slds-card__header slds-p-around_medium">
+          <div class="slds-media">
+            <div class="slds-media__figure">
+              <lightning-icon icon-name="utility:task" size="xx-small"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+              <h2 class="slds-card__header-title">To Do List</h2>
+            </div>
+          </div>
+        </header>
+        <div class="slds-card__body slds-card__body_inner slds-p-around_medium">
+          <span class="slds-text-body_small">—</span>
+        </div>
+      </section>
     </div>
-    <!-- Main Content -->
-    <div class="main-content slds-card slds-col">
-      <div class="slds-p-around_large main-content-centered">
-        <h1 class="slds-text-heading_large slds-m-bottom_small main-heading">Provider Search</h1>
-        <p class="slds-text-body_regular slds-m-bottom_large main-subtitle">Find and connect with healthcare providers
-          using AI-powered search</p>
-        <div class="slds-form-element slds-m-vertical_medium search-container">
-          <div class="slds-form-element__control">
-            <input type="text" class="slds-input search-input" id="searchInput"
-              placeholder="Tell us what type of provider you need..." 
-              oninput={handleInputChange} />
-            <!-- Icons positioned inside the input -->
-            <div class="search-icon-right">
-              <lightning-icon icon-name="utility:unmuted" size="x-small" style="padding-right: 14px;"></lightning-icon>
-              <img id="sparkleIcon" src={sparkleIconSrc} alt="Sparkle" style="width: 30px; height: 30px; vertical-align: middle; cursor: pointer;" onclick={handleSparkleIconClick}>
-              <lightning-button-icon 
-                id="closeButton" 
-                icon-name="utility:close" 
-                variant="bare" 
-                size="small" 
-                class="close-button" 
-                style="display: none;">
-              </lightning-button-icon>
+    <!-- Main Content + Timeline -->
+    <div class="main-content-wrapper slds-col">
+      <div class="main-content-column slds-col">
+        <!-- Asset header with actions (no card) -->
+        <div class="asset-main-header slds-p-around_medium">
+          <div class="asset-title-row">
+            <lightning-icon icon-name="standard:asset_object" size="medium" class="asset-title-icon"></lightning-icon>
+            <div class="asset-title-text">
+              <p class="asset-title-label">Asset</p>
+              <h1 class="slds-text-heading_large main-heading">MacBook Pro 16 in (2021)</h1>
             </div>
-            <!-- Dropdown suggestions -->
-            <div class="search-dropdown" id="search-dropdown">
-              <div class="dropdown-section">
-                <div class="dropdown-section-title">Suggested search queries</div>
-                <!-- Cardiologist -->
-                <div class="dropdown-item" data-value="Find a cardiologist for hypertension management">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a cardiologist for hypertension management</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a top-rated cardiologist near me">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a top-rated cardiologist near me</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a cardiologist for heart disease">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a cardiologist for heart disease</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a cardiologist who accepts Blue Cross">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a cardiologist who accepts Blue Cross</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a cardiologist for chest pain">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a cardiologist for chest pain</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a pediatric cardiologist">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a pediatric cardiologist</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a cardiologist for arrhythmia">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a cardiologist for arrhythmia</span>
-                </div>
-                <!-- Dermatologist -->
-                <div class="dropdown-item" data-value="Find a dermatologist for skin rash treatment">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a dermatologist for skin rash treatment</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a dermatologist for acne">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a dermatologist for acne</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a dermatologist for eczema">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a dermatologist for eczema</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a dermatologist for mole check">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a dermatologist for mole check</span>
-                </div>
-                <!-- Endocrinologist -->
-                <div class="dropdown-item" data-value="Find an endocrinologist for diabetes care">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find an endocrinologist for diabetes care</span>
-                </div>
-                <div class="dropdown-item" data-value="Find an endocrinologist for thyroid issues">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find an endocrinologist for thyroid issues</span>
-                </div>
-                <div class="dropdown-item" data-value="Find an endocrinologist for hormone imbalance">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find an endocrinologist for hormone imbalance</span>
-                </div>
-                <!-- Orthopedic Surgeon -->
-                <div class="dropdown-item" data-value="Find an orthopedic surgeon for knee pain">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find an orthopedic surgeon for knee pain</span>
-                </div>
-                <div class="dropdown-item" data-value="Find an orthopedic surgeon for hip replacement">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find an orthopedic surgeon for hip replacement</span>
-                </div>
-                <div class="dropdown-item" data-value="Find an orthopedic surgeon for sports injury">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find an orthopedic surgeon for sports injury</span>
-                </div>
-                <!-- Psychiatrist -->
-                <div class="dropdown-item" data-value="Find a psychiatrist for anxiety treatment">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a psychiatrist for anxiety treatment</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a psychiatrist for depression">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a psychiatrist for depression</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a psychiatrist for ADHD">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a psychiatrist for ADHD</span>
-                </div>
-                <!-- Pediatrician -->
-                <div class="dropdown-item" data-value="Find a pediatrician for child wellness check">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a pediatrician for child wellness check</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a pediatrician for immunizations">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a pediatrician for immunizations</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a pediatrician for asthma management">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a pediatrician for asthma management</span>
-                </div>
-                <!-- Gastroenterologist -->
-                <div class="dropdown-item" data-value="Find a gastroenterologist for stomach issues">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a gastroenterologist for stomach issues</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a gastroenterologist for colonoscopy">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a gastroenterologist for colonoscopy</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a gastroenterologist for IBS">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a gastroenterologist for IBS</span>
-                </div>
-                <!-- Neurologist -->
-                <div class="dropdown-item" data-value="Find a neurologist for migraine treatment">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a neurologist for migraine treatment</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a neurologist for epilepsy">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a neurologist for epilepsy</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a neurologist for multiple sclerosis">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a neurologist for multiple sclerosis</span>
-                </div>
-                <!-- Family Medicine Doctor -->
-                <div class="dropdown-item" data-value="Find a family medicine doctor for annual physical">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a family medicine doctor for annual physical</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a family medicine doctor for preventive care">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a family medicine doctor for preventive care</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a family medicine doctor for chronic disease management">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a family medicine doctor for chronic disease management</span>
-                </div>
-                <!-- Nutritionist -->
-                <div class="dropdown-item" data-value="Find a nutritionist for weight loss">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a nutritionist for weight loss</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a nutritionist for diabetes management">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a nutritionist for diabetes management</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a nutritionist for sports nutrition">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a nutritionist for sports nutrition</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a nutritionist for meal planning">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a nutritionist for meal planning</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a nutritionist for food allergies">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a nutritionist for food allergies</span>
-                </div>
-                <!-- Dentist -->
-                <div class="dropdown-item" data-value="Find a dentist for routine cleaning">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a dentist for routine cleaning</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a dentist for cavity filling">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a dentist for cavity filling</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a dentist for root canal">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a dentist for root canal</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a dentist for wisdom teeth removal">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a dentist for wisdom teeth removal</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a dentist for cosmetic dentistry">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a dentist for cosmetic dentistry</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a pediatric dentist">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a pediatric dentist</span>
-                </div>
-                <!-- Vision/Eye Care -->
-                <div class="dropdown-item" data-value="Find an optometrist for eye exam">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find an optometrist for eye exam</span>
-                </div>
-                <div class="dropdown-item" data-value="Find an ophthalmologist for cataract surgery">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find an ophthalmologist for cataract surgery</span>
-                </div>
-                <div class="dropdown-item" data-value="Find an optometrist for contact lens fitting">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find an optometrist for contact lens fitting</span>
-                </div>
-                <div class="dropdown-item" data-value="Find an ophthalmologist for glaucoma treatment">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find an ophthalmologist for glaucoma treatment</span>
-                </div>
-                <div class="dropdown-item" data-value="Find an optometrist for dry eye treatment">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find an optometrist for dry eye treatment</span>
-                </div>
-                <div class="dropdown-item" data-value="Find an ophthalmologist for LASIK surgery">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find an ophthalmologist for LASIK surgery</span>
-                </div>
-              </div>
-              <div class="dropdown-section">
-                <div class="dropdown-section-title">More suggestions</div>
-                <!-- You can add more general or location-based queries here if desired -->
-                <div class="dropdown-item" data-value="Find a provider near me">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a provider near me</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a top-rated provider">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a top-rated provider</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a female provider">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a female provider</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a male provider">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a male provider</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a female cardiologist">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a female cardiologist</span>
-                </div>
-                <div class="dropdown-item" data-value="Find a male dermatologist">
-                  <lightning-icon icon-name="utility:search" size="x-small" class="dropdown-icon"></lightning-icon>
-                  <span>Find a male dermatologist</span>
-                </div>
-              </div>
+          </div>
+          <div class="asset-action-buttons">
+            <button class="slds-button slds-button_neutral">+ Follow</button>
+            <div class="slds-button-group" role="group">
+              <button class="slds-button slds-button_neutral">Edit</button>
+              <button class="slds-button slds-button_neutral">Refresh Asset</button>
+              <button class="slds-button slds-button_neutral">Transfer Asset</button>
+              <button class="slds-button slds-button_neutral">Reclaim Asset</button>
+              <button class="slds-button slds-button_icon slds-button_icon-border-filled" title="More Actions">
+                <lightning-icon icon-name="utility:down" size="x-small"></lightning-icon>
+              </button>
             </div>
           </div>
         </div>
-        <div class="slds-m-bottom_large">
-          <div class="filters-container">
-            <h4>These filters will be automatically applied to your search</h4>
-            <div class="filters-badges">
-              <span class="slds-badge slds-badge_lightest"><lightning-icon icon-name="utility:identity" size="xx-small" class="badge-icon-spacing"></lightning-icon>Accepts Blue Cross Blue Shield</span>
-              <span class="slds-badge slds-badge_lightest"><lightning-icon icon-name="utility:check" size="xx-small" class="badge-icon-spacing"></lightning-icon>Accepts new patients</span>
-              <span class="slds-badge slds-badge_lightest"><lightning-icon icon-name="utility:checkin" size="xx-small" class="badge-icon-spacing"></lightning-icon>Near 94109</span>
+        <!-- Alerts card (same structure as Asset Overview) -->
+        <section class="slds-card alerts-card slds-m-top_medium">
+          <header class="slds-card__header slds-p-around_medium alerts-card-header">
+            <div class="slds-media">
+              <div class="slds-media__figure">
+                <lightning-icon icon-name="custom:custom53" size="small" class="alerts-icon"></lightning-icon>
+              </div>
+              <div class="slds-media__body">
+
+                <h2 class="slds-card__header-title">Alerts (1)</h2>
+              </div>
             </div>
+            <lightning-icon icon-name="utility:refresh" size="x-small" class="alerts-card-refresh"
+              title="Refresh"></lightning-icon>
+          </header>
+          <div class="slds-card__body slds-p-horizontal_medium" style="padding-top: 0;">
+            <section class="slds-accordion__section alert-accordion-section">
+              <div class="alert-accordion-row">
+                <lightning-icon icon-name="utility:warning" size="x-small" class="alert-warning-icon"></lightning-icon>
+                <div class="slds-accordion__summary alert-accordion-summary" onclick={handleAlertsAccordionClick}
+                  role="button" tabindex="0" onkeydown={handleAlertsAccordionKeydown}>
+                  <lightning-icon icon-name={alertsAccordionChevron} size="x-small"
+                    class="alert-accordion-chevron"></lightning-icon>
+                  <span class="slds-accordion__summary-content slds-text-body_regular">Asset end of life
+                    approaching</span>
+                </div>
+              </div>
+              <template if:true={alertsAccordionOpen}>
+                <div class="slds-accordion__content alert-accordion-content">
+                  <p class="slds-text-body_small slds-text-color_weak">This asset is approaching its end of life date
+                    (5/28/2026). Consider planning for replacement or upgrade.</p>
+                </div>
+              </template>
+            </section>
           </div>
-        </div>
-        <div class="slds-align_absolute-center empty-state">
-          <!-- Custom illustration for Ask a Question -->
-          <img class="main-illustration slds-m-top_xx-large" src="https://i.imgur.com/TbPoQBf.png" alt="Ask a Question" width="300px">
-          <h2 class="slds-text-heading_medium">Ask a Question</h2>
-          <p>Describe the patient's needs and we'll match them with the right provider</p>
+          <footer class="slds-card__footer alerts-card-footer">
+            <a href="#" class="alerts-card-view-all">View All</a>
+          </footer>
+        </section>
+        <!-- Tabs card -->
+        <div class="slds-card asset-tabs-card slds-m-top_medium">
+          <div class="asset-tabs slds-p-around_medium">
+            <ul class="slds-tabs_default__nav" role="tablist">
+              <li class={detailsTabClass} role="presentation">
+                <a class="slds-tabs_default__link" href="javascript:void(0)" role="tab" tabindex="0" data-tab="details"
+                  onclick={handleTabClick} aria-selected={isDetailsTab}>Details</a>
+              </li>
+              <li class={fulfillmentTabClass} role="presentation">
+                <a class="slds-tabs_default__link" href="javascript:void(0)" role="tab" data-tab="fulfillment"
+                  onclick={handleTabClick} aria-selected={isFulfillmentTab}>Fulfillment History</a>
+              </li>
+              <li class={serviceTabClass} role="presentation">
+                <a class="slds-tabs_default__link" href="javascript:void(0)" role="tab" data-tab="service"
+                  onclick={handleTabClick} aria-selected={isServiceTab}>Service &amp; Support</a>
+              </li>
+              <li class={hierarchyTabClass} role="presentation">
+                <a class="slds-tabs_default__link" href="javascript:void(0)" role="tab" data-tab="hierarchy"
+                  onclick={handleTabClick} aria-selected={isHierarchyTab}>Hierarchy</a>
+              </li>
+              <li class={relatedTabClass} role="presentation">
+                <a class="slds-tabs_default__link" href="javascript:void(0)" role="tab" data-tab="related"
+                  onclick={handleTabClick} aria-selected={isRelatedTab}>Related</a>
+              </li>
+            </ul>
+            <template if:true={isDetailsTab}>
+              <div class="slds-tabs_default__content slds-show" role="tabpanel">
+                <div class="details-section slds-m-top_medium">
+                  <section class="slds-accordion__section">
+                    <div class="slds-accordion__summary details-subsection-header">
+                      <lightning-icon icon-name="utility:chevrondown" size="x-small"
+                        class="section-arrow-icon"></lightning-icon>
+                      <span class="slds-accordion__summary-content">Details</span>
+                    </div>
+                    <div class="details-grid slds-m-top_small">
+                      <div class="detail-row">
+                        <span class="slds-text-title">Asset Name</span>
+                        <span class="detail-value-editable">MacBook Pro 16 in (2021) <lightning-icon
+                            icon-name="utility:edit" size="xx-small" class="edit-icon"></lightning-icon></span>
+                      </div>
+                      <div class="detail-row">
+                        <span class="slds-text-title">Asset Type</span>
+                        <span class="detail-value-editable">Laptop <lightning-icon icon-name="utility:edit"
+                            size="xx-small" class="edit-icon"></lightning-icon></span>
+                      </div>
+                      <div class="detail-row">
+                        <span class="slds-text-title">Product</span>
+                        <a href="#">Macbook Pro</a>
+                      </div>
+                      <div class="detail-row">
+                        <span class="slds-text-title">Serial Number</span>
+                        <span class="detail-value-editable">C02ZP7XJMD9W <lightning-icon icon-name="utility:edit"
+                            size="xx-small" class="edit-icon"></lightning-icon></span>
+                      </div>
+                      <div class="detail-row">
+                        <span class="slds-text-title">Unique Identifier</span>
+                        <span class="detail-value-editable">8a7e5e5c-a15d-43b1-b3d0-0182abc9 <lightning-icon
+                            icon-name="utility:edit" size="xx-small" class="edit-icon"></lightning-icon></span>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="slds-accordion__section slds-m-top_medium">
+                    <div class="slds-accordion__summary details-subsection-header">
+                      <lightning-icon icon-name="utility:chevronright" size="x-small"
+                        class="section-arrow-icon"></lightning-icon>
+                      <span class="slds-accordion__summary-content">Financial Information</span>
+                    </div>
+                    <div class="details-grid slds-m-top_small">
+                      <div class="detail-row">
+                        <span class="slds-text-title">Acquisition Type</span>
+                        <span class="detail-value-editable">Direct Purchase <lightning-icon icon-name="utility:edit"
+                            size="xx-small" class="edit-icon"></lightning-icon></span>
+                      </div>
+                      <div class="detail-row">
+                        <span class="slds-text-title">Purchase Order</span>
+                        <a href="#">PO-19825623</a>
+                      </div>
+                      <div class="detail-row">
+                        <span class="slds-text-title">Unit Cost</span>
+                        <span class="detail-value-editable">$3,131.00 <lightning-icon icon-name="utility:edit"
+                            size="xx-small" class="edit-icon"></lightning-icon></span>
+                      </div>
+                      <div class="detail-row">
+                        <span class="slds-text-title">Currency</span>
+                        <span class="detail-value-editable">USD <lightning-icon icon-name="utility:edit" size="xx-small"
+                            class="edit-icon"></lightning-icon></span>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </template>
+            <template if:true={isFulfillmentTab}>
+              <div class="slds-tabs_default__content slds-show" role="tabpanel">
+                <div class="tab-placeholder slds-p-around_large">
+                  <p class="slds-text-body_regular slds-text-color_weak">Fulfillment History content will appear here.
+                  </p>
+                </div>
+              </div>
+            </template>
+            <template if:true={isServiceTab}>
+              <div class="slds-tabs_default__content slds-show" role="tabpanel">
+                <div class="tab-placeholder slds-p-around_large">
+                  <p class="slds-text-body_regular slds-text-color_weak">Service &amp; Support content will appear here.
+                  </p>
+                </div>
+              </div>
+            </template>
+            <template if:true={isHierarchyTab}>
+              <div class="slds-tabs_default__content slds-show" role="tabpanel">
+                <div class="tab-placeholder slds-p-around_large">
+                  <p class="slds-text-body_regular slds-text-color_weak">Hierarchy content will appear here.</p>
+                </div>
+              </div>
+            </template>
+            <template if:true={isRelatedTab}>
+              <div class="slds-tabs_default__content slds-show" role="tabpanel">
+                <div class="tab-placeholder slds-p-around_large">
+                  <p class="slds-text-body_regular slds-text-color_weak">Related content will appear here.</p>
+                </div>
+              </div>
+            </template>
+          </div>
         </div>
       </div>
+      <!-- Timeline Panel (right) -->
+      <aside class="timeline-panel slds-card">
+        <header class="slds-card__header slds-p-around_medium">
+          <h2 class="slds-card__header-title">Timeline</h2>
+        </header>
+        <div class="slds-card__body slds-p-horizontal_medium slds-p-bottom_medium">
+          <div class="timeline-toolbar">
+            <div class="slds-form-element">
+              <label class="slds-form-element__label slds-assistive-text">Activity type</label>
+              <select class="slds-select timeline-select">
+                <option>Asset Activity</option>
+              </select>
+            </div>
+            <span class="slds-text-body_small">All Events •</span>
+            <div class="timeline-actions">
+              <button class="slds-button slds-button_neutral slds-button_stretch">New</button>
+              <div class="timeline-actions-icons">
+                <lightning-button-icon icon-name="utility:refresh" size="medium" alternative-text="Refresh" variant="border-filled" class="icon-accent-2"></lightning-button-icon>
+                <lightning-button-icon icon-name="utility:event" size="medium" alternative-text="Calendar" variant="border-filled"></lightning-button-icon>
+                <lightning-button-icon icon-name="utility:filterList" size="medium" alternative-text="Filter" variant="border-filled"></lightning-button-icon>
+                <lightning-button-icon icon-name="utility:sort" size="medium" alternative-text="Sort" variant="border-filled"></lightning-button-icon>
+              </div>
+            </div>
+          </div>
+          <ul class="timeline-list">
+            <li class="timeline-item">
+              <div class="timeline-marker timeline-marker-success"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">01/20/26</span>
+                <span class="timeline-event">Asset Updated</span>
+                <p class="timeline-desc">You added this asset to <a href="#">ROLI-8762</a></p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-marker timeline-marker-success"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">11/20/24</span>
+                <span class="timeline-event">Asset Received</span>
+                <p class="timeline-desc">You assigned this item to <a href="#">Asset Owner</a></p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-marker timeline-marker-default"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">09/20/22</span>
+                <span class="timeline-event">Asset Sent</span>
+                <p class="timeline-desc">A user added this item to <a href="#">FOLI-9832</a></p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-marker timeline-marker-warning"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">09/10/22</span>
+                <span class="timeline-event">Asset Reserved</span>
+                <p class="timeline-desc">Asset added to <a href="#">FOLI-8273</a> by asset owner.</p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <div class="timeline-marker timeline-marker-info"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">08/07/22</span>
+                <span class="timeline-event">Asset Creation</span>
+                <p class="timeline-desc">Asset was created.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Docked utility bar (SLDS pattern, sticky bottom) -->
+  <div class="slds-utility-bar" role="region" aria-label="Utility bar">
+    <div class="slds-utility-bar__item">
+      <button type="button" class="slds-utility-bar__action" title="To Do List">
+        <lightning-icon icon-name="utility:list" size="x-small" class="slds-icon"></lightning-icon>
+        <span class="slds-utility-bar__text">To Do List</span>
+      </button>
     </div>
   </div>
 </template>

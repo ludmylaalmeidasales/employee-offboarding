@@ -8,9 +8,9 @@
     "clean": "rimraf node_modules __lwr_cache__ site",
     "dev": "lwr dev",
     "dev:compat": "lwr dev --mode compat",
-    "build": "echo 'Starting Vercel build...' && lwr build --clean --mode prod-compat && echo 'Build completed successfully'",
-    "build:prod-compat": "lwr build --clean --mode prod-compat",
-    "vercel-build": "echo 'Starting Vercel build...' && lwr build --clean --mode prod-compat && echo 'Build completed successfully'",
+    "build": "lwr build --clean --mode prod-compat -o site",
+    "build:prod-compat": "lwr build --clean --mode prod-compat -o site",
+    "vercel-build": "lwr build --clean --mode prod-compat -o site",
     "start": "lwr start",
     "stage": "yarn build && yarn start",
     "stage:prod-compat": "yarn build:prod-compat && yarn start"
