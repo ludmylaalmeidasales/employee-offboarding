@@ -126,7 +126,7 @@
             <div class="slds-col slds-size_1-of-2">
               <div class="slds-text-title">Account</div>
               <a href="#" class="detail-link"><lightning-icon icon-name="standard:person_account" size="x-small"
-                  class="detail-link-icon"></lightning-icon> Asset Owner</a>
+                  class="detail-link-icon"></lightning-icon> John Small</a>
             </div>
           </div>
           <div class="slds-grid slds-wrap slds-m-bottom_small asset-details-grid">
@@ -159,7 +159,7 @@
             <div class="slds-col slds-size_1-of-2">
               <div class="slds-text-title">Last Logged User</div>
               <a href="#" class="detail-link"><lightning-icon icon-name="standard:person_account" size="x-small"
-                  class="detail-link-icon"></lightning-icon> Asset Owner</a>
+                  class="detail-link-icon"></lightning-icon> John Small</a>
             </div>
             <div class="slds-col slds-size_1-of-2">
               <div class="slds-text-title">Last Logged Date</div>
@@ -224,22 +224,6 @@
             <img src="https://i.imgur.com/7ZSLKrC.png" alt="No repairs">
             <p class="repairs-empty-message">No repairs have been created</p>
           </div>
-        </div>
-      </section>
-      <!-- To Do List Card -->
-      <section class="slds-card slds-m-top_medium">
-        <header class="slds-card__header slds-p-around_medium">
-          <div class="slds-media">
-            <div class="slds-media__figure">
-              <lightning-icon icon-name="utility:task" size="xx-small"></lightning-icon>
-            </div>
-            <div class="slds-media__body">
-              <h2 class="slds-card__header-title">To Do List</h2>
-            </div>
-          </div>
-        </header>
-        <div class="slds-card__body slds-card__body_inner slds-p-around_medium">
-          <span class="slds-text-body_small">—</span>
         </div>
       </section>
     </div>
@@ -550,15 +534,17 @@
         </header>
         <div class="slds-card__body slds-p-horizontal_medium slds-p-bottom_medium">
           <div class="timeline-toolbar">
-            <div class="slds-form-element">
-              <label class="slds-form-element__label slds-assistive-text">Activity type</label>
-              <select class="slds-select timeline-select">
-                <option>Asset Activity</option>
-              </select>
+            <div class="timeline-toolbar-left">
+              <div class="slds-form-element">
+                <label class="slds-form-element__label slds-assistive-text">Activity type</label>
+                <select class="slds-select timeline-select">
+                  <option>Asset Activity</option>
+                </select>
+              </div>
+              <span class="slds-text-body_small timeline-all-events">All Events •</span>
             </div>
-            <span class="slds-text-body_small">All Events •</span>
             <div class="timeline-actions">
-              <button class="slds-button slds-button_neutral slds-button_stretch">New</button>
+              <button class="slds-button slds-button_neutral timeline-new-btn">New</button>
               <div class="timeline-actions-icons">
                 <lightning-button-icon icon-name="utility:refresh" size="medium" alternative-text="Refresh" variant="border-filled" class="icon-accent-2"></lightning-button-icon>
                 <lightning-button-icon icon-name="utility:event" size="medium" alternative-text="Calendar" variant="border-filled"></lightning-button-icon>
@@ -567,48 +553,112 @@
               </div>
             </div>
           </div>
-          <ul class="timeline-list">
-            <li class="timeline-item">
-              <div class="timeline-marker timeline-marker-success"></div>
+          <div class="timeline-items">
+            <div class="timeline-item">
               <div class="timeline-content">
-                <span class="timeline-date">01/20/26</span>
-                <span class="timeline-event">Asset Updated</span>
+                <span class="timeline-section-label">Today</span>
+                <div class="timeline-item-header" role="button" tabindex="0" data-index="0"
+                  onclick={handleTimelineItemClick} onkeydown={handleTimelineItemKeydown}
+                  aria-expanded={timelineItem0Open}>
+                  <div class="timeline-item-header-left">
+                    <lightning-icon icon-name={timelineItem0Chevron} size="x-small" class="timeline-accordion-chevron"></lightning-icon>
+                    <lightning-icon icon-name="standard:asset_object" size="small" class="timeline-item-icon"></lightning-icon>
+                    <a href="#" class="timeline-event-link" onclick={handleTimelineLinkClick}>Asset Updated</a>
+                  </div>
+                  <div class="timeline-item-header-right">
+                    <span class="timeline-date">01/20/26</span>
+                    <button type="button" class="timeline-dropdown-btn" title="More actions" onclick={handleTimelineDropdownClick} aria-label="More actions">
+                      <lightning-icon icon-name="utility:down" size="xx-small"></lightning-icon>
+                    </button>
+                  </div>
+                </div>
                 <p class="timeline-desc">You added this asset to <a href="#">ROLI-8762</a></p>
               </div>
-            </li>
-            <li class="timeline-item">
-              <div class="timeline-marker timeline-marker-success"></div>
+            </div>
+            <div class="timeline-section-label-item">
+              <span class="timeline-section-label">Past</span>
+            </div>
+            <div class="timeline-item">
               <div class="timeline-content">
-                <span class="timeline-date">11/20/24</span>
-                <span class="timeline-event">Asset Received</span>
-                <p class="timeline-desc">You assigned this item to <a href="#">Asset Owner</a></p>
+                <div class="timeline-item-header" role="button" tabindex="0" data-index="1"
+                  onclick={handleTimelineItemClick} onkeydown={handleTimelineItemKeydown}
+                  aria-expanded={timelineItem1Open}>
+                  <div class="timeline-item-header-left">
+                    <lightning-icon icon-name={timelineItem1Chevron} size="x-small" class="timeline-accordion-chevron"></lightning-icon>
+                    <lightning-icon icon-name="standard:inbox" size="small" class="timeline-item-icon"></lightning-icon>
+                    <a href="#" class="timeline-event-link" onclick={handleTimelineLinkClick}>Asset Received</a>
+                  </div>
+                  <div class="timeline-item-header-right">
+                    <span class="timeline-date">11/20/24</span>
+                    <button type="button" class="timeline-dropdown-btn" title="More actions" onclick={handleTimelineDropdownClick} aria-label="More actions">
+                      <lightning-icon icon-name="utility:down" size="xx-small"></lightning-icon>
+                    </button>
+                  </div>
+                </div>
+                <p class="timeline-desc">You assigned this item to <a href="#">Jane Smith</a></p>
               </div>
-            </li>
-            <li class="timeline-item">
-              <div class="timeline-marker timeline-marker-default"></div>
+            </div>
+            <div class="timeline-item">
               <div class="timeline-content">
-                <span class="timeline-date">09/20/22</span>
-                <span class="timeline-event">Asset Sent</span>
-                <p class="timeline-desc">A user added this item to <a href="#">FOLI-9832</a></p>
+                <div class="timeline-item-header" role="button" tabindex="0" data-index="2"
+                  onclick={handleTimelineItemClick} onkeydown={handleTimelineItemKeydown}
+                  aria-expanded={timelineItem2Open}>
+                  <div class="timeline-item-header-left">
+                    <lightning-icon icon-name={timelineItem2Chevron} size="x-small" class="timeline-accordion-chevron"></lightning-icon>
+                    <lightning-icon icon-name="standard:shipment" size="small" class="timeline-item-icon"></lightning-icon>
+                    <a href="#" class="timeline-event-link" onclick={handleTimelineLinkClick}>Asset Sent</a>
+                  </div>
+                  <div class="timeline-item-header-right">
+                    <span class="timeline-date">09/20/22</span>
+                    <button type="button" class="timeline-dropdown-btn" title="More actions" onclick={handleTimelineDropdownClick} aria-label="More actions">
+                      <lightning-icon icon-name="utility:down" size="xx-small"></lightning-icon>
+                    </button>
+                  </div>
+                </div>
+                <p class="timeline-desc"><a href="#">Matthew Russ</a> added this item to a <a href="#">FOLI-9832</a></p>
               </div>
-            </li>
-            <li class="timeline-item">
-              <div class="timeline-marker timeline-marker-warning"></div>
+            </div>
+            <div class="timeline-item">
               <div class="timeline-content">
-                <span class="timeline-date">09/10/22</span>
-                <span class="timeline-event">Asset Reserved</span>
-                <p class="timeline-desc">Asset added to <a href="#">FOLI-8273</a> by asset owner.</p>
+                <div class="timeline-item-header" role="button" tabindex="0" data-index="3"
+                  onclick={handleTimelineItemClick} onkeydown={handleTimelineItemKeydown}
+                  aria-expanded={timelineItem3Open}>
+                  <div class="timeline-item-header-left">
+                    <lightning-icon icon-name={timelineItem3Chevron} size="x-small" class="timeline-accordion-chevron"></lightning-icon>
+                    <lightning-icon icon-name="standard:product" size="small" class="timeline-item-icon"></lightning-icon>
+                    <a href="#" class="timeline-event-link" onclick={handleTimelineLinkClick}>Asset Reserved</a>
+                  </div>
+                  <div class="timeline-item-header-right">
+                    <span class="timeline-date">09/10/22</span>
+                    <button type="button" class="timeline-dropdown-btn" title="More actions" onclick={handleTimelineDropdownClick} aria-label="More actions">
+                      <lightning-icon icon-name="utility:down" size="xx-small"></lightning-icon>
+                    </button>
+                  </div>
+                </div>
+                <p class="timeline-desc">Asset added to <a href="#">FOLI-8273</a> by <a href="#">Tim Roth</a>.</p>
               </div>
-            </li>
-            <li class="timeline-item">
-              <div class="timeline-marker timeline-marker-info"></div>
+            </div>
+            <div class="timeline-item">
               <div class="timeline-content">
-                <span class="timeline-date">08/07/22</span>
-                <span class="timeline-event">Asset Creation</span>
-                <p class="timeline-desc">Asset was created.</p>
+                <div class="timeline-item-header" role="button" tabindex="0" data-index="4"
+                  onclick={handleTimelineItemClick} onkeydown={handleTimelineItemKeydown}
+                  aria-expanded={timelineItem4Open}>
+                  <div class="timeline-item-header-left">
+                    <lightning-icon icon-name={timelineItem4Chevron} size="x-small" class="timeline-accordion-chevron"></lightning-icon>
+                    <lightning-icon icon-name="standard:record" size="small" class="timeline-item-icon"></lightning-icon>
+                    <a href="#" class="timeline-event-link" onclick={handleTimelineLinkClick}>Asset Creation</a>
+                  </div>
+                  <div class="timeline-item-header-right">
+                    <span class="timeline-date">08/07/22</span>
+                    <button type="button" class="timeline-dropdown-btn" title="More actions" onclick={handleTimelineDropdownClick} aria-label="More actions">
+                      <lightning-icon icon-name="utility:down" size="xx-small"></lightning-icon>
+                    </button>
+                  </div>
+                </div>
+                <p class="timeline-desc"><a href="#">Andre Mitchel</a> created a new asset.</p>
               </div>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       </aside>
     </div>

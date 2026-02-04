@@ -12,6 +12,7 @@ export default class HelloWorldApp extends LightningElement {
   assetLifecycleAccordionOpen = true;
   warrantyAccordionOpen = true;
   systemInfoAccordionOpen = false;
+  openTimelineIndex = null;
 
   // Search dropdown functionality
   connectedCallback() {
@@ -151,6 +152,36 @@ export default class HelloWorldApp extends LightningElement {
       this.handleSystemInfoAccordionClick();
     }
   }
+
+  handleTimelineItemClick(event) {
+    const index = parseInt(event.currentTarget.dataset.index, 10);
+    this.openTimelineIndex = this.openTimelineIndex === index ? null : index;
+  }
+  handleTimelineLinkClick(event) {
+    event.stopPropagation();
+  }
+  handleTimelineDropdownClick(event) {
+    event.stopPropagation();
+    // Optional: open dropdown menu for this event
+  }
+  handleTimelineItemKeydown(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      this.handleTimelineItemClick(event);
+    }
+  }
+
+  get timelineItem0Open() { return this.openTimelineIndex === 0; }
+  get timelineItem1Open() { return this.openTimelineIndex === 1; }
+  get timelineItem2Open() { return this.openTimelineIndex === 2; }
+  get timelineItem3Open() { return this.openTimelineIndex === 3; }
+  get timelineItem4Open() { return this.openTimelineIndex === 4; }
+
+  get timelineItem0Chevron() { return this.openTimelineIndex === 0 ? 'utility:chevrondown' : 'utility:chevronright'; }
+  get timelineItem1Chevron() { return this.openTimelineIndex === 1 ? 'utility:chevrondown' : 'utility:chevronright'; }
+  get timelineItem2Chevron() { return this.openTimelineIndex === 2 ? 'utility:chevrondown' : 'utility:chevronright'; }
+  get timelineItem3Chevron() { return this.openTimelineIndex === 3 ? 'utility:chevrondown' : 'utility:chevronright'; }
+  get timelineItem4Chevron() { return this.openTimelineIndex === 4 ? 'utility:chevrondown' : 'utility:chevronright'; }
 
   // Getter for sparkle icon source
   get sparkleIconSrc() {
