@@ -1254,11 +1254,29 @@ template {
   flex-direction: column;
 }
 
+/* Nested card look per SLDS: border from .slds-card_boundary, no shadow */
 .related-list-card {
-  border-radius: 8px;
-  border: 1px solid #E5E7EB;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  background: #FAFAFA;
+  border-radius: 12px;
+  /* Border and surface come from SLDS .slds-card_boundary when inside .slds-card */
+}
+.related-list-card.slds-card_boundary {
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--slds-g-color-border-1, #e5e5e5);
+  background: var(--slds-g-color-surface-container-1, #fff);
+  box-shadow: none;
+}
+
+.related-list-card .slds-card__body {
+  padding-left: 0;
+  padding-right: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+}
+
+.related-list-card-empty .slds-card__header {
+  padding-bottom: 0;
+  padding-block-end: 0;
 }
 
 .related-list-header {
@@ -1360,9 +1378,17 @@ template {
   gap: 0.25rem;
 }
 
+.timeline-activity-label {
+  font-size: 1rem;
+  color: #2E2E2E;
+  font-weight: 400;
+}
+
 .timeline-all-events {
   display: block;
   margin-top: 0.125rem;
+  font-size: 0.75rem;
+  color: #5C5C5C;
 }
 
 .timeline-actions {
