@@ -1374,6 +1374,37 @@ a.record-link:hover,
   box-sizing: border-box;
 }
 
+/* Configuration tab: CMDB table fixed column widths */
+.configuration-table {
+  table-layout: fixed;
+  width: 100%;
+}
+.configuration-table th:nth-child(1),
+.configuration-table td:nth-child(1) {
+  width: 2.5rem;
+  box-sizing: border-box;
+}
+.configuration-table th:nth-child(2),
+.configuration-table td:nth-child(2) {
+  width: 35%;
+  box-sizing: border-box;
+}
+.configuration-table th:nth-child(3),
+.configuration-table td:nth-child(3) {
+  width: 28%;
+  box-sizing: border-box;
+}
+.configuration-table th:nth-child(4),
+.configuration-table td:nth-child(4) {
+  width: 18%;
+  box-sizing: border-box;
+}
+.configuration-table th:nth-child(5),
+.configuration-table td:nth-child(5) {
+  width: 2.5rem;
+  box-sizing: border-box;
+}
+
 .related-list-view-all {
   text-align: center;
   margin: 0;
