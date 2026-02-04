@@ -336,65 +336,176 @@
               <div class="slds-tabs_default__content slds-show" role="tabpanel">
                 <div class="details-section slds-m-top_medium">
                   <section class="slds-accordion__section">
-                    <div class="slds-accordion__summary details-subsection-header">
-                      <lightning-icon icon-name="utility:chevrondown" size="x-small"
+                    <div class="slds-accordion__summary details-subsection-header" role="button" tabindex="0"
+                      onclick={handleDetailsAccordionClick} onkeydown={handleDetailsAccordionKeydown}>
+                      <lightning-icon icon-name={detailsAccordionChevron} size="x-small"
                         class="section-arrow-icon"></lightning-icon>
                       <span class="slds-accordion__summary-content">Details</span>
                     </div>
-                    <div class="details-grid slds-m-top_small">
-                      <div class="detail-row">
-                        <span class="slds-text-title">Asset Name</span>
-                        <span class="detail-value-editable">MacBook Pro 16 in (2021) <lightning-icon
-                            icon-name="utility:edit" size="xx-small" class="edit-icon"></lightning-icon></span>
+                    <template if:true={detailsAccordionOpen}>
+                      <div class="details-grid slds-m-top_small">
+                        <div class="detail-row">
+                          <span class="slds-text-title">Asset Name</span>
+                          <span class="detail-value-editable">MacBook Pro 16 in (2021) <lightning-icon
+                              icon-name="utility:edit" size="xx-small" class="edit-icon"></lightning-icon></span>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">Asset Type</span>
+                          <span class="detail-value-editable">Laptop <lightning-icon icon-name="utility:edit"
+                              size="xx-small" class="edit-icon"></lightning-icon></span>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">Product</span>
+                          <a href="#">Macbook Pro</a>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">Serial Number</span>
+                          <span class="detail-value-editable">C02ZP7XJMD9W <lightning-icon icon-name="utility:edit"
+                              size="xx-small" class="edit-icon"></lightning-icon></span>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">Unique Identifier</span>
+                          <span class="detail-value-editable">8a7e5e5c-a15d-43b1-b3d0-0182abc9 <lightning-icon
+                              icon-name="utility:edit" size="xx-small" class="edit-icon"></lightning-icon></span>
+                        </div>
                       </div>
-                      <div class="detail-row">
-                        <span class="slds-text-title">Asset Type</span>
-                        <span class="detail-value-editable">Laptop <lightning-icon icon-name="utility:edit"
-                            size="xx-small" class="edit-icon"></lightning-icon></span>
-                      </div>
-                      <div class="detail-row">
-                        <span class="slds-text-title">Product</span>
-                        <a href="#">Macbook Pro</a>
-                      </div>
-                      <div class="detail-row">
-                        <span class="slds-text-title">Serial Number</span>
-                        <span class="detail-value-editable">C02ZP7XJMD9W <lightning-icon icon-name="utility:edit"
-                            size="xx-small" class="edit-icon"></lightning-icon></span>
-                      </div>
-                      <div class="detail-row">
-                        <span class="slds-text-title">Unique Identifier</span>
-                        <span class="detail-value-editable">8a7e5e5c-a15d-43b1-b3d0-0182abc9 <lightning-icon
-                            icon-name="utility:edit" size="xx-small" class="edit-icon"></lightning-icon></span>
-                      </div>
-                    </div>
+                    </template>
                   </section>
                   <section class="slds-accordion__section slds-m-top_medium">
-                    <div class="slds-accordion__summary details-subsection-header">
-                      <lightning-icon icon-name="utility:chevronright" size="x-small"
+                    <div class="slds-accordion__summary details-subsection-header" role="button" tabindex="0"
+                      onclick={handleFinancialAccordionClick} onkeydown={handleFinancialAccordionKeydown}>
+                      <lightning-icon icon-name={financialAccordionChevron} size="x-small"
                         class="section-arrow-icon"></lightning-icon>
                       <span class="slds-accordion__summary-content">Financial Information</span>
                     </div>
-                    <div class="details-grid slds-m-top_small">
-                      <div class="detail-row">
-                        <span class="slds-text-title">Acquisition Type</span>
-                        <span class="detail-value-editable">Direct Purchase <lightning-icon icon-name="utility:edit"
-                            size="xx-small" class="edit-icon"></lightning-icon></span>
+                    <template if:true={financialAccordionOpen}>
+                      <div class="details-grid slds-m-top_small">
+                        <div class="detail-row">
+                          <span class="slds-text-title">Acquisition Type</span>
+                          <span class="detail-value-editable">Direct Purchase <lightning-icon icon-name="utility:edit"
+                              size="xx-small" class="edit-icon"></lightning-icon></span>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">Purchase Order</span>
+                          <a href="#">PO-19825623</a>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">Unit Cost</span>
+                          <span class="detail-value-editable">$3,131.00 <lightning-icon icon-name="utility:edit"
+                              size="xx-small" class="edit-icon"></lightning-icon></span>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">Currency</span>
+                          <span class="detail-value-editable">USD <lightning-icon icon-name="utility:edit" size="xx-small"
+                              class="edit-icon"></lightning-icon></span>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">Purchase Date</span>
+                          <span class="detail-value-editable">5/28/2022 <lightning-icon icon-name="utility:edit" size="xx-small"
+                              class="edit-icon"></lightning-icon></span>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">End of Life Date</span>
+                          <span class="detail-value-editable">5/28/2026 <lightning-icon icon-name="utility:edit" size="xx-small"
+                              class="edit-icon"></lightning-icon></span>
+                        </div>
                       </div>
-                      <div class="detail-row">
-                        <span class="slds-text-title">Purchase Order</span>
-                        <a href="#">PO-19825623</a>
-                      </div>
-                      <div class="detail-row">
-                        <span class="slds-text-title">Unit Cost</span>
-                        <span class="detail-value-editable">$3,131.00 <lightning-icon icon-name="utility:edit"
-                            size="xx-small" class="edit-icon"></lightning-icon></span>
-                      </div>
-                      <div class="detail-row">
-                        <span class="slds-text-title">Currency</span>
-                        <span class="detail-value-editable">USD <lightning-icon icon-name="utility:edit" size="xx-small"
-                            class="edit-icon"></lightning-icon></span>
-                      </div>
+                    </template>
+                  </section>
+                  <section class="slds-accordion__section slds-m-top_medium">
+                    <div class="slds-accordion__summary details-subsection-header" role="button" tabindex="0"
+                      onclick={handleAssetLifecycleAccordionClick} onkeydown={handleAssetLifecycleAccordionKeydown}>
+                      <lightning-icon icon-name={assetLifecycleAccordionChevron} size="x-small"
+                        class="section-arrow-icon"></lightning-icon>
+                      <span class="slds-accordion__summary-content">Asset Lifecycle</span>
                     </div>
+                    <template if:true={assetLifecycleAccordionOpen}>
+                      <div class="details-grid slds-m-top_small">
+                        <div class="detail-row">
+                          <span class="slds-text-title">Lifecycle Stage</span>
+                          <span class="detail-value-editable">Deployed <lightning-icon icon-name="utility:edit" size="xx-small"
+                              class="edit-icon"></lightning-icon></span>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">Status</span>
+                          <span class="detail-value-editable">In Use <lightning-icon icon-name="utility:edit" size="xx-small"
+                              class="edit-icon"></lightning-icon></span>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">Account</span>
+                          <a href="#">John Smalls</a>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">Upgrade Eligibility</span>
+                          <span class="detail-value-editable">Eligible <lightning-icon icon-name="utility:edit" size="xx-small"
+                              class="edit-icon"></lightning-icon></span>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">Location</span>
+                          <span class="detail-value-editable">Remote, Texas <lightning-icon icon-name="utility:edit" size="xx-small"
+                              class="edit-icon"></lightning-icon></span>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">Assignment Date</span>
+                          <span class="detail-value-editable">8/4/2022 <lightning-icon icon-name="utility:edit" size="xx-small"
+                              class="edit-icon"></lightning-icon></span>
+                        </div>
+                      </div>
+                    </template>
+                  </section>
+                  <section class="slds-accordion__section slds-m-top_medium">
+                    <div class="slds-accordion__summary details-subsection-header" role="button" tabindex="0"
+                      onclick={handleWarrantyAccordionClick} onkeydown={handleWarrantyAccordionKeydown}>
+                      <lightning-icon icon-name={warrantyAccordionChevron} size="x-small"
+                        class="section-arrow-icon"></lightning-icon>
+                      <span class="slds-accordion__summary-content">Warranty</span>
+                    </div>
+                    <template if:true={warrantyAccordionOpen}>
+                      <div class="details-grid slds-m-top_small">
+                        <div class="detail-row">
+                          <span class="slds-text-title">Warranty Status</span>
+                          <span class="detail-value-editable">Out of Warranty <lightning-icon icon-name="utility:edit" size="xx-small"
+                              class="edit-icon"></lightning-icon></span>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">Warranty End Date</span>
+                          <span class="detail-value-editable">01/01/2026 <lightning-icon icon-name="utility:edit" size="xx-small"
+                              class="edit-icon"></lightning-icon></span>
+                        </div>
+                      </div>
+                    </template>
+                  </section>
+                  <section class="slds-accordion__section slds-m-top_medium">
+                    <div class="slds-accordion__summary details-subsection-header" role="button" tabindex="0"
+                      onclick={handleSystemInfoAccordionClick} onkeydown={handleSystemInfoAccordionKeydown}>
+                      <lightning-icon icon-name={systemInfoAccordionChevron} size="x-small"
+                        class="section-arrow-icon"></lightning-icon>
+                      <span class="slds-accordion__summary-content">System Information</span>
+                    </div>
+                    <template if:true={systemInfoAccordionOpen}>
+                      <div class="details-grid slds-m-top_small">
+                        <div class="detail-row">
+                          <span class="slds-text-title">Operating System</span>
+                          <span class="detail-value-editable">macOS <lightning-icon icon-name="utility:edit" size="xx-small"
+                              class="edit-icon"></lightning-icon></span>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">Processor</span>
+                          <span class="detail-value-editable">Apple M1 Pro <lightning-icon icon-name="utility:edit" size="xx-small"
+                              class="edit-icon"></lightning-icon></span>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">Memory</span>
+                          <span class="detail-value-editable">16 GB <lightning-icon icon-name="utility:edit" size="xx-small"
+                              class="edit-icon"></lightning-icon></span>
+                        </div>
+                        <div class="detail-row">
+                          <span class="slds-text-title">Storage</span>
+                          <span class="detail-value-editable">512 GB SSD <lightning-icon icon-name="utility:edit" size="xx-small"
+                              class="edit-icon"></lightning-icon></span>
+                        </div>
+                      </div>
+                    </template>
                   </section>
                 </div>
               </div>

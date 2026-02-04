@@ -7,6 +7,11 @@ export default class HelloWorldApp extends LightningElement {
   resultsLoaded = false; // Add reactive property to track when results are loaded
   activeTab = 'details'; // Asset tabs: details | fulfillment | service | hierarchy | related
   alertsAccordionOpen = false;
+  detailsAccordionOpen = true;
+  financialAccordionOpen = true;
+  assetLifecycleAccordionOpen = true;
+  warrantyAccordionOpen = true;
+  systemInfoAccordionOpen = false;
 
   // Search dropdown functionality
   connectedCallback() {
@@ -77,6 +82,73 @@ export default class HelloWorldApp extends LightningElement {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       this.handleAlertsAccordionClick();
+    }
+  }
+
+  get detailsAccordionChevron() {
+    return this.detailsAccordionOpen ? 'utility:chevrondown' : 'utility:chevronright';
+  }
+  get financialAccordionChevron() {
+    return this.financialAccordionOpen ? 'utility:chevrondown' : 'utility:chevronright';
+  }
+
+  handleDetailsAccordionClick() {
+    this.detailsAccordionOpen = !this.detailsAccordionOpen;
+  }
+  handleDetailsAccordionKeydown(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      this.handleDetailsAccordionClick();
+    }
+  }
+
+  handleFinancialAccordionClick() {
+    this.financialAccordionOpen = !this.financialAccordionOpen;
+  }
+  handleFinancialAccordionKeydown(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      this.handleFinancialAccordionClick();
+    }
+  }
+
+  get assetLifecycleAccordionChevron() {
+    return this.assetLifecycleAccordionOpen ? 'utility:chevrondown' : 'utility:chevronright';
+  }
+  get warrantyAccordionChevron() {
+    return this.warrantyAccordionOpen ? 'utility:chevrondown' : 'utility:chevronright';
+  }
+  get systemInfoAccordionChevron() {
+    return this.systemInfoAccordionOpen ? 'utility:chevrondown' : 'utility:chevronright';
+  }
+
+  handleAssetLifecycleAccordionClick() {
+    this.assetLifecycleAccordionOpen = !this.assetLifecycleAccordionOpen;
+  }
+  handleAssetLifecycleAccordionKeydown(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      this.handleAssetLifecycleAccordionClick();
+    }
+  }
+
+  handleWarrantyAccordionClick() {
+    this.warrantyAccordionOpen = !this.warrantyAccordionOpen;
+  }
+  handleWarrantyAccordionKeydown(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      this.handleWarrantyAccordionClick();
+    }
+  }
+
+  handleSystemInfoAccordionClick() {
+    this.systemInfoAccordionOpen = !this.systemInfoAccordionOpen;
+  }
+  handleSystemInfoAccordionKeydown(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      this.handleSystemInfoAccordionClick();
     }
   }
 
