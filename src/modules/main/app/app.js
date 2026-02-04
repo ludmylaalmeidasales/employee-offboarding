@@ -122,7 +122,6 @@ export default class HelloWorldApp extends LightningElement {
   get systemInfoAccordionChevron() {
     return this.systemInfoAccordionOpen ? 'utility:chevrondown' : 'utility:chevronright';
   }
-
   handleAssetLifecycleAccordionClick() {
     this.assetLifecycleAccordionOpen = !this.assetLifecycleAccordionOpen;
   }

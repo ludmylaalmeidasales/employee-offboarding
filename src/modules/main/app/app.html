@@ -904,8 +904,35 @@
           </div>
         </div>
       </div>
-      <!-- Timeline Panel (right) -->
-      <aside class="timeline-panel slds-card">
+      <!-- Right column: Action Launcher + Timeline -->
+      <div class="right-panel-column">
+        <!-- Action Launcher card -->
+        <section class="slds-card action-launcher-card">
+          <header class="slds-card__header slds-p-around_medium">
+            <div class="slds-media slds-media_center">
+              <div class="slds-media__figure">
+                <lightning-icon icon-name="standard:fallback" size="small" class="action-launcher-icon"></lightning-icon>
+              </div>
+              <div class="slds-media__body">
+                <h2 class="slds-card__header-title">Action Launcher</h2>
+              </div>
+            </div>
+          </header>
+          <div class="slds-card__body slds-p-horizontal_medium action-launcher-card-body">
+            <div class="action-launcher-search-wrap slds-m-bottom_small">
+              <lightning-icon icon-name="utility:search" size="x-small" class="action-launcher-search-icon"></lightning-icon>
+              <input type="search" class="slds-input action-launcher-search" placeholder="Search..." aria-label="Search actions" />
+            </div>
+            <div class="action-launcher-buttons">
+              <button type="button" class="slds-button slds-button_neutral">Wipe</button>
+              <button type="button" class="slds-button slds-button_neutral">Lock</button>
+              <button type="button" class="slds-button slds-button_neutral">Restart</button>
+              <a href="#" class="slds-button slds-button_neutral action-launcher-link">Remote Desktop</a>
+            </div>
+          </div>
+        </section>
+        <!-- Timeline Panel -->
+        <aside class="timeline-panel slds-card">
         <header class="slds-card__header slds-p-around_medium">
           <h2 class="slds-card__header-title">Timeline</h2>
         </header>
@@ -1033,6 +1060,7 @@
           </div>
         </div>
       </aside>
+      </div>
     </div>
   </div>
 

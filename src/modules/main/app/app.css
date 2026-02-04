@@ -1436,10 +1436,80 @@ a.record-link:hover,
 .related-list-icon-red { --slds-c-icon-color-foreground-default: #C23934; }
 .related-list-icon-orange { --slds-c-icon-color-foreground-default: #FE9339; }
 
-/* Timeline panel */
-.timeline-panel {
+/* Right column: Action Launcher + Timeline (spacing matches left column cards) */
+.right-panel-column {
   width: 420px;
   max-width: 420px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-self: flex-start;
+}
+
+/* Action Launcher card – no outer bottom margin; body keeps inner bottom padding */
+.action-launcher-card {
+  margin-bottom: 0;
+}
+
+.action-launcher-card .slds-card__body.action-launcher-card-body {
+  padding-bottom: 1rem;
+}
+
+.action-launcher-icon {
+  --slds-c-icon-color-foreground-default: #0176d3;
+  flex-shrink: 0;
+}
+
+.action-launcher-search-wrap {
+  position: relative;
+}
+
+.action-launcher-search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  --slds-c-icon-color-foreground-default: #706e6b;
+  pointer-events: none;
+}
+
+.action-launcher-search {
+  width: 100%;
+  padding-left: 2.25rem;
+  box-sizing: border-box;
+  height: 32px;
+  min-height: 32px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.action-launcher-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.action-launcher-buttons .slds-button,
+.action-launcher-buttons .action-launcher-link {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.action-launcher-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Timeline panel */
+.timeline-panel {
+  width: 100%;
+  max-width: 100%;
   flex-shrink: 0;
   align-self: flex-start;
   height: fit-content;
