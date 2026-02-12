@@ -1456,6 +1456,27 @@ a.record-link:hover,
   flex-direction: column;
   gap: 0.5rem;
   align-self: flex-start;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+/* Action Launcher and Timeline cards: same width as left cards, match left sidebar spacing */
+.right-panel-column .slds-card {
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  box-sizing: border-box;
+}
+
+.right-panel-column .slds-card:first-child {
+  margin-top: 1rem;
+}
+
+.right-panel-column .slds-card:last-child {
+  margin-bottom: 1rem;
 }
 
 /* Action Launcher card – no outer bottom margin; body keeps inner bottom padding */
