@@ -1161,12 +1161,14 @@ template {
 .asset-tabs .slds-tabs_default__item.slds-is-active .slds-tabs_default__link {
   color: var(--slds-g-color-accent-2);
   font-weight: 600;
+  font-size: 16px;
   border-bottom: 2px solid var(--slds-g-color-accent-2);
 }
 
 .asset-tabs .slds-tabs_default__link {
   padding: 0.75rem 1rem;
   color: #5C5C5C;
+  font-size: 16px;
 }
 
 .details-subsection-header {
@@ -1189,6 +1191,7 @@ template {
 
 .details-section .slds-accordion__summary.details-subsection-header .slds-accordion__summary-content {
   color: #2E2E2E;
+  font-size: 16px;
 }
 
 .details-grid {
@@ -1319,6 +1322,14 @@ template {
   font-size: 12px;
   color: #2E2E2E;
   font-weight: 400;
+}
+
+.related-list-table td {
+  font-size: 14px;
+}
+
+.related-list-table td a {
+  font-size: 14px;
 }
 
 .related-list-table a {
@@ -1478,12 +1489,13 @@ a.record-link:hover,
   width: 100%;
   padding-left: 2.25rem;
   box-sizing: border-box;
-  height: 32px;
-  min-height: 32px;
+  height: 32px !important;
+  min-height: 32px !important;
   padding-top: 4px;
   padding-bottom: 4px;
   font-size: 13px;
   line-height: 18px;
+  border-color: #5C5C5C;
 }
 
 .action-launcher-buttons {
