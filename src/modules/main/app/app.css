@@ -870,7 +870,18 @@ template {
 .body-grid {
   align-items: stretch;
   flex-wrap: nowrap;
+  gap: 1rem;
   padding-bottom: 2.5rem; /* space for SLDS utility bar (height: 2.5rem) */
+}
+
+/* Left column: no right margin so body-grid gap defines space to middle column */
+.sidebar .slds-card {
+  margin-right: 0;
+}
+
+/* Middle column: no left margin so body-grid gap is the only space from left column */
+.main-content-wrapper .slds-card {
+  margin-left: 0;
 }
 
 /* --- Docked utility bar: ensure SLDS bar is clearly docked and visible --- */
