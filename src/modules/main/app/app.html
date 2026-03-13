@@ -160,6 +160,16 @@
               <div>02/16/2026, 8:59am</div>
             </div>
           </div>
+          <div class="slds-grid slds-wrap slds-m-bottom_small asset-details-grid">
+            <div class="slds-col slds-size_1-of-2">
+              <div class="slds-text-title">End of Life Date</div>
+              <div>5/28/2026</div>
+            </div>
+            <div>
+              <div class="slds-text-title">Upgrade Eligibility</div>
+              <span class="slds-badge slds-theme_info">Eligible</span>
+            </div>
+          </div>
 
         </div>
       </section>
@@ -178,23 +188,23 @@
         <div class="slds-card__body slds-card__body_inner slds-p-around_medium">
           <div class="asset-health-ring-section">
             <div class="asset-health-ring">
-              <span class="asset-health-value">77%</span>
+              <span class="asset-health-value">77 <br> <span class="asset-health-value-sub">/100</span></span>
             </div>
             <div class="asset-health-days-block">
-              <span class="asset-health-days-main">3 years and 40 days</span>
-              <span class="asset-health-days-sub">in service</span>
+              <span class="asset-health-days-main">At Risk</span>
+              <span class="asset-health-days-sub">3 years and 40 days in service</span>
             </div>
           </div>
           <div class="asset-health-content">
             <div class="asset-health-text">
               <div class="asset-health-row">
                 <div>
-                  <div class="slds-text-title">End of Life Date</div>
-                  <div>5/28/2026</div>
+                  <div class="slds-text-title">Reported Accidents</div>
+                  <div>3 Open Accidents</div>
                 </div>
                 <div>
-                  <div class="slds-text-title">Upgrade Eligibility</div>
-                  <span class="slds-badge slds-theme_info">Eligible</span>
+                  <div class="slds-text-title">Battery Capacity</div>
+                  <div>62% (Degraded)</div>
                 </div>
               </div>
             </div>
@@ -246,45 +256,6 @@
             </div>
           </div>
         </div>
-        <!-- Alerts card (same structure as Asset Overview) -->
-        <section class="slds-card alerts-card">
-          <header class="slds-card__header slds-p-around_medium alerts-card-header">
-            <div class="slds-media">
-              <div class="slds-media__figure">
-                <lightning-icon icon-name="custom:custom53" size="small" class="alerts-icon"></lightning-icon>
-              </div>
-              <div class="slds-media__body">
-
-                <h2 class="slds-card__header-title">Alerts (1)</h2>
-              </div>
-            </div>
-            <lightning-icon icon-name="utility:refresh" size="x-small" class="alerts-card-refresh"
-              title="Refresh"></lightning-icon>
-          </header>
-          <div class="slds-card__body slds-p-horizontal_medium" style="padding-top: 0;">
-            <section class="slds-accordion__section alert-accordion-section">
-              <div class="alert-accordion-row">
-                <lightning-icon icon-name="utility:warning" size="x-small" class="alert-warning-icon"></lightning-icon>
-                <div class="slds-accordion__summary alert-accordion-summary" onclick={handleAlertsAccordionClick}
-                  role="button" tabindex="0" onkeydown={handleAlertsAccordionKeydown}>
-                  <lightning-icon icon-name={alertsAccordionChevron} size="x-small"
-                    class="alert-accordion-chevron"></lightning-icon>
-                  <span class="slds-accordion__summary-content slds-text-body_regular">Asset end of life
-                    approaching</span>
-                </div>
-              </div>
-              <template if:true={alertsAccordionOpen}>
-                <div class="slds-accordion__content alert-accordion-content">
-                  <p class="slds-text-body_small slds-text-color_weak">This asset is approaching its end of life date
-                    (5/28/2026). Consider planning for replacement or upgrade.</p>
-                </div>
-              </template>
-            </section>
-          </div>
-          <footer class="slds-card__footer alerts-card-footer">
-            <a href="#" class="alerts-card-view-all">View All</a>
-          </footer>
-        </section>
         <!-- Tabs card -->
         <div class="slds-card asset-tabs-card">
           <div class="asset-tabs slds-p-around_medium">
@@ -303,7 +274,7 @@
               </li>
               <li class={configurationTabClass} role="presentation">
                 <a class="slds-tabs_default__link" href="javascript:void(0)" role="tab" data-tab="configuration"
-                  onclick={handleTabClick} aria-selected={isConfigurationTab}>Configuration</a>
+                  onclick={handleTabClick} aria-selected={isConfigurationTab}>Asset Insights</a>
               </li>
               <li class={relatedTabClass} role="presentation">
                 <a class="slds-tabs_default__link" href="javascript:void(0)" role="tab" data-tab="related"
@@ -735,7 +706,14 @@
             <template if:true={isConfigurationTab}>
               <div class="slds-tabs_default__content slds-show" role="tabpanel">
                 <div class="related-lists-section configuration-section">
-                  <!-- CMDB -->
+                  <!-- Asset Insights tab: empty (Configuration Item moved to Related tab) -->
+                </div>
+              </div>
+            </template>
+            <template if:true={isRelatedTab}>
+              <div class="slds-tabs_default__content slds-show" role="tabpanel">
+                <div class="related-lists-section">
+                  <!-- Configuration Item (1) -->
                   <section class="related-list-card slds-card slds-card_boundary slds-m-bottom_medium">
                     <header class="slds-card__header slds-p-around_small related-list-header">
                       <div class="slds-media">
@@ -743,7 +721,7 @@
                           <lightning-icon icon-name="standard:record" size="small" class="related-list-icon related-list-icon-purple"></lightning-icon>
                         </div>
                         <div class="slds-media__body">
-                          <h3 class="slds-card__header-title related-list-title">CMDB (21)</h3>
+                          <h3 class="slds-card__header-title related-list-title">Configuration Item (1)</h3>
                         </div>
                       </div>
                       <button class="slds-button slds-button_neutral related-list-new">New</button>
@@ -768,53 +746,12 @@
                               <td>In Use</td>
                               <td class="slds-cell-shrink"><lightning-icon icon-name="utility:threedots_vertical" size="x-small" class="related-list-info-icon"></lightning-icon></td>
                             </tr>
-                            <tr>
-                              <td class="slds-cell-shrink"><input type="checkbox" class="slds-checkbox" aria-label="Select row" /></td>
-                              <td><a href="#" class="record-link">macOS Monterey 12.6 (21G...</a></td>
-                              <td>Software</td>
-                              <td>Active</td>
-                              <td class="slds-cell-shrink"><lightning-icon icon-name="utility:threedots_vertical" size="x-small" class="related-list-info-icon"></lightning-icon></td>
-                            </tr>
-                            <tr>
-                              <td class="slds-cell-shrink"><input type="checkbox" class="slds-checkbox" aria-label="Select row" /></td>
-                              <td><a href="#" class="record-link">Battery</a></td>
-                              <td>Hardware Component</td>
-                              <td>Healthy</td>
-                              <td class="slds-cell-shrink"><lightning-icon icon-name="utility:threedots_vertical" size="x-small" class="related-list-info-icon"></lightning-icon></td>
-                            </tr>
-                            <tr>
-                              <td class="slds-cell-shrink"><input type="checkbox" class="slds-checkbox" aria-label="Select row" /></td>
-                              <td><a href="#" class="record-link">VPN Configuration</a></td>
-                              <td>Network</td>
-                              <td>Active</td>
-                              <td class="slds-cell-shrink"><lightning-icon icon-name="utility:threedots_vertical" size="x-small" class="related-list-info-icon"></lightning-icon></td>
-                            </tr>
-                            <tr>
-                              <td class="slds-cell-shrink"><input type="checkbox" class="slds-checkbox" aria-label="Select row" /></td>
-                              <td><a href="#" class="record-link">FileVault</a></td>
-                              <td>Security</td>
-                              <td>Enabled</td>
-                              <td class="slds-cell-shrink"><lightning-icon icon-name="utility:threedots_vertical" size="x-small" class="related-list-info-icon"></lightning-icon></td>
-                            </tr>
-                            <tr>
-                              <td class="slds-cell-shrink"><input type="checkbox" class="slds-checkbox" aria-label="Select row" /></td>
-                              <td><a href="#" class="record-link">Inventory Scan</a></td>
-                              <td>IT Operations</td>
-                              <td>Online</td>
-                              <td class="slds-cell-shrink"><lightning-icon icon-name="utility:threedots_vertical" size="x-small" class="related-list-info-icon"></lightning-icon></td>
-                            </tr>
                           </tbody>
                         </table>
                       </div>
                       <p class="related-list-view-all"><a href="#">View All</a></p>
                     </div>
                   </section>
-                </div>
-              </div>
-            </template>
-            <template if:true={isRelatedTab}>
-              <div class="slds-tabs_default__content slds-show" role="tabpanel">
-                <div class="related-lists-section">
                   <!-- Product Order (1) -->
                   <section class="related-list-card slds-card slds-card_boundary slds-m-bottom_medium">
                     <header class="slds-card__header slds-p-around_small related-list-header">
@@ -904,8 +841,47 @@
           </div>
         </div>
       </div>
-      <!-- Right column: Action Launcher + Timeline -->
+      <!-- Right column: Alerts + Action Launcher + Timeline -->
       <div class="right-panel-column">
+        <!-- Alerts card -->
+        <section class="slds-card alerts-card">
+          <header class="slds-card__header slds-p-around_medium alerts-card-header">
+            <div class="slds-media">
+              <div class="slds-media__figure">
+                <lightning-icon icon-name="custom:custom53" size="small" class="alerts-icon"></lightning-icon>
+              </div>
+              <div class="slds-media__body">
+
+                <h2 class="slds-card__header-title">Alerts (1)</h2>
+              </div>
+            </div>
+            <lightning-icon icon-name="utility:refresh" size="x-small" class="alerts-card-refresh"
+              title="Refresh"></lightning-icon>
+          </header>
+          <div class="slds-card__body slds-p-horizontal_medium" style="padding-top: 0;">
+            <section class="slds-accordion__section alert-accordion-section">
+              <div class="alert-accordion-row">
+                <lightning-icon icon-name="utility:warning" size="x-small" class="alert-warning-icon"></lightning-icon>
+                <div class="slds-accordion__summary alert-accordion-summary" onclick={handleAlertsAccordionClick}
+                  role="button" tabindex="0" onkeydown={handleAlertsAccordionKeydown}>
+                  <lightning-icon icon-name={alertsAccordionChevron} size="x-small"
+                    class="alert-accordion-chevron"></lightning-icon>
+                  <span class="slds-accordion__summary-content slds-text-body_regular">Asset end of life
+                    approaching</span>
+                </div>
+              </div>
+              <template if:true={alertsAccordionOpen}>
+                <div class="slds-accordion__content alert-accordion-content">
+                  <p class="slds-text-body_small slds-text-color_weak">This asset is approaching its end of life date
+                    (5/28/2026). Consider planning for replacement or upgrade.</p>
+                </div>
+              </template>
+            </section>
+          </div>
+          <footer class="slds-card__footer alerts-card-footer">
+            <a href="#" class="alerts-card-view-all">View All</a>
+          </footer>
+        </section>
         <!-- Action Launcher card -->
         <section class="slds-card action-launcher-card">
           <header class="slds-card__header slds-p-around_medium">
@@ -914,7 +890,7 @@
                 <lightning-icon icon-name="action:fallback" size="xx-small" class="action-launcher-icon"></lightning-icon>
               </div>
               <div class="slds-media__body">
-                <h2 class="slds-card__header-title">Action Launcher</h2>
+                <h2 class="slds-card__header-title">Remote Actions</h2>
               </div>
             </div>
           </header>
@@ -924,9 +900,10 @@
               <input type="search" class="slds-input action-launcher-search" placeholder="Search actions..." aria-label="Search actions" />
             </div>
             <div class="action-launcher-buttons">
-              <button type="button" class="slds-button slds-button_neutral">Wipe</button>
-              <button type="button" class="slds-button slds-button_neutral">Lock</button>
-              <button type="button" class="slds-button slds-button_neutral">Restart</button>
+              <button type="button" class="slds-button slds-button_neutral">Wipe Device</button>
+              <button type="button" class="slds-button slds-button_neutral">Lock Device</button>
+              <button type="button" class="slds-button slds-button_neutral">Restart Device</button>
+              <button type="button" class="slds-button slds-button_neutral">Push Software</button>
               <a href="#" class="slds-button slds-button_neutral action-launcher-link">Remote Desktop</a>
             </div>
           </div>

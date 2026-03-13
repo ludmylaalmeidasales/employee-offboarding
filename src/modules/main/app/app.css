@@ -1051,6 +1051,12 @@ template {
   color: #03234D;
 }
 
+.asset-health-value-sub {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #5C5C5C;
+}
+
 .asset-health-content {
   display: block;
 }
