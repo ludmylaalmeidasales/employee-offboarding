@@ -1,0 +1,466 @@
+/* Console Header Styles (exact copy from app.css) */
+.console-header {
+  width: 100%;
+  height: 64px;
+  background: var(--color-background-surface-container-1, white);
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  box-sizing: border-box;
+}
+
+.console-header__logo-area {
+  width: 200px;
+  padding-left: 16px;
+  padding-right: 16px;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+.console-header__search {
+  width: 483px;
+  height: 32px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background: var(--color-background-surface-container-1, white);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15) inset;
+  overflow: hidden;
+  border-radius: 10000px;
+  outline: 1px var(--color-border-border-2, #5C5C5C) solid;
+  outline-offset: -1px;
+  justify-content: flex-start;
+  gap: 8px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.console-header__search-text {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-background-on-surface-1, #5C5C5C);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  word-wrap: break-word;
+}
+
+.console-header__actions {
+  padding-left: 16px;
+  padding-right: 16px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  display: flex;
+}
+
+.console-header__icon,
+.console-header__icon-empty {
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+.console-header__avatar {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  background: #E8EBF0;
+  overflow: hidden;
+  border-radius: 10000px;
+}
+
+.console-header__search-icon {
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+
+/* Navigation styling */
+nav.slds-context-bar {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Main Content Layout */
+.employees-main-content {
+  display: flex;
+  min-height: calc(100vh - 140px);
+  background: #f3f2f2;
+}
+
+/* Main Employee Content Wrapper */
+.employees-content-wrapper {
+  flex: 1;
+  background: #F3F3F3;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Section */
+.employees-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  background: #F3F3F3;
+}
+
+.employees-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.employees-header-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+.employees-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.list-view-icon {
+  color: #0176d3;
+  flex-shrink: 0;
+}
+
+.employees-title-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.employees-breadcrumb {
+  font-size: 0.75rem;
+  color: #706e6b;
+}
+
+.employees-title-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.employees-list-title {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #080707;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.title-dropdown-icon {
+  color: #706e6b;
+  cursor: pointer;
+}
+
+.employees-count {
+  font-size: 0.75rem;
+  color: #706e6b;
+  margin-left: 3.5rem;
+}
+
+.employees-header-right {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Toolbar Section (now inside header-right, under button group) */
+.employees-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.employees-search-container {
+  position: relative;
+  width: 320px;
+}
+
+.employees-search-container .search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #706e6b;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.employees-search-input {
+  padding-left: 2.5rem !important;
+  background: #fff;
+  border: 1px solid #c9c9c9;
+  border-radius: 0.25rem;
+  height: 2rem;
+}
+
+.employees-search-input:focus {
+  outline: 0;
+  border-color: #1589ee;
+  box-shadow: 0 0 3px #0176d3;
+}
+
+.employees-toolbar-actions {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+/* Table Container */
+.employees-table-container {
+  flex: 1;
+  overflow: auto;
+  padding: 0;
+  background: #F3F3F3;
+}
+
+/* SLDS Table Styling */
+.slds-table {
+  background-color: #fff;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.slds-table thead th {
+  background-color: #F3F3F3;
+  color: #3e3e3c;
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  padding: 0.5rem 1rem;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  /* border-bottom: 0.5px solid #dddbda; */
+  text-align: left !important;
+  height: 36px;
+  box-sizing: border-box;
+}
+
+.slds-table_bordered {
+  border: 1px solid #C9C9C9;
+  border-collapse: collapse;
+  border-radius: 0;
+  border-spacing: 0;
+}
+
+.slds-table_cell-buffer thead th {
+  padding: 0.5rem 1rem;
+}
+
+.slds-table_cell-buffer tbody td {
+  padding: 0.5rem 1rem;
+}
+
+.slds-table tbody td {
+  background-color: #fff;
+  vertical-align: middle;
+  border-bottom: 1px solid #C9C9C9;
+  font-size: 0.875rem;
+  text-align: left !important;
+  height: 36px;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+}
+
+.slds-table tbody tr {
+  height: 36px;
+}
+
+.slds-table thead tr {
+  height: 36px;
+}
+
+.slds-table tbody tr:hover > td {
+  background-color: #f3f2f2;
+}
+
+.row-number-cell {
+  color: #706e6b;
+  text-align: left !important;
+  width: 3rem;
+}
+
+/* Table Header Actions */
+.slds-th__action-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  color: #3e3e3c;
+  font-weight: 700;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  font-size: 0.75rem;
+}
+
+.slds-th__action-button:hover,
+.slds-th__action-button:focus {
+  color: #014486;
+}
+
+.slds-th__action-button .slds-truncate {
+  text-align: left;
+}
+
+.slds-icon_container {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.25rem;
+}
+
+.slds-th__action_form {
+  display: flex;
+  align-items: center;
+  min-height: 2rem;
+}
+
+/* First columns sizing and alignment override */
+.slds-table thead th:first-child,
+.slds-table tbody td:first-child {
+  width: 3rem;
+  text-align: left !important;
+}
+
+.slds-table thead th:nth-child(2),
+.slds-table tbody td:nth-child(2) {
+  width: 3.25rem;
+  text-align: left !important;
+}
+
+/* Force all table cells to left align */
+.slds-table th,
+.slds-table td {
+  text-align: left !important;
+}
+
+.slds-table .slds-th__action_form {
+  justify-content: flex-start !important;
+}
+
+/* Table Cell Links */
+.slds-text-link_reset {
+  color: #0250D9;
+  text-decoration: none;
+}
+
+.slds-text-link_reset:hover,
+.slds-text-link_reset:focus {
+  color: #014486;
+  text-decoration: underline;
+  outline: 0;
+}
+
+/* Truncate text in cells */
+.slds-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+
+/* Consistent checkbox alignment */
+.slds-checkbox {
+  display: inline-block;
+}
+
+.slds-checkbox__label {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Hint parent for row actions */
+.slds-hint-parent:hover .slds-button_icon {
+  visibility: visible;
+}
+
+/* Utility Bar */
+.slds-utility-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: #fff;
+  border-top: 3px solid #032d60;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  z-index: 1000;
+}
+
+.slds-utility-bar__item {
+  display: flex;
+  align-items: center;
+}
+
+.slds-utility-bar__action {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: #0176d3;
+  font-weight: 400;
+}
+
+.slds-utility-bar__action:hover {
+  background: #f3f2f2;
+}
+
+.slds-utility-bar__text {
+  font-size: 0.875rem;
+}
+
+/* Force left alignment - highest specificity */
+.employees-table-container .slds-table th,
+.employees-table-container .slds-table td,
+.employees-table-container .slds-table thead th,
+.employees-table-container .slds-table tbody td {
+  text-align: left !important;
+}
+
+.employees-table-container .slds-text-align_right {
+  text-align: left !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .employees-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .employees-header-right {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .employees-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .employees-search-container {
+    width: 100%;
+  }
+}

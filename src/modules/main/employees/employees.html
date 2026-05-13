@@ -1,0 +1,219 @@
+<template>
+  <!-- Custom Global Header -->
+  <div class="console-header">
+    <div class="console-header__logo-area">
+
+      <img src="https://i.imgur.com/N2xTFkk.png" width="40px">
+    </div>
+    <div class="console-header__search">
+      <div class="console-header__search-icon">
+        <lightning-icon icon-name="utility:search" size="x-small" alternative-text="Search"></lightning-icon>
+      </div>
+      <h3 class="console-header__search-text">Search...</h3>
+    </div>
+    <div class="console-header__actions">
+      <div class="console-header__icon">
+        <lightning-icon icon-name="utility:agent_astro" size="small" alternative-text="Notifications"></lightning-icon>
+      </div>
+      <div class="console-header__icon">
+        <lightning-icon icon-name="utility:new" size="small" alternative-text="Notifications"></lightning-icon>
+      </div>
+      <!-- SLDS Setup Icon -->
+      <div class="console-header__icon">
+        <lightning-icon icon-name="utility:setup" size="small" alternative-text="Setup"></lightning-icon>
+      </div>
+      <!-- SLDS Question Icon -->
+      <div class="console-header__icon">
+        <lightning-icon icon-name="utility:question_mark" size="small" alternative-text="Help"></lightning-icon>
+      </div>
+      <!-- SLDS Trailhead Icon -->
+      <div class="console-header__icon">
+        <lightning-icon icon-name="utility:trailhead_alt" size="small" alternative-text="Trailhead"></lightning-icon>
+      </div>
+      <!-- SLDS Notification Bell Icon -->
+      <div class="console-header__icon">
+        <lightning-icon icon-name="utility:notification" size="small" alternative-text="Notifications"></lightning-icon>
+      </div>
+      <img src="https://i.imgur.com/aG6HD7A.png" alt="User Avatar" class="console-header__avatar">
+    </div>
+  </div>
+
+  <!-- Horizontal Navigation Bar -->
+  <nav class="slds-context-bar">
+    <div class="slds-context-bar__primary">
+      <div class="slds-context-bar__item slds-no-hover">
+        <span class="slds-context-bar__label-action slds-context-bar__app-name">
+          <!-- <lightning-icon icon-name="utility:apps" size="small" class=" context-bar-icon"></lightning-icon> -->
+          <img src="https://i.imgur.com/3ooe8ew.png" style="width: 20px; height: 20px; margin-right: 10px;">
+          <span class="slds-truncate" title="Home">IT Hardware Asset Man...</span>
+        </span>
+      </div>
+    </div>
+    <div class="slds-context-bar__secondary">
+      <ul class="slds-grid">
+        <li class="slds-context-bar__item">
+          <a href="#" class="slds-context-bar__label-action" title="Home">
+            <span class="slds-truncate">Asset</span>
+          </a>
+        </li>
+        <li class="slds-context-bar__item">
+          <a href="#" class="slds-context-bar__label-action" title="Assets" style="overflow-x:visible;">
+            <span class="slds-truncate">MacBook Pro 16...</span>
+          </a>
+        </li>
+        <li class="slds-context-bar__item">
+          <a href="#" class="slds-context-bar__label-action" title="Accounts">
+            <span class="slds-truncate">Accounts</span>
+          </a>
+        </li>
+        <li class="slds-context-bar__item">
+          <a href="#" class="slds-context-bar__label-action" title="Contacts">
+            <span class="slds-truncate">Contacts</span>
+          </a>
+        </li>
+        <li class="slds-context-bar__item slds-is-active">
+          <a href="/employees" class="slds-context-bar__label-action" title="Employees">
+            <span class="slds-truncate" style="color: #0250D9; font-weight: 700;">Employees</span>
+          </a>
+        </li>
+        <li class="slds-context-bar__item">
+          <a href="#" class="slds-context-bar__label-action" title="Service">
+            <span class="slds-truncate">Service</span>
+          </a>
+        </li>
+        <li class="slds-context-bar__item">
+          <a href="#" class="slds-context-bar__label-action" title="Sales">
+            <span class="slds-truncate">Sales</span>
+          </a>
+        </li>
+        <li class="slds-context-bar__item">
+          <a href="#" class="slds-context-bar__label-action" title="Calendar">
+            <span class="slds-truncate">Calendar</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="employees-main-content">
+    <!-- Main Employee List Section -->
+    <div class="employees-content-wrapper">
+      <!-- Header Section -->
+      <div class="employees-header">
+        <div class="employees-header-left">
+          <div class="employees-title-row">
+            <lightning-icon icon-name="standard:employee_contact" size="medium" class="list-view-icon"></lightning-icon>
+            <div class="employees-title-content">
+              <span class="employees-breadcrumb">Employees</span>
+              <div class="employees-title-with-icon">
+                <h1 class="employees-list-title">Offboarding Employees List</h1>
+                <lightning-icon icon-name="utility:down" size="x-small" class="title-dropdown-icon"></lightning-icon>
+              </div>
+            </div>
+          </div>
+          <span class="employees-count">20 items • Updated a few seconds ago</span>
+        </div>
+        <div class="employees-header-right">
+          <div class="slds-button-group" role="group">
+            <button class="slds-button slds-button_neutral">New</button>
+            <button class="slds-button slds-button_neutral">Reclaim All Assets</button>
+            <button class="slds-button slds-button_neutral">Upload Employee File</button>
+          </div>
+          <!-- Search and Filter Section -->
+          <div class="employees-toolbar">
+            <div class="employees-search-container">
+              <lightning-icon icon-name="utility:search" size="x-small" class="search-icon"></lightning-icon>
+              <input type="text" class="slds-input employees-search-input" placeholder="Search..." />
+            </div>
+            <div class="employees-toolbar-actions">
+              <lightning-button-icon icon-name="utility:filterList" variant="border-filled" alternative-text="Filter" title="Filter"></lightning-button-icon>
+              <lightning-button-icon icon-name="utility:settings" variant="border-filled" alternative-text="List Settings" title="List Settings"></lightning-button-icon>
+              <lightning-button-icon icon-name="utility:refresh" variant="border-filled" alternative-text="Refresh" title="Refresh"></lightning-button-icon>
+              <lightning-button-icon icon-name="utility:download" variant="border-filled" alternative-text="Download" title="Download"></lightning-button-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Employee Table -->
+      <div class="employees-table-container">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+          <thead>
+            <tr class="slds-line-height_reset" style="height: 36px; max-height: 36px; min-height: 36px;">
+              <th scope="col" style="width: 3rem; text-align: left; height: 36px; max-height: 36px; min-height: 36px; padding: 0 1rem; box-sizing: border-box; line-height: 36px;">
+                <span class="slds-assistive-text">Row Number</span>
+              </th>
+              <th scope="col" style="width: 3.25rem; text-align: left; height: 36px; max-height: 36px; min-height: 36px; padding: 0 1rem; box-sizing: border-box; line-height: 36px;">
+                <div class="slds-th__action slds-th__action_form">
+                  <div class="slds-checkbox">
+                    <input type="checkbox" id="select-all" />
+                    <label class="slds-checkbox__label" for="select-all">
+                      <span class="slds-checkbox_faux"></span>
+                      <span class="slds-assistive-text">Select All</span>
+                    </label>
+                  </div>
+                </div>
+              </th>
+              <th scope="col" style="text-align: left; height: 36px; max-height: 36px; min-height: 36px; padding: 0 1rem; box-sizing: border-box; line-height: 36px;">
+                <div class="slds-truncate" title="Contact">Contact</div>
+              </th>
+              <th scope="col" style="text-align: left; height: 36px; max-height: 36px; min-height: 36px; padding: 0 1rem; box-sizing: border-box; line-height: 36px;">
+                <div class="slds-truncate" title="Employee Number">Employee Number</div>
+              </th>
+              <th scope="col" style="text-align: left; height: 36px; max-height: 36px; min-height: 36px; padding: 0 1rem; box-sizing: border-box; line-height: 36px;">
+                <div class="slds-truncate" title="Employee Status">Employee Status</div>
+              </th>
+              <th scope="col" style="text-align: left; height: 36px; max-height: 36px; min-height: 36px; padding: 0 1rem; box-sizing: border-box; line-height: 36px;">
+                <div class="slds-truncate" title="Email">Email</div>
+              </th>
+              <th scope="col" style="text-align: left; height: 36px; max-height: 36px; min-height: 36px; padding: 0 1rem; box-sizing: border-box; line-height: 36px;">
+                <div class="slds-truncate" title="Alternate Email">Alternate Email</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <template for:each={employees} for:item="employee">
+              <tr key={employee.id} class="slds-hint-parent" style="height: 36px; max-height: 36px; min-height: 36px;">
+                <td data-label="Row Number" class="row-number-cell" style="text-align: left; height: 36px; max-height: 36px; min-height: 36px; padding: 0 1rem; box-sizing: border-box; line-height: 36px;">
+                  {employee.id}
+                </td>
+                <td data-label="Select Row" style="text-align: left; height: 36px; max-height: 36px; min-height: 36px; padding: 0 1rem; box-sizing: border-box; line-height: 36px;">
+                  <div class="slds-checkbox">
+                    <input type="checkbox" id={employee.checkboxId} />
+                    <label class="slds-checkbox__label" for={employee.checkboxId}>
+                      <span class="slds-checkbox_faux"></span>
+                      <span class="slds-assistive-text">Select {employee.name}</span>
+                    </label>
+                  </div>
+                </td>
+                <td data-label="Contact" style="text-align: left; height: 36px; max-height: 36px; min-height: 36px; padding: 0 1rem; box-sizing: border-box; line-height: 36px;">
+                  <div class="slds-truncate" style="line-height: 36px;">
+                    <a href={employee.link} class="slds-text-link_reset" tabindex="0">{employee.name}</a>
+                  </div>
+                </td>
+                <td data-label="Employee Number" style="text-align: left; height: 36px; max-height: 36px; min-height: 36px; padding: 0 1rem; box-sizing: border-box; line-height: 36px;">
+                  <div class="slds-truncate" style="line-height: 36px;">{employee.employeeNumber}</div>
+                </td>
+                <td data-label="Employee Status" style="text-align: left; height: 36px; max-height: 36px; min-height: 36px; padding: 0 1rem; box-sizing: border-box; line-height: 36px;">
+                  <div class="slds-truncate" style="line-height: 36px;">{employee.status}</div>
+                </td>
+                <td data-label="Email" style="text-align: left; height: 36px; max-height: 36px; min-height: 36px; padding: 0 1rem; box-sizing: border-box; line-height: 36px;">
+                  <div class="slds-truncate" style="line-height: 36px;">
+                    <a href={employee.emailLink} class="slds-text-link_reset" tabindex="0">{employee.email}</a>
+                  </div>
+                </td>
+                <td data-label="Alternate Email" style="text-align: left; height: 36px; max-height: 36px; min-height: 36px; padding: 0 1rem; box-sizing: border-box; line-height: 36px;">
+                  <div class="slds-truncate" style="line-height: 36px;">
+                    <a href={employee.alternateEmailLink} class="slds-text-link_reset" tabindex="0">{employee.alternateEmail}</a>
+                  </div>
+                </td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</template>

@@ -14,6 +14,15 @@
       "bootstrap": {
         "syntheticShadow": true
       }
+    },
+    {
+      "id": "employees",
+      "path": "/employees",
+      "rootComponent": "main/employees",
+      "layoutTemplate": "$layoutsDir/index.njk",
+      "bootstrap": {
+        "syntheticShadow": true
+      }
     }
   ],
   "assets": [
