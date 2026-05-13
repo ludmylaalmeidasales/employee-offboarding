@@ -11,6 +11,7 @@ export default class Employees extends LightningElement {
       email: 'michael.niall@company.com',
       alternateEmail: 'mikeniall@gmail.com',
       link: '#',
+      detailLink: '/employee/1',
       emailLink: 'mailto:michael.niall@company.com',
       alternateEmailLink: 'mailto:mikeniall@gmail.com'
     },

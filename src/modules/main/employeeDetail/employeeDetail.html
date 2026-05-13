@@ -1,0 +1,333 @@
+<template>
+  <!-- Custom Global Header -->
+  <div class="console-header">
+    <div class="console-header__logo-area">
+
+      <img src="https://i.imgur.com/N2xTFkk.png" width="40px">
+    </div>
+    <div class="console-header__search">
+      <div class="console-header__search-icon">
+        <lightning-icon icon-name="utility:search" size="x-small" alternative-text="Search"></lightning-icon>
+      </div>
+      <h3 class="console-header__search-text">Search...</h3>
+    </div>
+    <div class="console-header__actions">
+      <div class="console-header__icon">
+        <lightning-icon icon-name="utility:agent_astro" size="small" alternative-text="Notifications"></lightning-icon>
+      </div>
+      <div class="console-header__icon">
+        <lightning-icon icon-name="utility:new" size="small" alternative-text="Notifications"></lightning-icon>
+      </div>
+      <!-- SLDS Setup Icon -->
+      <div class="console-header__icon">
+        <lightning-icon icon-name="utility:setup" size="small" alternative-text="Setup"></lightning-icon>
+      </div>
+      <!-- SLDS Question Icon -->
+      <div class="console-header__icon">
+        <lightning-icon icon-name="utility:question_mark" size="small" alternative-text="Help"></lightning-icon>
+      </div>
+      <!-- SLDS Trailhead Icon -->
+      <div class="console-header__icon">
+        <lightning-icon icon-name="utility:trailhead_alt" size="small" alternative-text="Trailhead"></lightning-icon>
+      </div>
+      <!-- SLDS Notification Bell Icon -->
+      <div class="console-header__icon">
+        <lightning-icon icon-name="utility:notification" size="small" alternative-text="Notifications"></lightning-icon>
+      </div>
+      <img src="https://i.imgur.com/aG6HD7A.png" alt="User Avatar" class="console-header__avatar">
+    </div>
+  </div>
+
+  <!-- Horizontal Navigation Bar -->
+  <nav class="slds-context-bar">
+    <div class="slds-context-bar__primary">
+      <div class="slds-context-bar__item slds-no-hover">
+        <span class="slds-context-bar__label-action slds-context-bar__app-name">
+          <img src="https://i.imgur.com/3ooe8ew.png" style="width: 20px; height: 20px; margin-right: 10px;">
+          <span class="slds-truncate" title="Home">IT Hardware Asset Man...</span>
+        </span>
+      </div>
+    </div>
+    <div class="slds-context-bar__secondary">
+      <ul class="slds-grid">
+        <li class="slds-context-bar__item">
+          <a href="#" class="slds-context-bar__label-action" title="Home">
+            <span class="slds-truncate">Asset</span>
+          </a>
+        </li>
+        <li class="slds-context-bar__item">
+          <a href="#" class="slds-context-bar__label-action" title="Assets">
+            <span class="slds-truncate">MacBook Pro 16...</span>
+          </a>
+        </li>
+        <li class="slds-context-bar__item">
+          <a href="#" class="slds-context-bar__label-action" title="Accounts">
+            <span class="slds-truncate">Accounts</span>
+          </a>
+        </li>
+        <li class="slds-context-bar__item">
+          <a href="#" class="slds-context-bar__label-action" title="Contacts">
+            <span class="slds-truncate">Contacts</span>
+          </a>
+        </li>
+        <li class="slds-context-bar__item slds-is-active">
+          <a href="/employees" class="slds-context-bar__label-action" title="Employees">
+            <span class="slds-truncate" style="color: #0250D9; font-weight: 700;">Employees</span>
+          </a>
+        </li>
+        <li class="slds-context-bar__item">
+          <a href="#" class="slds-context-bar__label-action" title="Michael Niall">
+            <span class="slds-truncate">
+              <lightning-icon icon-name="standard:person_account" size="x-small" style="margin-right: 4px;"></lightning-icon>
+              Michael Niall
+            </span>
+            <button class="slds-button slds-button_icon" title="Close tab">
+              <lightning-icon icon-name="utility:close" size="x-small"></lightning-icon>
+            </button>
+          </a>
+        </li>
+        <li class="slds-context-bar__item">
+          <a href="#" class="slds-context-bar__label-action" title="More">
+            <span class="slds-truncate">More</span>
+            <lightning-icon icon-name="utility:down" size="x-small" style="margin-left: 4px;"></lightning-icon>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="employee-detail-content">
+    <!-- Employee Header -->
+    <div class="employee-header">
+      <div class="employee-header-left">
+        <lightning-icon icon-name="standard:person_account" size="medium" class="employee-icon"></lightning-icon>
+        <div class="employee-header-info">
+          <span class="employee-label">Person Account</span>
+          <h1 class="employee-name">Mr. Michael Niall</h1>
+        </div>
+      </div>
+      <div class="employee-header-right">
+        <button class="slds-button slds-button_neutral">
+          <lightning-icon icon-name="utility:add" size="x-small" style="margin-right: 4px;"></lightning-icon>
+          Follow
+        </button>
+        <div class="slds-button-group" role="group">
+          <button class="slds-button slds-button_neutral">Edit</button>
+          <button class="slds-button slds-button_neutral">Reclaim All Assets</button>
+          <button class="slds-button slds-button_icon slds-button_icon-border-filled" title="More Actions">
+            <lightning-icon icon-name="utility:down" size="x-small"></lightning-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Employee Details Section -->
+    <div class="employee-details-section">
+      <div class="employee-info-grid">
+        <div class="info-item">
+          <span class="info-label">Employee Number</span>
+          <span class="info-value">12453234</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Phone</span>
+          <span class="info-value">283-434-3454</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Email</span>
+          <a href="mailto:michael.niall@company.com" class="info-link">michael.niall@company.com</a>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Alternative Email</span>
+          <a href="mailto:mikeniall@gmail.com" class="info-link">mikeniall@gmail.com</a>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Employee Status</span>
+          <span class="info-value">Active</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Area with Tabs and Activity -->
+    <div class="employee-main-area">
+      <!-- Left Section - Tabs -->
+      <div class="employee-tabs-section">
+        <!-- Tabs -->
+        <div class="slds-tabs_default">
+          <ul class="slds-tabs_default__nav" role="tablist">
+            <li class="slds-tabs_default__item" role="presentation">
+              <a class="slds-tabs_default__link" href="#" role="tab" tabindex="-1">Details</a>
+            </li>
+            <li class="slds-tabs_default__item slds-is-active" role="presentation">
+              <a class="slds-tabs_default__link" href="#" role="tab" tabindex="0" aria-selected="true">Related</a>
+            </li>
+          </ul>
+          <div class="slds-tabs_default__content slds-show" role="tabpanel">
+            <!-- Duplicate Alert -->
+            <div class="duplicate-alert">
+              <div class="duplicate-alert-header">
+                <lightning-icon icon-name="standard:merge" size="small" class="alert-icon"></lightning-icon>
+                <h3 class="alert-title">We found no potential duplicates of this Account.</h3>
+              </div>
+              <div class="alert-body">
+                <p class="alert-text">No duplicate rules are activated. Activate duplicate rules to identify potential duplicate records.</p>
+              </div>
+            </div>
+
+            <!-- Assets Section -->
+            <div class="related-section">
+              <div class="related-section-header">
+                <div class="related-section-title">
+                  <lightning-icon icon-name="standard:asset_object" size="small" class="related-icon"></lightning-icon>
+                  <h3>Assets (2)</h3>
+                </div>
+                <button class="slds-button slds-button_neutral">New</button>
+              </div>
+              <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 3rem;">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" id="select-all-assets" />
+                        <label class="slds-checkbox__label" for="select-all-assets">
+                          <span class="slds-checkbox_faux"></span>
+                        </label>
+                      </div>
+                    </th>
+                    <th scope="col">Asset Name</th>
+                    <th scope="col">Serial Number</th>
+                    <th scope="col">Install Date</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col" style="width: 3rem;"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="slds-checkbox">
+                        <input type="checkbox" id="asset-1" />
+                        <label class="slds-checkbox__label" for="asset-1">
+                          <span class="slds-checkbox_faux"></span>
+                        </label>
+                      </div>
+                    </td>
+                    <td><a href="#" class="slds-text-link_reset">MacBook Air 13-in</a></td>
+                    <td>C02ZL0ABMD6M</td>
+                    <td>02/23/2025</td>
+                    <td>1</td>
+                    <td>
+                      <button class="slds-button slds-button_icon slds-button_icon-border-filled">
+                        <lightning-icon icon-name="utility:down" size="x-small"></lightning-icon>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="slds-checkbox">
+                        <input type="checkbox" id="asset-2" />
+                        <label class="slds-checkbox__label" for="asset-2">
+                          <span class="slds-checkbox_faux"></span>
+                        </label>
+                      </div>
+                    </td>
+                    <td><a href="#" class="slds-text-link_reset">Iphone 15</a></td>
+                    <td>C02ZL0ABMD6M</td>
+                    <td>02/23/2025</td>
+                    <td>1</td>
+                    <td>
+                      <button class="slds-button slds-button_icon slds-button_icon-border-filled">
+                        <lightning-icon icon-name="utility:down" size="x-small"></lightning-icon>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="view-all-link">
+                <a href="#">View All</a>
+              </div>
+            </div>
+
+            <!-- Contracts Section -->
+            <div class="related-section">
+              <div class="related-section-header">
+                <div class="related-section-title">
+                  <lightning-icon icon-name="standard:contract" size="small" class="related-icon"></lightning-icon>
+                  <h3>Contracts (0)</h3>
+                </div>
+                <button class="slds-button slds-button_neutral">New</button>
+              </div>
+            </div>
+
+            <!-- Incidents Section -->
+            <div class="related-section">
+              <div class="related-section-header">
+                <div class="related-section-title">
+                  <lightning-icon icon-name="standard:incident" size="small" class="related-icon"></lightning-icon>
+                  <h3>Incidents (0)</h3>
+                </div>
+                <button class="slds-button slds-button_neutral">New</button>
+              </div>
+            </div>
+
+            <!-- Approval History Section -->
+            <div class="related-section">
+              <div class="related-section-header">
+                <div class="related-section-title">
+                  <lightning-icon icon-name="standard:approval" size="small" class="related-icon"></lightning-icon>
+                  <h3>Approval History (0)</h3>
+                </div>
+                <button class="slds-button slds-button_neutral">New</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Section - Activity -->
+      <div class="activity-section">
+        <div class="activity-header">
+          <h3>Activity</h3>
+        </div>
+        <div class="activity-filters">
+          <button class="slds-button slds-button_icon slds-button_icon-border-filled activity-icon-btn">
+            <lightning-icon icon-name="standard:call" size="small"></lightning-icon>
+          </button>
+          <button class="slds-button slds-button_icon slds-button_icon-border-filled activity-icon-btn">
+            <lightning-icon icon-name="standard:email" size="small"></lightning-icon>
+          </button>
+          <button class="slds-button slds-button_icon slds-button_icon-border-filled activity-icon-btn">
+            <lightning-icon icon-name="standard:event" size="small"></lightning-icon>
+          </button>
+          <button class="slds-button slds-button_icon slds-button_icon-border-filled activity-icon-btn">
+            <lightning-icon icon-name="standard:task" size="small"></lightning-icon>
+          </button>
+          <button class="slds-button slds-button_icon slds-button_icon-border-filled">
+            <lightning-icon icon-name="utility:down" size="x-small"></lightning-icon>
+          </button>
+        </div>
+        <div class="activity-insights">
+          <lightning-icon icon-name="utility:einstein" size="x-small" style="margin-right: 4px;"></lightning-icon>
+          <span>Only show activities with insights</span>
+          <div class="slds-checkbox">
+            <input type="checkbox" id="insights-toggle" />
+            <label class="slds-checkbox_toggle" for="insights-toggle">
+              <span class="slds-checkbox_faux_container">
+                <span class="slds-checkbox_faux"></span>
+              </span>
+            </label>
+          </div>
+        </div>
+        <div class="activity-filter-summary">
+          Filters: All time • All Activities • Logged calls, Email, Events, List email, and Tasks
+        </div>
+        <div class="activity-actions">
+          <a href="#">Refresh</a>
+          <span>•</span>
+          <a href="#">Expand All</a>
+          <span>•</span>
+          <a href="#">View All</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
